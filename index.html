@@ -1,0 +1,984 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Alvarado & Asociados | Abogados</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              950: '#06101f',
+              900: '#0a1628',
+              800: '#0f1f35',
+              700: '#142842'
+            },
+            gold: {
+              DEFAULT: '#c9a227',
+              light: '#d4b84a',
+              dark: '#a88420'
+            },
+            cream: '#f5f5f0'
+          },
+          fontFamily: {
+            serif: ['Cormorant Garamond', 'serif'],
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a1628;
+      color: #f5f5f0;
+      overflow-x: hidden;
+    }
+
+    .font-serif {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(20px);
+    }
+
+    .glass-gold {
+      background: rgba(201,162,39,0.07);
+      border: 1px solid rgba(201,162,39,0.22);
+      backdrop-filter: blur(20px);
+    }
+
+    .gold-gradient {
+      background: linear-gradient(135deg, #c9a227 0%, #d4b84a 50%, #a88420 100%);
+    }
+
+    .text-shimmer {
+      background: linear-gradient(
+        90deg,
+        #c9a227 0%,
+        #f5f5f0 25%,
+        #d4b84a 50%,
+        #f5f5f0 75%,
+        #c9a227 100%
+      );
+      background-size: 220% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 3.8s linear infinite;
+    }
+
+    @keyframes shimmer {
+      to {
+        background-position: 220% center;
+      }
+    }
+
+    .animated-gradient {
+      background: linear-gradient(-45deg, #06101f, #0a1628, #0f1f35, #142842);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .line-gold {
+      width: 56px;
+      height: 2px;
+      background: linear-gradient(90deg, #c9a227, #d4b84a);
+    }
+
+    .particles {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .particle {
+      position: absolute;
+      bottom: -20px;
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: #c9a227;
+      opacity: 0;
+      box-shadow: 0 0 18px rgba(201,162,39,.65);
+      animation: floatParticle 14s linear infinite;
+    }
+
+    .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .particle:nth-child(2) { left: 22%; animation-delay: 2s; animation-duration: 18s; }
+    .particle:nth-child(3) { left: 37%; animation-delay: 4s; animation-duration: 13s; }
+    .particle:nth-child(4) { left: 52%; animation-delay: 1s; animation-duration: 17s; }
+    .particle:nth-child(5) { left: 67%; animation-delay: 3s; animation-duration: 15s; }
+    .particle:nth-child(6) { left: 81%; animation-delay: 5s; animation-duration: 16s; }
+    .particle:nth-child(7) { left: 91%; animation-delay: 2.5s; animation-duration: 19s; }
+
+    @keyframes floatParticle {
+      0% {
+        transform: translateY(0) scale(.4);
+        opacity: 0;
+      }
+      15% {
+        opacity: .65;
+      }
+      80% {
+        opacity: .65;
+      }
+      100% {
+        transform: translateY(-110vh) scale(1.4);
+        opacity: 0;
+      }
+    }
+
+    .float-card {
+      animation: floatCard 6s ease-in-out infinite;
+    }
+
+    @keyframes floatCard {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-14px);
+      }
+    }
+
+    .pulse-gold {
+      animation: pulseGold 2.7s ease-in-out infinite;
+    }
+
+    @keyframes pulseGold {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(201,162,39,.35);
+      }
+      50% {
+        box-shadow: 0 0 35px 8px rgba(201,162,39,.18);
+      }
+    }
+
+    .slow-spin {
+      animation: slowSpin 28s linear infinite;
+    }
+
+    @keyframes slowSpin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .btn-wave {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .btn-wave::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      transform: translate(-50%, -50%);
+      border-radius: 999px;
+      background: rgba(255,255,255,.32);
+      z-index: -1;
+      transition: width .55s ease, height .55s ease;
+    }
+
+    .btn-wave:hover::before {
+      width: 360px;
+      height: 360px;
+    }
+
+    .depth-card {
+      transition: transform .45s cubic-bezier(.16,1,.3,1), box-shadow .45s ease, border-color .45s ease;
+    }
+
+    .depth-card:hover {
+      transform: translateY(-14px) scale(1.015);
+      box-shadow: 0 28px 70px rgba(0,0,0,.36), 0 0 45px rgba(201,162,39,.10);
+      border-color: rgba(201,162,39,.35);
+    }
+
+    .slide-left,
+    .slide-right,
+    .slide-up,
+    .scale-in {
+      opacity: 0;
+      transition: all .9s cubic-bezier(.16,1,.3,1);
+    }
+
+    .slide-left {
+      transform: translateX(-70px);
+    }
+
+    .slide-right {
+      transform: translateX(70px);
+    }
+
+    .slide-up {
+      transform: translateY(55px);
+    }
+
+    .scale-in {
+      transform: scale(.9);
+    }
+
+    .slide-left.visible,
+    .slide-right.visible,
+    .slide-up.visible {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    .scale-in.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .shine-hover {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shine-hover::after {
+      content: "";
+      position: absolute;
+      top: -80%;
+      left: -120%;
+      width: 70%;
+      height: 260%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
+      transform: rotate(25deg);
+      transition: left .7s ease;
+    }
+
+    .shine-hover:hover::after {
+      left: 140%;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #06101f;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #c9a227;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="h-20 lg:h-24 flex items-center justify-between">
+
+        <a href="#inicio" class="flex items-center gap-4 group">
+          <div class="w-14 h-14 gold-gradient rounded-xl flex items-center justify-center pulse-gold">
+            <svg width="30" height="30" viewBox="0 0 64 64" fill="none">
+              <path d="M32 8v42" stroke="#0a1628" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M14 22h36" stroke="#0a1628" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M14 22l-8 15h16l-8-15Z" stroke="#0a1628" stroke-width="2.5"/>
+              <path d="M50 22l-8 15h16l-8-15Z" stroke="#0a1628" stroke-width="2.5"/>
+              <path d="M22 52h20" stroke="#0a1628" stroke-width="3.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <div>
+            <p class="font-serif text-2xl lg:text-3xl font-semibold leading-none">
+              Alvarado <span class="text-gold">&</span> Asociados
+            </p>
+            <p class="mt-2 text-xs tracking-[0.38em] uppercase text-gray-400">
+              Abogados
+            </p>
+          </div>
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-8">
+          <a href="#firma" class="text-sm text-gray-300 hover:text-gold transition-colors">La Firma</a>
+          <a href="#areas" class="text-sm text-gray-300 hover:text-gold transition-colors">Áreas</a>
+          <a href="#aduanero" class="text-sm text-gray-300 hover:text-gold transition-colors">Aduanero</a>
+          <a href="#extranjeros" class="text-sm text-gray-300 hover:text-gold transition-colors">Extranjeros</a>
+          <a href="#reparacion" class="text-sm text-gray-300 hover:text-gold transition-colors">Reparación</a>
+        </nav>
+
+        <a href="#contacto" class="hidden lg:inline-flex gold-gradient text-navy-900 font-semibold px-6 py-3 rounded-full btn-wave">
+          Consulta
+        </a>
+
+        <button id="menuBtn" class="lg:hidden w-11 h-11 flex items-center justify-center">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2">
+            <path d="M4 8h16M4 16h16"/>
+          </svg>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu" class="hidden fixed inset-0 z-[60] bg-navy-950/98 backdrop-blur-xl">
+    <div class="p-8">
+      <div class="flex items-center justify-between mb-14">
+        <p class="font-serif text-3xl">Menú</p>
+        <button id="closeMenu" class="text-gold text-4xl leading-none">&times;</button>
+      </div>
+
+      <nav class="flex flex-col gap-7 font-serif text-3xl">
+        <a href="#firma" class="mobile-link hover:text-gold transition-colors">La Firma</a>
+        <a href="#areas" class="mobile-link hover:text-gold transition-colors">Áreas de Práctica</a>
+        <a href="#aduanero" class="mobile-link hover:text-gold transition-colors">Aduanero</a>
+        <a href="#extranjeros" class="mobile-link hover:text-gold transition-colors">Extranjeros</a>
+        <a href="#reparacion" class="mobile-link hover:text-gold transition-colors">Reparación del Daño</a>
+        <a href="#contacto" class="mobile-link text-gold">Contacto</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section id="inicio" class="relative min-h-screen pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden animated-gradient">
+
+    <div class="particles">
+      <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+      <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+
+    <!-- Imagen: Comercio Exterior y Negocios -->
+    <div class="hidden lg:block absolute top-[8%] right-[5%] w-[520px] h-[380px] rounded-3xl overflow-hidden opacity-40">
+      <img src="comercio-exterior.png" alt="Comercio Exterior y Negocios en México" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-r from-navy-900/60 to-transparent"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+        <div class="slide-left">
+          <div class="flex items-center gap-4 mb-7">
+            <div class="line-gold"></div>
+            <span class="text-xs tracking-[0.42em] uppercase text-gold font-semibold">
+              Desde 2009
+            </span>
+          </div>
+
+          <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-semibold leading-[0.92] mb-8">
+            Estrategia legal<br>
+            <span class="text-shimmer">sin fronteras</span>
+          </h1>
+
+          <p class="slide-up text-lg lg:text-xl text-gray-300 leading-relaxed mb-10 max-w-xl" style="transition-delay:.15s">
+            Especialistas en <strong class="text-cream">derecho aduanero</strong>,
+            <strong class="text-cream">asesoría a extranjeros residentes en México</strong> y
+            <strong class="text-cream">reparación del daño penal y civil</strong>.
+          </p>
+
+          <div class="slide-up flex flex-col sm:flex-row gap-4" style="transition-delay:.3s">
+            <a href="#contacto" class="inline-flex justify-center items-center gap-3 gold-gradient text-navy-900 font-semibold px-8 py-4 rounded-full btn-wave shine-hover">
+              Agendar consulta
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+
+            <a href="#areas" class="inline-flex justify-center items-center px-8 py-4 rounded-full border border-white/20 text-cream hover:border-gold hover:text-gold transition-all">
+              Ver servicios
+            </a>
+          </div>
+
+          <div class="slide-up grid grid-cols-3 gap-6 mt-14 pt-9 border-t border-white/10" style="transition-delay:.45s">
+            <div>
+              <p class="font-serif text-4xl lg:text-5xl text-gold">
+                <span class="counter" data-target="15">0</span>
+              </p>
+              <p class="text-sm text-gray-400 mt-1">Años de<br>experiencia</p>
+            </div>
+
+            <div>
+              <p class="font-serif text-4xl lg:text-5xl text-gold">
+                <span class="counter" data-target="3">0</span>
+              </p>
+              <p class="text-sm text-gray-400 mt-1">Estados de<br>cobertura</p>
+            </div>
+
+            <div>
+              <p class="font-serif text-4xl lg:text-5xl text-gold">24h</p>
+              <p class="text-sm text-gray-400 mt-1">Tiempo de<br>respuesta</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-right">
+          <div class="glass-gold rounded-3xl p-8 lg:p-10 float-card shine-hover relative overflow-hidden">
+            <div class="absolute -top-20 -right-20 w-48 h-48 bg-gold/20 rounded-full blur-3xl"></div>
+
+            <div class="relative z-10">
+              <p class="text-gold text-xs tracking-[0.32em] uppercase font-semibold mb-3">
+                Consulta confidencial
+              </p>
+
+              <h2 class="font-serif text-4xl font-semibold mb-2">
+                Cuéntenos su caso
+              </h2>
+
+              <p class="text-gray-400 mb-7">
+                Respuesta en menos de 24 horas.
+              </p>
+
+              <form onsubmit="sendWhatsApp(event)" class="space-y-5">
+                <input id="nombre" required type="text" placeholder="Nombre completo"
+                  class="w-full bg-navy-900/60 border border-white/10 rounded-xl px-5 py-4 text-cream placeholder-gray-500 focus:border-gold outline-none transition-all">
+
+                <select id="area"
+                  class="w-full bg-navy-900/60 border border-white/10 rounded-xl px-5 py-4 text-cream focus:border-gold outline-none transition-all">
+                  <option value="Derecho Aduanero / Amparo">Derecho Aduanero / Amparo</option>
+                  <option value="Extranjeros Residentes">Extranjeros Residentes</option>
+                  <option value="Reparación del Daño">Reparación del Daño</option>
+                  <option value="Derecho Mercantil">Derecho Mercantil</option>
+                  <option value="Derecho Penal">Derecho Penal</option>
+                  <option value="Cumplimiento / PLD">Cumplimiento / PLD</option>
+                </select>
+
+                <textarea id="mensaje" rows="4" placeholder="Describa brevemente su situación"
+                  class="w-full bg-navy-900/60 border border-white/10 rounded-xl px-5 py-4 text-cream placeholder-gray-500 focus:border-gold outline-none transition-all resize-none"></textarea>
+
+                <button type="submit" class="w-full gold-gradient text-navy-900 font-semibold py-4 rounded-xl btn-wave flex items-center justify-center gap-3">
+                  Enviar por WhatsApp
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FIRMA -->
+  <section id="firma" class="relative py-24 lg:py-32 bg-navy-900 overflow-hidden">
+    <div class="absolute -right-40 top-1/3 w-[520px] h-[520px] bg-gold/5 rounded-full blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+        <div class="slide-left">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="line-gold"></div>
+            <span class="text-xs tracking-[0.42em] uppercase text-gold font-semibold">La Firma</span>
+          </div>
+
+          <h2 class="font-serif text-4xl lg:text-6xl font-semibold leading-tight mb-6">
+            Excelencia técnica con <span class="text-shimmer">visión estratégica</span>
+          </h2>
+
+          <p class="text-gray-300 text-lg leading-relaxed mb-6">
+            En Alvarado & Asociados combinamos profundo conocimiento jurídico con una comprensión integral de los negocios.
+          </p>
+
+          <p class="text-gray-300 leading-relaxed mb-8">
+            Atendemos a empresas nacionales e internacionales, así como a personas físicas que requieren asesoría especializada.
+          </p>
+
+          <div class="scale-in flex items-center gap-4">
+            <div class="w-14 h-14 gold-gradient rounded-xl flex items-center justify-center pulse-gold">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0a1628" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <div>
+              <p class="font-serif text-2xl text-gold">CDMX · Puebla · Querétaro</p>
+              <p class="text-sm text-gray-400">Presencia estratégica en el centro del país</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-right grid sm:grid-cols-2 gap-6">
+          <div class="glass rounded-2xl p-7 depth-card">
+            <h3 class="font-serif text-2xl mb-3">Confidencialidad</h3>
+            <p class="text-gray-400">Manejamos cada caso con el más alto nivel de discreción.</p>
+          </div>
+
+          <div class="glass rounded-2xl p-7 depth-card sm:mt-10">
+            <h3 class="font-serif text-2xl mb-3">Respuesta ágil</h3>
+            <p class="text-gray-400">Entendemos la urgencia. Respondemos en máximo 24 horas.</p>
+          </div>
+
+          <div class="glass rounded-2xl p-7 depth-card">
+            <h3 class="font-serif text-2xl mb-3">Visión internacional</h3>
+            <p class="text-gray-400">Experiencia en asesoría transfronteriza y bilingüe.</p>
+          </div>
+
+          <div class="glass rounded-2xl p-7 depth-card sm:mt-10">
+            <h3 class="font-serif text-2xl mb-3">Soluciones integrales</h3>
+            <p class="text-gray-400">Abordamos cada caso desde múltiples áreas del derecho.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- AREAS -->
+  <section id="areas" class="py-24 lg:py-32 bg-navy-800">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+      <div class="scale-in text-center max-w-3xl mx-auto mb-16">
+        <div class="flex justify-center items-center gap-4 mb-6">
+          <div class="line-gold"></div>
+          <span class="text-xs tracking-[0.42em] uppercase text-gold font-semibold">Áreas de Práctica</span>
+          <div class="line-gold"></div>
+        </div>
+
+        <h2 class="font-serif text-4xl lg:text-6xl font-semibold">
+          Especialidades que generan <span class="text-shimmer">resultados</span>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <a href="#aduanero" class="scale-in group">
+          <div class="glass-gold rounded-3xl p-8 h-full depth-card">
+            <p class="font-serif text-6xl text-gold/35 mb-6">01</p>
+            <h3 class="font-serif text-3xl mb-4 group-hover:text-gold transition-colors">Derecho Aduanero</h3>
+            <p class="text-gray-400 mb-6">Amparo de mercancías, defensa ante PAMA, créditos fiscales y multas.</p>
+            <span class="text-gold font-semibold">Ver especialidad →</span>
+          </div>
+        </a>
+
+        <a href="#extranjeros" class="scale-in group" style="transition-delay:.12s">
+          <div class="glass rounded-3xl p-8 h-full depth-card">
+            <p class="font-serif text-6xl text-gold/35 mb-6">02</p>
+            <h3 class="font-serif text-3xl mb-4 group-hover:text-gold transition-colors">Extranjeros Residentes</h3>
+            <p class="text-gray-400 mb-6">Migración, bienes raíces, fideicomisos, contratos, sucesiones y fiscal.</p>
+            <span class="text-gold font-semibold">Ver especialidad →</span>
+          </div>
+        </a>
+
+        <a href="#reparacion" class="scale-in group" style="transition-delay:.24s">
+          <div class="glass rounded-3xl p-8 h-full depth-card">
+            <p class="font-serif text-6xl text-gold/35 mb-6">03</p>
+            <h3 class="font-serif text-3xl mb-4 group-hover:text-gold transition-colors">Reparación del Daño</h3>
+            <p class="text-gray-400 mb-6">Daño material, moral, lucro cesante y estrategia penal-civil.</p>
+            <span class="text-gold font-semibold">Ver especialidad →</span>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ADUANERO -->
+  <section id="aduanero" class="py-24 lg:py-32 bg-navy-900">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
+
+      <div class="slide-left">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="line-gold"></div>
+          <span class="text-xs tracking-[0.42em] uppercase text-gold font-semibold">Especialidad Principal</span>
+        </div>
+
+        <h2 class="font-serif text-4xl lg:text-6xl font-semibold leading-tight mb-6">
+          Reformas aduaneras y <span class="text-shimmer">amparo de mercancías</span>
+        </h2>
+
+        <p class="text-gray-300 text-lg leading-relaxed mb-6">
+          Una mercancía embargada o un crédito fiscal mal fundado puede paralizar su operación.
+        </p>
+
+        <ul class="space-y-3 text-gray-300 mb-8">
+          <li>✓ Defensa ante PAMA</li>
+          <li>✓ Amparo para liberación de mercancías</li>
+          <li>✓ Impugnación de créditos fiscales y multas</li>
+          <li>✓ Asesoría preventiva en comercio exterior</li>
+        </ul>
+
+        <a href="https://wa.me/525625135109?text=URGENTE:%20tengo%20mercancía%20retenida" target="_blank"
+          class="inline-flex bg-[#25D366] text-white font-semibold px-8 py-4 rounded-full btn-wave">
+          Atención urgente por WhatsApp
+        </a>
+      </div>
+
+      <div class="slide-right">
+        <div class="glass-gold rounded-3xl p-8 float-card">
+          <h3 class="font-serif text-3xl mb-6">¿Mercancía retenida?</h3>
+          <p class="text-gray-400 mb-8">El tiempo es crítico. Cada día representa pérdidas operativas y financieras.</p>
+
+          <div class="space-y-4">
+            <div class="p-4 bg-navy-900/60 rounded-xl">1. Evaluación urgente del caso</div>
+            <div class="p-4 bg-navy-900/60 rounded-xl">2. Promoción de suspensión</div>
+            <div class="p-4 bg-navy-900/60 rounded-xl">3. Defensa hasta la liberación</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EXTRANJEROS -->
+  <section id="extranjeros" class="relative py-24 lg:py-32 bg-navy-800 overflow-hidden">
+    <!-- Imagen: Seguridad Patrimonial -->
+    <div class="absolute -left-20 bottom-0 w-[540px] h-[400px] rounded-3xl overflow-hidden opacity-25 hidden lg:block">
+      <img src="residencia-premium.png" alt="Estilo de vida residencial premium en México" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-navy-800 via-navy-800/40 to-transparent"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
+
+      <div class="slide-right order-2 lg:order-1">
+        <div class="glass rounded-3xl p-8 float-card">
+          <p class="text-gold mb-4">We also assist English-speaking clients</p>
+          <h3 class="font-serif text-3xl mb-6">Servicios integrales</h3>
+
+          <div class="space-y-4">
+            <div class="p-4 bg-navy-900/60 rounded-xl">
+              <strong class="text-gold">Migratorio</strong>
+              <p class="text-gray-400 text-sm">Residencia temporal/permanente y regularización.</p>
+            </div>
+
+            <div class="p-4 bg-navy-900/60 rounded-xl">
+              <strong class="text-gold">Patrimonial</strong>
+              <p class="text-gray-400 text-sm">Bienes raíces, fideicomisos y testamentos.</p>
+            </div>
+
+            <div class="p-4 bg-navy-900/60 rounded-xl">
+              <strong class="text-gold">Negocios</strong>
+              <p class="text-gray-400 text-sm">Empresas, contratos y obligaciones fiscales.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-left order-1 lg:order-2">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="line-gold"></div>
+          <span class="text-xs tracking-[0.42em] uppercase text-gold font-semibold">Área Toral</span>
+        </div>
+
+        <h2 class="font-serif text-4xl lg:text-6xl font-semibold leading-tight mb-6">
+          Asesoría integral para <span class="text-shimmer">extranjeros residentes</span>
+        </h2>
+
+        <p class="text-gray-300 text-lg leading-relaxed mb-8">
+          Servicio jurídico bilingüe para residencia, patrimonio, inversiones, inmuebles, negocios y cumplimiento.
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-3 text-gray-300">
+          <p>• Trámites migratorios</p>
+          <p>• Compra de inmuebles</p>
+          <p>• Fideicomisos</p>
+          <p>• Contratos civiles</p>
+          <p>• Derecho fiscal</p>
+          <p>• Sucesiones</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- REPARACION -->
+  <section id="reparacion" class="relative py-24 lg:py-32 bg-navy-900 overflow-hidden">
+    <!-- Imagen: Justicia y Litigio -->
+    <div class="absolute -right-20 top-1/2 -translate-y-1/2 w-[500px] h-[380px] rounded-3xl overflow-hidden opacity-30 hidden lg:block">
+      <img src="justicia-litigio.png" alt="Justicia y Litigio - Reparación del Daño" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-l from-navy-900 via-navy-900/30 to-transparent"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
+
+      <div class="slide-left">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="line-gold"></div>
+          <span class="text-xs tracking-[0.42em] uppercase text-gold font-semibold">Área Toral</span>
+        </div>
+
+        <h2 class="font-serif text-4xl lg:text-6xl font-semibold leading-tight mb-6">
+          Reparación del daño <span class="text-shimmer">penal y civil</span>
+        </h2>
+
+        <p class="text-gray-300 text-lg leading-relaxed mb-8">
+          Litigamos estratégicamente para obtener una reparación justa e integral.
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="glass rounded-2xl p-5 depth-card">
+            <h4 class="text-gold font-semibold">Daño material</h4>
+            <p class="text-gray-400 text-sm">Pérdidas patrimoniales directas.</p>
+          </div>
+
+          <div class="glass rounded-2xl p-5 depth-card">
+            <h4 class="text-gold font-semibold">Daño moral</h4>
+            <p class="text-gray-400 text-sm">Afectación emocional y reputacional.</p>
+          </div>
+
+          <div class="glass rounded-2xl p-5 depth-card">
+            <h4 class="text-gold font-semibold">Lucro cesante</h4>
+            <p class="text-gray-400 text-sm">Ganancias dejadas de percibir.</p>
+          </div>
+
+          <div class="glass rounded-2xl p-5 depth-card">
+            <h4 class="text-gold font-semibold">Responsabilidad civil</h4>
+            <p class="text-gray-400 text-sm">Incumplimientos y daños.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-right">
+        <div class="glass-gold rounded-3xl p-8">
+          <h3 class="font-serif text-3xl mb-6">Proceso de recuperación</h3>
+
+          <div class="space-y-5">
+            <div class="flex gap-4">
+              <span class="gold-gradient text-navy-900 w-10 h-10 rounded-xl flex items-center justify-center font-bold">1</span>
+              <p>Valoración del daño.</p>
+            </div>
+
+            <div class="flex gap-4">
+              <span class="gold-gradient text-navy-900 w-10 h-10 rounded-xl flex items-center justify-center font-bold">2</span>
+              <p>Estrategia penal-civil.</p>
+            </div>
+
+            <div class="flex gap-4">
+              <span class="gold-gradient text-navy-900 w-10 h-10 rounded-xl flex items-center justify-center font-bold">3</span>
+              <p>Cuantificación pericial.</p>
+            </div>
+
+            <div class="flex gap-4">
+              <span class="gold-gradient text-navy-900 w-10 h-10 rounded-xl flex items-center justify-center font-bold">4</span>
+              <p>Cobro efectivo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="relative py-24 lg:py-32 animated-gradient overflow-hidden">
+    <div class="particles">
+      <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10 scale-in">
+      <div class="flex items-center justify-center gap-4 mb-6">
+        <div class="line-gold"></div>
+        <span class="text-xs tracking-[0.42em] uppercase text-gold font-semibold">Contacto</span>
+        <div class="line-gold"></div>
+      </div>
+
+      <h2 class="font-serif text-5xl lg:text-7xl font-semibold mb-8">
+        Hablemos de su <span class="text-shimmer">caso</span>
+      </h2>
+
+      <p class="text-gray-300 text-lg mb-10">
+        Atención personalizada en Ciudad de México, Puebla y Querétaro.
+      </p>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="https://wa.me/525625135109?text=Hola%20Alvarado%20%26%20Asociados,%20deseo%20una%20consulta" target="_blank"
+          class="bg-[#25D366] text-white font-semibold px-10 py-5 rounded-full btn-wave">
+          WhatsApp: 56 2513 5109
+        </a>
+
+        <a href="tel:5625135109" class="gold-gradient text-navy-900 font-semibold px-10 py-5 rounded-full btn-wave">
+          Llamar ahora
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-navy-950 border-t border-white/10 py-12">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 gold-gradient rounded-lg flex items-center justify-center">
+          <svg width="23" height="23" viewBox="0 0 64 64" fill="none">
+            <path d="M32 8v42" stroke="#0a1628" stroke-width="3" stroke-linecap="round"/>
+            <path d="M14 22h36" stroke="#0a1628" stroke-width="3" stroke-linecap="round"/>
+            <path d="M22 52h20" stroke="#0a1628" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <p class="font-serif text-2xl">Alvarado <span class="text-gold">&</span> Asociados</p>
+          <p class="text-xs tracking-[0.3em] text-gray-500 uppercase">Abogados</p>
+        </div>
+      </div>
+
+      <p class="text-gray-500 text-sm text-center">
+        © 2026 Alvarado & Asociados. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/525625135109" target="_blank"
+     class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-xl hover:scale-110 transition-transform">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+      <path d="M20.52 3.48A11.86 11.86 0 0012.07 0C5.51 0 .18 5.33.18 11.89c0 2.09.55 4.13 1.59 5.94L.08 24l6.3-1.65a11.84 11.84 0 005.69 1.45h.01c6.56 0 11.89-5.33 11.89-11.89a11.82 11.82 0 00-3.45-8.43z"/>
+    </svg>
+  </a>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const animatedElements = document.querySelectorAll(
+        '.slide-left, .slide-right, .slide-up, .scale-in'
+      );
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.12
+      });
+
+      animatedElements.forEach(el => observer.observe(el));
+
+      // Seguridad: mostrar hero siempre aunque IntersectionObserver tarde.
+      setTimeout(() => {
+        document.querySelectorAll('#inicio .slide-left, #inicio .slide-right, #inicio .slide-up, #inicio .scale-in')
+          .forEach(el => el.classList.add('visible'));
+      }, 120);
+
+      animateCounters();
+    });
+
+    window.addEventListener('scroll', function () {
+      const header = document.getElementById('header');
+      if (!header) return;
+
+      if (window.scrollY > 40) {
+        header.classList.add('bg-navy-950/90', 'backdrop-blur-xl', 'border-b', 'border-white/10');
+      } else {
+        header.classList.remove('bg-navy-950/90', 'backdrop-blur-xl', 'border-b', 'border-white/10');
+      }
+    });
+
+    const menuBtn = document.getElementById('menuBtn');
+    const closeMenu = document.getElementById('closeMenu');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    if (menuBtn && closeMenu && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+      });
+
+      closeMenu.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+
+      document.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+    }
+
+    function sendWhatsApp(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre')?.value || '';
+      const area = document.getElementById('area')?.value || '';
+      const mensaje = document.getElementById('mensaje')?.value || '';
+
+      const texto = `Hola, soy ${nombre}. Deseo asesoría en: ${area}. ${mensaje ? 'Mi caso: ' + mensaje : 'Deseo agendar una consulta.'}`;
+
+      window.open(`https://wa.me/525625135109?text=${encodeURIComponent(texto)}`, '_blank');
+    }
+
+    function animateCounters() {
+      const counters = document.querySelectorAll('.counter');
+
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        if (!target) return;
+
+        let current = 0;
+        const duration = 1200;
+        const stepTime = 20;
+        const steps = duration / stepTime;
+        const increment = target / steps;
+
+        const interval = setInterval(() => {
+          current += increment;
+
+          if (current >= target) {
+            counter.textContent = target === 15 ? '+' + target : target;
+            clearInterval(interval);
+          } else {
+            counter.textContent = Math.ceil(current);
+          }
+        }, stepTime);
+      });
+    }
+  </script>
+
+<script>window.parent.postMessage({ action: "ready" }, "*"); 
+ 
+window.console = new Proxy(console, {
+  get(target, prop) {
+    if (['log', 'warn', 'error'].includes(prop)) {
+      return new Proxy(target[prop], {
+        apply(fn, thisArg, args) {
+          fn.apply(thisArg, args);
+          window.parent.postMessage({ action: 'console', 
+            type: prop, 
+            args: args.map((arg) => {
+              try {
+                return JSON.stringify(arg).replace(/^["']|["']$/g, '');
+              } catch (e) {
+                return arg;
+              }
+            }) 
+          }, '*');
+        }
+      });
+    }
+    return target[prop];
+  }
+});
+</script></body>
+</html>
