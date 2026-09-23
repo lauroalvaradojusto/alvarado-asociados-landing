@@ -44,4 +44,40 @@ function contactIntro(source){return source==='WEB'?'Hola, vengo de la página W
 function buildContactUrl(values,source=context.source){const text=[contactIntro(source),values.nombre.trim()?'Me llamo '+values.nombre.trim()+'.':'','Área: '+values.area+'.','Ubicación: '+values.estado+'.','Etapa: '+values.etapa+'.',values.mensaje.trim()?'Descripción general: '+values.mensaje.trim():'Deseo solicitar una valoración.'].filter(Boolean).join('\n');return 'https://wa.me/525625135109?text='+encodeURIComponent(text);}
 document.querySelectorAll('a[href^="https://wa.me/"]').forEach(link=>{link.href='https://wa.me/525625135109?text='+encodeURIComponent([contactIntro(context.source),context.area?'Área: '+context.area+'.':'','Deseo solicitar una valoración.'].filter(Boolean).join('\n'));});
 document.getElementById('solicitud').addEventListener('submit',event=>{event.preventDefault();const form=event.currentTarget;if(!form.reportValidity())return;const values=Object.fromEntries(new FormData(form));const url=buildContactUrl(values);document.getElementById('status').textContent='Abriendo WhatsApp. Revise el mensaje antes de enviarlo.';window.location.assign(url);});
+</script>
+<style>
+.justice-trail{position:fixed;inset:0;pointer-events:none;z-index:12;overflow:hidden;contain:strict}.justice-particle{position:absolute;width:22px;height:22px;color:#dbc17a;opacity:0;will-change:transform,opacity;pointer-events:none}@media(prefers-reduced-motion:reduce),(hover:none),(pointer:coarse){.justice-trail{display:none}}
+</style>
+<div class="justice-trail" aria-hidden="true" id="justice-trail"></div>
+<script>
+(()=>{
+  'use strict';
+  const layer=document.getElementById('justice-trail');
+  const motion=window.matchMedia('(prefers-reduced-motion: reduce)');
+  const mouse=window.matchMedia('(hover: hover) and (pointer: fine)');
+  const active=new Set();let lastTime=-Infinity,lastX=null,lastY=null;
+  function clearTrail(){for(const item of active){item.animation.cancel();item.node.remove();}active.clear();lastX=null;lastY=null;lastTime=-Infinity;}
+  function sync(){if(motion.matches||!mouse.matches||document.hidden)clearTrail();}
+  document.addEventListener('pointermove',event=>{
+    if(event.pointerType!=='mouse'||motion.matches||!mouse.matches||document.hidden)return;
+    if(event.target instanceof Element&&event.target.closest('input,textarea,select,button,a'))return;
+    const now=performance.now();
+    if(now-lastTime<85||active.size>=14)return;
+    if(lastX!==null&&Math.hypot(event.clientX-lastX,event.clientY-lastY)<14)return;
+    lastTime=now;lastX=event.clientX;lastY=event.clientY;
+    const node=document.createElementNS('http://www.w3.org/2000/svg','svg');
+    node.setAttribute('viewBox','0 0 24 24');node.setAttribute('class','justice-particle');node.setAttribute('focusable','false');
+    node.style.left=(event.clientX-11)+'px';node.style.top=(event.clientY-11)+'px';
+    const path=document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('d','M12 3v17M8 21h8M4 7h16M5 7l-3 7h6L5 7M19 7l-3 7h6l-3-7M2 14q3 5 6 0M16 14q3 5 6 0');
+    path.setAttribute('fill','none');path.setAttribute('stroke','currentColor');path.setAttribute('stroke-width','1.2');path.setAttribute('stroke-linecap','round');path.setAttribute('stroke-linejoin','round');node.appendChild(path);layer.appendChild(node);
+    const drift=(Math.random()-.5)*28;
+    const animation=node.animate([{opacity:0,transform:'translate(0,0) scale(.7)'},{opacity:.48,transform:'translate(0,3px) scale(1)',offset:.15},{opacity:0,transform:'translate('+drift+'px,34px) scale(.65) rotate('+drift+'deg)'}],{duration:1150,easing:'ease-out'});
+    const item={node,animation};active.add(item);animation.onfinish=()=>{node.remove();active.delete(item);};
+  },{passive:true});
+  motion.addEventListener('change',sync);mouse.addEventListener('change',sync);
+  document.addEventListener('visibilitychange',sync);
+  document.documentElement.addEventListener('pointerleave',clearTrail);
+  window.addEventListener('blur',clearTrail);window.addEventListener('pagehide',clearTrail);
+})();
 </script></body></html>
