@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 450" role="img" aria-labelledby="title desc">
+  <title id="title">Ruta de una evidencia digital</title>
+  <desc id="desc">Un teléfono y un equipo informático conectados con una copia, registros de análisis y un informe técnico.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#10263d"/><stop offset="1" stop-color="#071626"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f1d997"/><stop offset="1" stop-color="#b99a55"/></linearGradient>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#d9c27b" stroke-opacity=".075"/></pattern>
+  </defs>
+  <rect width="720" height="450" rx="20" fill="url(#bg)"/>
+  <rect width="720" height="450" rx="20" fill="url(#grid)"/>
+  <path d="M102 322C176 322 173 254 245 254H294C357 254 361 190 422 190H592" fill="none" stroke="url(#gold)" stroke-width="3" stroke-dasharray="7 9"/>
+  <circle cx="102" cy="322" r="7" fill="#e4c879"/><circle cx="294" cy="254" r="7" fill="#e4c879"/><circle cx="422" cy="190" r="7" fill="#e4c879"/><circle cx="592" cy="190" r="7" fill="#e4c879"/>
+  <g transform="translate(56 148)">
+    <rect x="0" y="0" width="114" height="161" rx="17" fill="#0b1d31" stroke="#e4c879" stroke-width="3"/>
+    <rect x="12" y="18" width="90" height="117" rx="5" fill="#16344e" stroke="#8b9ba8"/>
+    <path d="M27 52h60M27 71h45M27 90h53" stroke="#cbd5db" stroke-width="4" stroke-linecap="round" opacity=".7"/>
+    <circle cx="57" cy="147" r="4" fill="#e4c879"/>
+  </g>
+  <g transform="translate(198 78)">
+    <rect x="0" y="0" width="179" height="119" rx="9" fill="#0b1d31" stroke="#e4c879" stroke-width="3"/>
+    <rect x="12" y="12" width="155" height="91" rx="3" fill="#17364e"/>
+    <path d="M36 74l27-26 21 16 35-38 25 21" fill="none" stroke="#e4c879" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M-17 127h213l-15 16H-2z" fill="#18344b" stroke="#e4c879" stroke-width="3" stroke-linejoin="round"/>
+  </g>
+  <g transform="translate(336 240)">
+    <rect width="139" height="139" rx="16" fill="#10283e" stroke="#e4c879" stroke-width="2.5"/>
+    <path d="M29 41h82M29 63h58M29 85h82M29 107h45" stroke="#d7dfe2" stroke-width="4" stroke-linecap="round" opacity=".72"/>
+    <circle cx="107" cy="107" r="9" fill="none" stroke="#e4c879" stroke-width="3"/>
+  </g>
+  <g transform="translate(520 73)">
+    <path d="M0 0h108l25 25v176H0z" fill="#f1eee5" stroke="#e4c879" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M108 0v25h25" fill="none" stroke="#bb9f60" stroke-width="3"/>
+    <path d="M20 54h89M20 75h89M20 96h73M20 117h84" stroke="#576d7c" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="66" cy="160" r="18" fill="none" stroke="#b99a55" stroke-width="3"/>
+    <path d="M57 159l7 7 12-15" fill="none" stroke="#b99a55" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <path d="M30 26h660M30 423h660" stroke="#e4c879" stroke-opacity=".45"/>
+</svg>
