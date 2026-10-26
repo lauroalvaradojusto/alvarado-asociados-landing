@@ -24,4 +24,14 @@
 <section class="section alternate"><div class="wrap contact"><span class="eyebrow">English-language first contact</span><h2>Get a clearer picture of your Mexico tax position.</h2><p>Tell us the question you are trying to resolve. We will confirm the possible scope and fee of an initial online consultation before you decide whether to proceed.</p><a class="btn" href="https://wa.me/525625135109?text=Hello%2C%20I%20work%20remotely%20from%20Mexico%20and%20would%20like%20to%20ask%20about%20an%20English-language%20consultation%20on%20my%20RFC%2C%20SAT%20filings%20or%20tax%20figures." target="_blank" rel="noopener noreferrer">Contact Alvarado & Asociados ↗</a><p class="note">Online consultation available to prospects across Mexico, subject to scope, availability and confirmation of English-language service.</p></div></section>
 </main>
 <footer><div class="wrap">© 2026 Alvarado & Asociados. General information only; not individualized tax or legal advice.</div></footer>
+<script>
+function englishContactUrl(search){
+  const sources={facebook:'Facebook',linkedin:'LinkedIn'};
+  const key=new URLSearchParams(search).get('utm_source');
+  const source=Object.hasOwn(sources,key)?sources[key]:'the website';
+  const message='Hello, I found Alvarado & Asociados through '+source+'. I work remotely from Mexico and would like to ask about an English-language consultation on my RFC, SAT filings or tax figures.';
+  return 'https://wa.me/525625135109?text='+encodeURIComponent(message);
+}
+document.querySelectorAll('a[href^="https://wa.me/525625135109?"]').forEach(link=>{link.href=englishContactUrl(window.location.search);});
+</script>
 </body></html>
