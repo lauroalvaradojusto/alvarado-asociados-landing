@@ -15,7 +15,7 @@
 <meta property="og:type" content="website"><meta property="og:locale" content="es_MX"><meta property="og:url" content="https://alvarado-asociados-landing.vercel.app/compliance-informatica">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://alvarado-asociados-landing.vercel.app/og-informatica.png">
 <meta name="theme-color" content="#0a1628">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Alvarado & Asociados – División Informática","url":"https://alvarado-asociados-landing.vercel.app/compliance-informatica","telephone":"+52 56 2513 5109","areaServed":["Ciudad de México","Estado de México","Querétaro","Puebla","México"],"serviceType":["Plan de recuperación ante desastres (DRP)","Alta disponibilidad de sistemas","Continuidad del negocio","Póliza de continuidad informática","Respuesta a incidentes e informática forense"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Alvarado & Asociados – División Informática","url":"https://alvarado-asociados-landing.vercel.app/compliance-informatica","telephone":"+52 56 2513 5109","areaServed":["Ciudad de México","Estado de México","Querétaro","Puebla","México"],"serviceType":["Plan de recuperación ante desastres (DRP)","Alta disponibilidad de sistemas","Continuidad del negocio","Póliza de continuidad informática","Respuesta a incidentes e informática forense","Peritaje en informática"]}</script>
 <script>document.documentElement.className+=' js'</script>
 <style>
 :root{--bg:#07101d;--bg2:#0a1628;--panel:#112238;--panel2:#0d1b2f;--gold:#dbc17a;--cy:#6fd6e8;--text:#f4f2ec;--muted:#b9c4d0;--line:#ffffff1f;--ease:cubic-bezier(.2,.8,.2,1);--r:14px;--pad:clamp(18px,4vw,34px);color-scheme:dark}
@@ -310,6 +310,17 @@ html:not(.js) .cine{display:none}
 .ba-row .fl{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#6fd6e814;color:var(--cy);font-weight:700;transition:transform .5s var(--ease)}
 .ba-row:hover .fl{transform:translateX(4px)}
 @media(max-width:760px){.ba-h{display:none}.ba-row{grid-template-columns:1fr;gap:10px}.ba-row .fl{transform:rotate(90deg);width:32px;height:32px}.ba-row:hover .fl{transform:rotate(90deg)}}
+.pt{margin-top:clamp(18px,3vw,30px)}
+.pt-tabs{display:flex;gap:8px;flex-wrap:wrap;padding:6px;border:1px solid var(--line);border-radius:999px;background:#ffffff06;width:max-content;max-width:100%}
+.pt-tabs button{appearance:none;border:0;cursor:pointer;padding:11px 20px;border-radius:999px;background:transparent;color:var(--muted);font:600 .95rem/1 system-ui;transition:background .35s var(--ease),color .35s}
+.pt-tabs button:hover{color:var(--text)}
+.pt-tabs button[aria-selected=true]{background:linear-gradient(90deg,var(--gold),#e9d39a);color:#0a1628}
+.pt-tabs button:focus-visible{outline:2px solid var(--cy);outline-offset:3px}
+.pt-panel{margin-top:clamp(18px,3vw,28px);animation:ptIn .5s var(--ease)}
+.pt-panel:focus-visible{outline:2px solid var(--cy);outline-offset:6px;border-radius:var(--r)}
+.pt-panel h3{font:400 clamp(1.3rem,2.4vw,1.75rem)/1.2 Georgia,serif;margin:0 0 4px}
+@keyframes ptIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media(max-width:520px){.pt-tabs{border-radius:16px;width:100%}.pt-tabs button{flex:1 1 auto;border-radius:12px;padding:11px 12px}}
 /* simulador */
 .sim{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,48px)}
 .ctl{display:grid;gap:22px}
@@ -422,6 +433,7 @@ footer .brand{color:var(--text);margin-bottom:8px;font-size:1.2rem}
     <a href="#drp" style="--i:1"><b>Plan de recuperación (DRP)</b><small>Ejecutable a las 3 de la mañana</small></a>
     <a href="#alta-disponibilidad" style="--i:2"><b>Alta disponibilidad</b><small>Que una falla no sea una caída</small></a>
     <a href="#respuesta" style="--i:3"><b>Respuesta a incidentes</b><small>Ransomware y caídas: atención inmediata</small></a>
+    <a href="#peritajes" style="--i:4"><b>Peritajes en informática</b><small>Civiles, mercantiles y penales</small></a>
    </div></div></div>
   <a href="#arquitectura" style="--i:1">Arquitectura</a>
   <a href="#simulador" style="--i:2">Calcular riesgo</a>
@@ -746,6 +758,47 @@ footer .brand{color:var(--text);margin-bottom:8px;font-size:1.2rem}
  <div class="panel rv" style="--d:2"><h3>Atención inmediata</h3><p>Si el incidente está ocurriendo, llame directamente; no espere la respuesta de un formulario.</p><div class="actions"><a class="btn" href="tel:+525625135109">Llamar ahora: 56 2513 5109</a><a class="btn secondary" data-area="Respuesta a incidente e informática forense" href="#contacto">Escribir por WhatsApp</a></div><p class="note" style="margin-top:18px">La recuperación depende del estado de los respaldos y de los sistemas afectados; se evalúa caso por caso.</p></div>
 </div></section>
 
+<section id="peritajes"><div class="wrap">
+ <div class="head"><span class="eyebrow cy rv">Peritajes en informática</span><h2 class="rv" style="--d:1">La evidencia digital gana o pierde un juicio<br><span class="gold">por cómo se obtuvo y cómo se explica.</span></h2><p class="lead rv" style="--d:2">Un correo, un chat, un registro del sistema o una factura electrónica solo pesan en juicio si se puede demostrar de dónde salen y que nadie los alteró. Elaboramos dictámenes periciales en informática con método documentado y reproducible, y los explicamos en lenguaje claro ante el juez.</p></div>
+ <div class="pt rv" style="--d:3">
+  <div class="pt-tabs" role="tablist" aria-label="Materia del peritaje">
+   <button type="button" role="tab" id="pt-t-civ" aria-controls="pt-p-civ" aria-selected="true">Civil y familiar</button>
+   <button type="button" role="tab" id="pt-t-mer" aria-controls="pt-p-mer" aria-selected="false" tabindex="-1">Mercantil</button>
+   <button type="button" role="tab" id="pt-t-pen" aria-controls="pt-p-pen" aria-selected="false" tabindex="-1">Penal</button>
+  </div>
+  <div class="pt-panel" role="tabpanel" id="pt-p-civ" aria-labelledby="pt-t-civ" tabindex="0">
+   <div class="split" style="gap:clamp(20px,4vw,48px)">
+    <div><h3>Cuando lo digital es la prueba de un derecho</h3>
+     <ul class="chk"><li style="--i:0"><strong>Autenticidad de mensajes y correos:</strong> WhatsApp, correo electrónico y redes sociales; origen, integridad, fechas y metadatos.</li><li style="--i:1"><strong>Documentos electrónicos:</strong> autoría, fecha de creación y modificaciones de archivos y contratos firmados electrónicamente.</li><li style="--i:2"><strong>Familiar:</strong> conversaciones, fotografías y registros de dispositivos aportados como prueba, revisados sin alterar el original.</li><li style="--i:3"><strong>Daños por fallas de sistemas:</strong> qué falló, por qué y desde cuándo, para sustentar una reclamación.</li></ul></div>
+    <div class="panel"><h3>Pregunta típica del dictamen</h3><p>«¿El mensaje presentado corresponde al dispositivo y a la cuenta de origen, y conserva su integridad desde su obtención?»</p><p class="note">Las preguntas se formulan con el abogado para que el dictamen responda exactamente lo que el juicio necesita.</p></div>
+   </div>
+  </div>
+  <div class="pt-panel" role="tabpanel" id="pt-p-mer" aria-labelledby="pt-t-mer" tabindex="0" hidden>
+   <div class="split" style="gap:clamp(20px,4vw,48px)">
+    <div><h3>Cuando el negocio depende de lo que dicen los sistemas</h3>
+     <ul class="chk"><li style="--i:0"><strong>Mensajes de datos y comercio electrónico:</strong> pedidos, aceptaciones, confirmaciones y firmas electrónicas en operaciones entre comerciantes.</li><li style="--i:1"><strong>Conflictos con proveedores de TI:</strong> incumplimiento en desarrollos de software, implementaciones o servicios en la nube; qué se entregó contra lo pactado.</li><li style="--i:2"><strong>Facturación y contabilidad electrónica:</strong> trazabilidad de CFDI, registros contables y bitácoras de los sistemas.</li><li style="--i:3"><strong>Fuga de información:</strong> extracción de bases de clientes, código fuente o secretos comerciales por personal o terceros.</li></ul></div>
+    <div class="panel"><h3>Pregunta típica del dictamen</h3><p>«¿El sistema entregado cumple las funcionalidades pactadas en el contrato y, en su caso, cuáles faltan o fallan?»</p><p class="note">Se revisa con el expediente técnico del proyecto: contrato, anexos, entregables y bitácoras.</p></div>
+   </div>
+  </div>
+  <div class="pt-panel" role="tabpanel" id="pt-p-pen" aria-labelledby="pt-t-pen" tabindex="0" hidden>
+   <div class="split" style="gap:clamp(20px,4vw,48px)">
+    <div><h3>Cuando la evidencia debe resistir a la defensa contraria</h3>
+     <ul class="chk"><li style="--i:0"><strong>Cadena de custodia:</strong> preservación y registro de cada indicio digital para que conserve su valor probatorio.</li><li style="--i:1"><strong>Delitos con medios electrónicos:</strong> fraude, acceso ilícito a sistemas, suplantación de identidad, amenazas y extorsión digital.</li><li style="--i:2"><strong>Asesoría a víctimas y a la defensa:</strong> análisis técnico independiente de la evidencia que se presenta en la carpeta.</li><li style="--i:3"><strong>Revisión del dictamen de la contraparte:</strong> método, herramientas y conclusiones, para preparar el contrainterrogatorio.</li></ul></div>
+    <div class="panel"><h3>Pregunta típica del dictamen</h3><p>«¿Desde qué equipo, cuenta y momento se realizó el acceso o la operación investigada?»</p><p class="note">En materia penal la evidencia se preserva el mismo día: no apague ni manipule los equipos involucrados.</p></div>
+   </div>
+  </div>
+ </div>
+ <div class="head rv" style="margin-top:clamp(34px,5vw,56px)"><h3 style="font:400 clamp(1.4rem,2.6vw,2rem)/1.2 Georgia,serif">Cómo trabajamos un peritaje</h3></div>
+ <div class="grid">
+  <article class="card rv tilt" style="--d:1"><span class="n">1</span><h3>Alcance</h3><p>Revisamos el caso con el abogado y fijamos las preguntas que el dictamen debe responder.</p></article>
+  <article class="card rv tilt" style="--d:2"><span class="n">2</span><h3>Adquisición</h3><p>Copia forense de dispositivos, cuentas o sistemas con huella digital (hash) que prueba que nada cambió.</p></article>
+  <article class="card rv tilt" style="--d:3"><span class="n">3</span><h3>Análisis</h3><p>Método documentado y reproducible: cualquier otro perito puede repetirlo y llegar al mismo resultado.</p></article>
+  <article class="card rv tilt" style="--d:4"><span class="n">4</span><h3>Dictamen</h3><p>Conclusiones en lenguaje claro, con anexos técnicos y fotografías de cada paso.</p></article>
+  <article class="card rv tilt" style="--d:5"><span class="n">5</span><h3>Ante el juez</h3><p>Ratificación y explicación del dictamen en audiencia, y apoyo en las preguntas al perito contrario.</p></article>
+ </div>
+ <div class="panel rv" style="margin-top:clamp(20px,3vw,32px)"><p style="margin:0"><strong>Firma jurídica con división informática:</strong> el dictamen se diseña desde el inicio para la etapa procesal en que se ofrece, junto con el abogado que lleva el asunto.</p><div class="actions"><a class="btn" data-area="Peritaje en informática (civil, mercantil o penal)" href="#contacto">Consultar un peritaje →</a><a class="btn secondary" href="tel:+525625135109">Llamar: 56 2513 5109</a></div><p class="note" style="margin-top:16px">Las conclusiones dependen de la evidencia disponible y de su estado; no se anticipan resultados. Los requisitos para ofrecer la prueba pericial y para la designación del perito dependen de la ley procesal de cada materia y se revisan antes de aceptar el encargo.</p></div>
+</div></section>
+
 <section id="faq"><div class="wrap" style="max-width:860px">
  <span class="eyebrow cy rv">Antes de decidir</span><h2 class="rv" style="--d:1">Lo que suelen preguntarnos</h2>
  <div class="rv" style="--d:2">
@@ -763,7 +816,7 @@ footer .brand{color:var(--text);margin-bottom:8px;font-size:1.2rem}
   <div class="actions rv" style="--d:3"><a class="btn" href="tel:+525625135109">Llamar: 56 2513 5109</a><a class="btn secondary" href="/">Conocer la firma jurídica</a></div></div>
  <form class="form rv" id="solicitud" style="--d:2" novalidate><span class="eyebrow cy">Primer contacto</span><h2>Empecemos por su riesgo.</h2>
   <p class="muted">Este primer contacto sirve para delimitar el diagnóstico; no constituye una propuesta ni un servicio contratado.</p>
-  <div class="field"><label for="area">Servicio</label><select id="area" name="area"><option>Póliza de continuidad informática</option><option>Plan de recuperación ante desastres (DRP)</option><option>Alta disponibilidad de sistemas</option><option>Continuidad del negocio (BCP)</option><option>Respaldo inmutable y protección contra ransomware</option><option>Respuesta a incidente e informática forense</option><option>Cumplimiento normativo de TI</option></select></div>
+  <div class="field"><label for="area">Servicio</label><select id="area" name="area"><option>Póliza de continuidad informática</option><option>Plan de recuperación ante desastres (DRP)</option><option>Alta disponibilidad de sistemas</option><option>Continuidad del negocio (BCP)</option><option>Respaldo inmutable y protección contra ransomware</option><option>Respuesta a incidente e informática forense</option><option>Peritaje en informática (civil, mercantil o penal)</option><option>Cumplimiento normativo de TI</option></select></div>
   <div class="cols"><div class="field"><label for="servidores">Servidores / equipos</label><select id="servidores" name="servidores"><option>Menos de 10</option><option>10 a 50</option><option>50 a 200</option><option>Más de 200</option></select></div>
   <div class="field"><label for="urgencia">Situación</label><select id="urgencia" name="urgencia"><option>Prevención (sin incidente)</option><option>Auditoría o requerimiento próximo</option><option>Incidente en curso</option></select></div></div>
   <div class="field"><label for="nombre">Nombre y empresa (opcional)</label><input id="nombre" name="nombre" type="text" autocomplete="organization" maxlength="120"></div>
@@ -962,6 +1015,12 @@ document.addEventListener('pointermove',e=>{if(reduce.matches||document.hidden||
 document.addEventListener('pointerdown',e=>{if(e.pointerType==='touch'&&!reduce.matches&&!(e.target instanceof Element&&e.target.closest('input,textarea,select,button,a,.cs-panel,.dd-panel'))){emit(e.clientX,e.clientY,'tap')}},{passive:true});
 document.addEventListener('visibilitychange',clear);document.documentElement.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')clear()});
 reduce.addEventListener&&reduce.addEventListener('change',clear);
+})();
+
+/* pestañas de peritajes */
+(()=>{const tabs=[...document.querySelectorAll('.pt-tabs [role=tab]')];if(!tabs.length)return;
+ const sel=(t,f)=>{tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',String(on));x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;if(on){const p=document.getElementById(x.getAttribute('aria-controls'));p.querySelectorAll('ul.chk').forEach(u=>u.classList.add('in'))}});if(f)t.focus()};
+ tabs.forEach((t,i)=>{t.addEventListener('click',()=>sel(t));t.addEventListener('keydown',e=>{let j=null;if(e.key==='ArrowRight')j=(i+1)%tabs.length;else if(e.key==='ArrowLeft')j=(i-1+tabs.length)%tabs.length;else if(e.key==='Home')j=0;else if(e.key==='End')j=tabs.length-1;if(j!==null){e.preventDefault();sel(tabs[j],true)}})});
 })();
 </script>
 </body></html>
