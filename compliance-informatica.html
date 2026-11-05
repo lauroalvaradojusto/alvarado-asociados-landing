@@ -310,7 +310,21 @@ html:not(.js) .cine{display:none}
 .ba-row .fl{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#6fd6e814;color:var(--cy);font-weight:700;transition:transform .5s var(--ease)}
 .ba-row:hover .fl{transform:translateX(4px)}
 @media(max-width:760px){.ba-h{display:none}.ba-row{grid-template-columns:1fr;gap:10px}.ba-row .fl{transform:rotate(90deg);width:32px;height:32px}.ba-row:hover .fl{transform:rotate(90deg)}}
-.pt{margin-top:clamp(18px,3vw,30px)}
+.narr{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin:0 0 clamp(16px,2.6vw,26px)}
+.narr-b{appearance:none;display:flex;align-items:center;gap:14px;padding:10px 18px 10px 10px;border:1px solid #dbc17a66;border-radius:999px;background:linear-gradient(90deg,#1a2a44,#122238);color:var(--text);font:600 .98rem/1.25 system-ui;cursor:pointer;position:relative;overflow:hidden;text-align:left;transition:border-color .3s,transform .3s var(--ease)}
+.narr-b:hover{border-color:var(--gold);transform:translateY(-1px)}
+.narr-b:focus-visible{outline:2px solid var(--cy);outline-offset:3px}
+.narr-i{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--gold);color:#0a1628;flex:none}
+.narr-i svg{width:20px;height:20px;fill:currentColor}
+.narr-b .i-pause,.narr-b[aria-pressed=true] .i-play{display:none}.narr-b[aria-pressed=true] .i-pause{display:inline}
+.narr-b[aria-pressed=true] .narr-i{box-shadow:0 0 0 0 #dbc17a88;animation:narrP 1.6s infinite}
+@keyframes narrP{70%{box-shadow:0 0 0 12px #dbc17a00}100%{box-shadow:0 0 0 0 #dbc17a00}}
+.narr-bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:#ffffff14}.narr-bar span{display:block;height:100%;width:0;background:var(--cy);transition:width .25s linear}
+.pain{margin-top:clamp(22px,3.5vw,36px)}
+.pain-h{font:400 clamp(1.3rem,2.4vw,1.75rem)/1.2 Georgia,serif;margin:0 0 clamp(14px,2vw,20px)}
+.pain-why{margin-top:clamp(26px,4vw,44px);align-items:center}
+.pain-q{margin:0;font:400 clamp(1.15rem,2.2vw,1.55rem)/1.3 Georgia,serif}
+.pt{margin-top:clamp(30px,4.5vw,52px)}
 .pt-tabs{display:flex;gap:8px;flex-wrap:wrap;padding:6px;border:1px solid var(--line);border-radius:999px;background:#ffffff06;width:max-content;max-width:100%}
 .pt-tabs button{appearance:none;border:0;cursor:pointer;padding:11px 20px;border-radius:999px;background:transparent;color:var(--muted);font:600 .95rem/1 system-ui;transition:background .35s var(--ease),color .35s}
 .pt-tabs button:hover{color:var(--text)}
@@ -760,6 +774,26 @@ footer .brand{color:var(--text);margin-bottom:8px;font-size:1.2rem}
 
 <section id="peritajes"><div class="wrap">
  <div class="head"><span class="eyebrow cy rv">Peritajes en informática</span><h2 class="rv" style="--d:1">La evidencia digital gana o pierde un juicio<br><span class="gold">por cómo se obtuvo y cómo se explica.</span></h2><p class="lead rv" style="--d:2">Un correo, un chat, un registro del sistema o una factura electrónica solo pesan en juicio si se puede demostrar de dónde salen y que nadie los alteró. Elaboramos dictámenes periciales en informática con método documentado y reproducible, y los explicamos en lenguaje claro ante el juez.</p></div>
+<div class="pain">
+  <div class="narr rv"><button type="button" class="narr-b" id="narr-pt" aria-pressed="false" aria-describedby="narr-pt-t"><span class="narr-i" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="i-play" d="M8 5v14l11-7z"/><path class="i-pause" d="M7 5h3v14H7zM14 5h3v14h-3z"/></svg></span><span class="narr-l">Escuche en 1 minuto por qué un peritaje vale la pena</span><span class="narr-bar" aria-hidden="true"><span></span></span></button><p class="note" id="narr-pt-t">Narración de 1 min 18 s. <a href="/voz/peritaje.txt">Leer el texto</a></p></div>
+  <h3 class="pain-h rv">El problema que resuelve un perito en informática</h3>
+  <div class="grid">
+   <article class="card rv tilt" style="--d:1"><span class="n">Objeción</span><h3>«Esa captura está editada»</h3><p>La contraparte objeta el WhatsApp, el correo o el documento. Sin un dictamen que acredite su origen e integridad, el juez puede restarle valor a su mejor prueba.</p></article>
+   <article class="card rv tilt" style="--d:2"><span class="n">Pérdida</span><h3>La evidencia se contamina sola</h3><p>Revisar el celular «para ver qué hay», reenviar mensajes o reinstalar el equipo cambia fechas y metadatos. Lo que no se preserva a tiempo, después ya no se puede probar.</p></article>
+   <article class="card rv tilt" style="--d:3"><span class="n">Traducción</span><h3>El juez no es ingeniero</h3><p>Un reporte técnico que nadie entiende no convence a nadie. La prueba tiene que explicarse en lenguaje claro y resistir las preguntas en audiencia.</p></article>
+   <article class="card rv tilt" style="--d:4"><span class="n">Contraparte</span><h3>Su dictamen queda sin contradecir</h3><p>Si la otra parte presenta un peritaje y usted no, su versión técnica es la única en el expediente. Revisar ese dictamen a tiempo puede cambiar el resultado.</p></article>
+  </div>
+  <div class="split pain-why">
+   <div><h3 class="pain-h rv">Por qué vale la pena pagarlo</h3>
+    <ul class="chk rv" style="--d:1">
+     <li style="--i:0"><strong>Proporción:</strong> compárelo con lo que está en juego: el monto del juicio, un contrato, la custodia de un hijo o la libertad de una persona.</li>
+     <li style="--i:1"><strong>Se hace bien una vez:</strong> una prueba mal obtenida no se repara después; preservarla desde el inicio evita perderla por un defecto de origen.</li>
+     <li style="--i:2"><strong>Método verificable:</strong> copia forense con huella digital (hash), cadena de custodia y análisis que otro perito puede repetir.</li>
+     <li style="--i:3"><strong>Abogado y perito en la misma mesa:</strong> el dictamen responde exactamente lo que su estrategia procesal necesita.</li>
+    </ul></div>
+   <div class="panel rv" style="--d:2"><p class="pain-q">Un peritaje no se paga por el informe.<br><span class="gold">Se paga para que su prueba resista la objeción.</span></p><div class="actions"><a class="btn" data-area="Peritaje en informática (civil, mercantil o penal)" href="#contacto">Revisar mi evidencia →</a></div></div>
+  </div>
+ </div>
  <div class="pt rv" style="--d:3">
   <div class="pt-tabs" role="tablist" aria-label="Materia del peritaje">
    <button type="button" role="tab" id="pt-t-civ" aria-controls="pt-p-civ" aria-selected="true">Civil y familiar</button>
@@ -912,16 +946,18 @@ $$('.card').forEach(c=>{c.addEventListener('pointermove',e=>{if(e.pointerType!==
  const capN=$('#cap-n'),capQ=$('#cap-q'),capT=$('#cap-t'),ghost=$('#cap-ghost'),typed=$('#cap-typed'),sr=$('#cap-sr'),cta=$('#cap-cta'),btnPlay=$('[data-a=play]',ctl),btnVoice=$('[data-a=voice]',ctl);
  const data=$$('#capas li').map(li=>({t:$('h3',li).textContent,q:$('.q',li).textContent,x:$$('p',li).pop().textContent.trim()}));
  const last=scenes.length-1,synth='speechSynthesis' in window&&'SpeechSynthesisUtterance' in window;
- let st='idle',cur=0,t=0,dur=9000,voice=synth&&!reduce.matches,speaking=false,typeTimer=0,auto=false,fallback=0;
- if(!synth)btnVoice.hidden=true;btnVoice.setAttribute('aria-pressed',String(voice));
+ let st='idle',cur=0,t=0,dur=9000,voice=!reduce.matches,speaking=false,typeTimer=0,auto=false,fallback=0;
+ /* narración con la voz de Salomé (archivos /voz/capa-N.mp3); si no cargan, se usa la voz del navegador */
+ const aud=new Audio();aud.preload='auto';let audOk=true;aud.addEventListener('ended',()=>{speaking=false});aud.addEventListener('error',()=>{if(speaking){audOk=false;speaking=false;sayTTS(data[cur].x)}});btnVoice.setAttribute('aria-pressed',String(voice));
  /* paquetes de datos que fluyen por cada carril (SMIL: funciona en todos los navegadores) */
  if(!reduce.matches)$$('.lane',stage).forEach(p=>{const n=+p.dataset.n||3,d=+p.dataset.d||2.4,col=p.dataset.c||'#6fd6e8';
   for(let k=0;k<n;k++){const c=document.createElementNS(NS,'circle');c.setAttribute('r','4.5');c.setAttribute('fill',col);c.setAttribute('class','pk');c.style.color=col;
    const a=document.createElementNS(NS,'animateMotion');a.setAttribute('dur',d+'s');a.setAttribute('repeatCount','indefinite');a.setAttribute('begin','indefinite');a.setAttribute('path',p.getAttribute('d'));a.dataset.off=(d/n*k).toFixed(2);c.appendChild(a);p.after(c)}});
  const pk=(s,on)=>{if(reduce.matches)return;$$('animateMotion',s).forEach(a=>{try{on?a.beginElementAt(-(parseFloat(a.dataset.off)||0)):a.endElement()}catch(e){}})};
  const pickVoice=()=>{const v=speechSynthesis.getVoices();return v.find(x=>/^es[-_]MX/i.test(x.lang))||v.find(x=>/^es/i.test(x.lang))||null};
- function speak(txt){if(!synth||!voice)return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(txt),v=pickVoice();if(v){u.voice=v;u.lang=v.lang}else u.lang='es-MX';u.rate=1.02;speaking=true;u.onend=u.onerror=()=>{speaking=false};speechSynthesis.speak(u);clearTimeout(fallback);fallback=setTimeout(()=>{if(speaking&&!speechSynthesis.speaking&&!speechSynthesis.pending)speaking=false},1800)}catch(e){speaking=false}}
- function hush(){if(!synth)return;try{speechSynthesis.cancel()}catch(e){}speaking=false}
+ function sayTTS(txt){if(!synth||!voice)return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(txt),v=pickVoice();if(v){u.voice=v;u.lang=v.lang}else u.lang='es-MX';u.rate=1.02;speaking=true;u.onend=u.onerror=()=>{speaking=false};speechSynthesis.speak(u);clearTimeout(fallback);fallback=setTimeout(()=>{if(speaking&&!speechSynthesis.speaking&&!speechSynthesis.pending)speaking=false},1800)}catch(e){speaking=false}}
+ function speak(txt){if(!voice)return;if(!audOk){sayTTS(txt);return}try{aud.pause();aud.src='/voz/capa-'+(cur+1)+'.mp3';aud.currentTime=0;speaking=true;const pr=aud.play();if(pr&&pr.catch)pr.catch(()=>{speaking=false;sayTTS(txt)})}catch(e){speaking=false;sayTTS(txt)}}
+ function hush(){try{aud.pause()}catch(e){}if(synth)try{speechSynthesis.cancel()}catch(e){}speaking=false}
  function caption(i){const d=data[i];capN.textContent=`Capa ${i+1} de ${data.length}`;capQ.textContent=d.q;capT.textContent=d.t;ghost.textContent=d.x;sr.textContent=`Capa ${i+1} de ${data.length}: ${d.t}. ${d.q} ${d.x}`;
   clearInterval(typeTimer);if(reduce.matches){typed.textContent=d.x;return}
   typed.textContent='';let n=0;const step=Math.max(18,Math.round(dur*.8/d.x.length));typeTimer=setInterval(()=>{if(st==='paused'||document.hidden)return;n++;typed.textContent=d.x.slice(0,n);if(n>=d.x.length)clearInterval(typeTimer)},step)}
@@ -940,8 +976,8 @@ $$('.card').forEach(c=>{c.addEventListener('pointermove',e=>{if(e.pointerType!==
   else if(st==='done')set('playing');
   setScene(i)}
  function set(s){st=s;cine.dataset.state=s;stage.classList.toggle('paused',s==='paused');btnPlay.setAttribute('aria-pressed',String(s==='paused'||s==='done'));btnPlay.setAttribute('aria-label',s==='paused'?'Reanudar':s==='done'?'Ver de nuevo':'Pausar')}
- function pause(a){if(st!=='playing')return;auto=!!a;set('paused');try{svg.pauseAnimations()}catch(e){}if(synth)try{speechSynthesis.pause()}catch(e){}}
- function resume(){if(st!=='paused')return;auto=false;set('playing');try{svg.unpauseAnimations()}catch(e){}if(synth)try{speechSynthesis.resume()}catch(e){}}
+ function pause(a){if(st!=='playing')return;auto=!!a;set('paused');try{svg.pauseAnimations()}catch(e){}try{aud.pause()}catch(e){}if(synth)try{speechSynthesis.pause()}catch(e){}}
+ function resume(){if(st!=='paused')return;auto=false;set('playing');try{svg.unpauseAnimations()}catch(e){}if(speaking&&audOk&&aud.src)aud.play().catch(()=>{});if(synth)try{speechSynthesis.resume()}catch(e){}}
  function finish(){set('done');clearInterval(typeTimer);typed.textContent=data[cur].x;cta.hidden=false;prog.style.transform='scaleX(1)'}
  setInterval(()=>{if(st!=='playing'||document.hidden)return;t+=100;prog.style.transform=`scaleX(${Math.min(1,t/dur)})`;
   const wait=voice&&speaking&&t<dur+7000;if(t>=dur&&!wait){cur<last?setScene(cur+1):finish()}},100);
@@ -1015,12 +1051,36 @@ document.addEventListener('pointermove',e=>{if(reduce.matches||document.hidden||
 document.addEventListener('pointerdown',e=>{if(e.pointerType==='touch'&&!reduce.matches&&!(e.target instanceof Element&&e.target.closest('input,textarea,select,button,a,.cs-panel,.dd-panel'))){emit(e.clientX,e.clientY,'tap')}},{passive:true});
 document.addEventListener('visibilitychange',clear);document.documentElement.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')clear()});
 reduce.addEventListener&&reduce.addEventListener('change',clear);
+/* partículas ambientales: flotan solas, también en teléfono (antes solo seguían al puntero) */
+const amb=new Set();
+function drift(){if(reduce.matches||document.hidden)return;const lim=coarse.matches?12:18;if(amb.size>=lim)return;
+ const W=innerWidth,H=innerHeight,n=document.createElementNS(NS,'svg');n.setAttribute('viewBox','0 0 24 24');n.setAttribute('class','p');n.setAttribute('focusable','false');
+ const sz=(coarse.matches?16:18)+Math.random()*(coarse.matches?12:16);n.style.width=n.style.height=sz+'px';
+ const x=Math.random()*(W-sz);n.style.left=x+'px';n.style.top=(H+10)+'px';n.style.color=Math.random()<.35?'#dbc17a':'#6fd6e8';n.innerHTML=SH[(Math.random()*SH.length)|0];layer.appendChild(n);
+ const sway=(Math.random()-.5)*(coarse.matches?60:110),rise=H+60+sz,dur=(coarse.matches?9000:12000)+Math.random()*6000,op=(coarse.matches?.42:.34)+Math.random()*.14,rot=(Math.random()-.5)*160;
+ const an=n.animate([{opacity:0,transform:'translate(0,0) rotate(0deg)'},{opacity:op,transform:`translate(${sway*.3}px,${-rise*.15}px) rotate(${rot*.2}deg)`,offset:.15},{opacity:op,transform:`translate(${sway}px,${-rise*.8}px) rotate(${rot*.8}deg)`,offset:.8},{opacity:0,transform:`translate(${sway*1.1}px,${-rise}px) rotate(${rot}deg)`}],{duration:dur,easing:'linear'});
+ const it={n,an};amb.add(it);an.onfinish=()=>{n.remove();amb.delete(it)}}
+let ambT=null;const ambOn=()=>{if(ambT||reduce.matches)return;for(let i=0;i<(coarse.matches?4:6);i++)setTimeout(drift,i*350);ambT=setInterval(drift,coarse.matches?850:700)};
+const ambOff=()=>{clearInterval(ambT);ambT=null};
+document.addEventListener('visibilitychange',()=>{document.hidden?ambOff():ambOn()});reduce.addEventListener&&reduce.addEventListener('change',()=>{reduce.matches?(ambOff(),amb.forEach(a=>{a.an.cancel();a.n.remove()}),amb.clear()):ambOn()});
+ambOn();
+/* al desplazarse con el dedo el navegador cancela pointermove: usar touchmove para la estela */
+let tl=0;document.addEventListener('touchmove',e=>{const t=e.touches[0];if(!t||reduce.matches)return;const now=performance.now();if(now-tl<120)return;tl=now;emit(t.clientX,t.clientY,'move')},{passive:true});
 })();
 
 /* pestañas de peritajes */
 (()=>{const tabs=[...document.querySelectorAll('.pt-tabs [role=tab]')];if(!tabs.length)return;
  const sel=(t,f)=>{tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',String(on));x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;if(on){const p=document.getElementById(x.getAttribute('aria-controls'));p.querySelectorAll('ul.chk').forEach(u=>u.classList.add('in'))}});if(f)t.focus()};
  tabs.forEach((t,i)=>{t.addEventListener('click',()=>sel(t));t.addEventListener('keydown',e=>{let j=null;if(e.key==='ArrowRight')j=(i+1)%tabs.length;else if(e.key==='ArrowLeft')j=(i-1+tabs.length)%tabs.length;else if(e.key==='Home')j=0;else if(e.key==='End')j=tabs.length-1;if(j!==null){e.preventDefault();sel(tabs[j],true)}})});
+})();
+
+/* narración de Salomé en peritajes */
+(()=>{const b=document.getElementById('narr-pt');if(!b)return;const a=new Audio();a.preload='none';const bar=b.querySelector('.narr-bar span');
+ const set=on=>{b.setAttribute('aria-pressed',String(on));b.setAttribute('aria-label',on?'Pausar narración':'Reproducir narración')};
+ b.addEventListener('click',()=>{if(!a.src)a.src='/voz/peritaje.mp3';if(a.paused){a.play().then(()=>set(true)).catch(()=>set(false))}else{a.pause();set(false)}});
+ a.addEventListener('timeupdate',()=>{if(a.duration)bar.style.width=(a.currentTime/a.duration*100)+'%'});
+ a.addEventListener('ended',()=>{set(false);bar.style.width='0';a.currentTime=0});a.addEventListener('pause',()=>set(false));a.addEventListener('play',()=>set(true));
+ addEventListener('pagehide',()=>a.pause());
 })();
 </script>
 </body></html>
