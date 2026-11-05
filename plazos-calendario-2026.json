@@ -1,0 +1,182 @@
+{
+  "esquema": "aya-plazos-calendario/1",
+  "anio": 2026,
+  "actualizado": "2026-11-05",
+  "aviso": "Herramienta de apoyo. Verifique el cómputo con la ley aplicable y los acuerdos del órgano. Las fechas se tomaron de los documentos oficiales citados en cada registro; los órganos pueden emitir suspensiones adicionales en cualquier momento.",
+  "reglas": {
+    "verificado": "true = la fecha se leyó directamente en el documento oficial enlazado. false = la fecha proviene de una fuente secundaria o no se pudo abrir el documento oficial; no se aplica al cómputo salvo que el usuario lo active.",
+    "aplicarPorDefecto": "false = la fecha no se descuenta automáticamente (alcance parcial o sin verificar); el usuario puede activarla.",
+    "tipo": "inhabil | vacaciones | suspension"
+  },
+  "jurisdicciones": {
+    "cdmx": {
+      "nombre": "Ciudad de México (Poder Judicial de la CDMX · TSJCDMX)",
+      "cobertura": { "desde": "2025-12-15", "hasta": "2027-01-06" },
+      "notas": [
+        "La Circular CJCDMX-21/2025 (Acuerdo 76-29/2025 del Consejo de la Judicatura de la CDMX) suspende labores en los días señalados y precisa que en ellos no corren términos procesales en las materias Civil, Familiar y Laboral de asuntos individuales, y en los procedimientos administrativos del Poder Judicial de la CDMX.",
+        "En materia penal (sistema acusatorio, ejecución, adolescentes) rigen roles de turno y guardias: verifique en cada caso si el término corre.",
+        "El 5 de mayo de 2026 no aparece como inhábil en el calendario local (el descanso se recorrió al lunes 4 de mayo)."
+      ],
+      "fuentes": [
+        { "id": "cjcdmx-21-2025", "titulo": "Circular CJCDMX-21/2025 · Acuerdo 76-29/2025: días inhábiles y periodos vacacionales 2026", "url": "https://www.poderjudicialcdmx.gob.mx/wp-content/uploads/Circula_CJCDMX_21_2025.pdf", "listado": "https://historico.poderjudicialcdmx.gob.mx/acuerdos-2025/", "verificado": true },
+        { "id": "cjcdmx-03-2025", "titulo": "Circular CJCDMX-03/2025 · Acuerdo 40-01/2025: segundo periodo vacacional 2025 (15 dic 2025 – 6 ene 2026)", "url": "https://www.poderjudicialcdmx.gob.mx/wp-content/uploads/CIRCULAR_CJCDMX_03_2025.pdf", "listado": "https://historico.poderjudicialcdmx.gob.mx/acuerdos-2025/", "verificado": true },
+        { "id": "oajcdmx-v-15-2026", "titulo": "Aviso del Acuerdo OAJCDMX V-15/2026: suspensión de términos el 13 de febrero de 2026", "url": "https://www.poderjudicialcdmx.gob.mx/wp-content/uploads/AVISO_ACUERDO_V_15_2026.pdf", "listado": "https://historico.poderjudicialcdmx.gob.mx/acuerdos_2026/", "verificado": true },
+        { "id": "oajcdmx-v-19-2026", "titulo": "Aviso del Acuerdo OAJCDMX-V-19/2026: suspensión de términos el 26 de febrero de 2026 en inmuebles determinados", "url": "https://www.poderjudicialcdmx.gob.mx/wp-content/uploads/ACUERDO_OAJCDMX-V-19-2026.pdf", "listado": "https://historico.poderjudicialcdmx.gob.mx/acuerdos_2026/", "verificado": true },
+        { "id": "oajcdmx-v-50-2026", "titulo": "Aviso del Acuerdo OAJCDMX-V-50/2026: 11 de junio de 2026 inhábil (inauguración de la Copa Mundial)", "url": "https://www.poderjudicialcdmx.gob.mx/wp-content/uploads/ACUERDO_OAJCDMX_V_50_2026.pdf", "listado": "https://historico.poderjudicialcdmx.gob.mx/acuerdos_2026/", "verificado": true },
+        { "id": "oajcdmx-v-93-2026", "titulo": "Acuerdo OAJCDMX-V-93/2026: suspensión de términos el 3 de noviembre de 2026 (contingencia del Centro de Datos). Citado por Proceso; no se localizó el PDF oficial.", "url": "https://www.proceso.com.mx/nacional/cdmx/2026/11/4/poder-judicial-de-cdmx-cumple-dos-dias-sin-sistema-383132.html", "verificado": false }
+      ],
+      "dias": [
+        { "desde": "2025-12-15", "hasta": "2025-12-31", "tipo": "vacaciones", "motivo": "Segundo periodo vacacional 2025", "fuente": "cjcdmx-03-2025", "verificado": true },
+        { "fecha": "2026-01-01", "tipo": "inhabil", "motivo": "Año Nuevo", "fuente": "cjcdmx-21-2025", "verificado": true },
+        { "desde": "2026-01-02", "hasta": "2026-01-06", "tipo": "vacaciones", "motivo": "Segundo periodo vacacional 2025 (concluye el 6 de enero de 2026)", "fuente": "cjcdmx-03-2025", "verificado": true },
+        { "fecha": "2026-02-02", "tipo": "inhabil", "motivo": "Conmemoración del 5 de febrero (Constitución)", "fuente": "cjcdmx-21-2025", "verificado": true },
+        { "fecha": "2026-02-13", "tipo": "suspension", "motivo": "Suspensión de términos por bloqueos a las sedes (con órganos de guardia)", "fuente": "oajcdmx-v-15-2026", "verificado": true },
+        { "fecha": "2026-02-26", "tipo": "suspension", "motivo": "Suspensión de términos solo en inmuebles de Niños Héroes, Claudio Bernard, Dr. Lavista, Dr. Liceaga, Dr. Navarro (Col. Doctores) y Fray Servando 32", "fuente": "oajcdmx-v-19-2026", "verificado": true, "alcance": "parcial", "aplicarPorDefecto": false },
+        { "fecha": "2026-03-16", "tipo": "inhabil", "motivo": "Conmemoración del 21 de marzo (Natalicio de Benito Juárez)", "fuente": "cjcdmx-21-2025", "verificado": true },
+        { "desde": "2026-03-30", "hasta": "2026-04-03", "tipo": "inhabil", "motivo": "Semana Santa", "fuente": "cjcdmx-21-2025", "verificado": true },
+        { "fecha": "2026-05-01", "tipo": "inhabil", "motivo": "Día del Trabajo", "fuente": "cjcdmx-21-2025", "verificado": true },
+        { "fecha": "2026-05-04", "tipo": "inhabil", "motivo": "Día inhábil del calendario 2026 (mayo)", "fuente": "cjcdmx-21-2025", "verificado": true },
+        { "fecha": "2026-05-08", "tipo": "inhabil", "motivo": "Con motivo del Día de la Madre", "fuente": "cjcdmx-21-2025", "verificado": true },
+        { "fecha": "2026-06-11", "tipo": "suspension", "motivo": "Inauguración de la Copa Mundial de la FIFA 2026", "fuente": "oajcdmx-v-50-2026", "verificado": true },
+        { "fecha": "2026-06-19", "tipo": "inhabil", "motivo": "Con motivo del Día del Padre", "fuente": "cjcdmx-21-2025", "verificado": true },
+        { "desde": "2026-07-15", "hasta": "2026-07-31", "tipo": "vacaciones", "motivo": "Primer periodo vacacional 2026", "fuente": "cjcdmx-21-2025", "verificado": true },
+        { "fecha": "2026-09-14", "tipo": "inhabil", "motivo": "Día del Trabajador del TSJCDMX (recorrido del 20 de abril)", "fuente": "cjcdmx-21-2025", "verificado": true },
+        { "desde": "2026-09-15", "hasta": "2026-09-16", "tipo": "inhabil", "motivo": "Fiestas patrias", "fuente": "cjcdmx-21-2025", "verificado": true },
+        { "fecha": "2026-10-30", "tipo": "inhabil", "motivo": "Día inhábil del calendario 2026 (octubre)", "fuente": "cjcdmx-21-2025", "verificado": true },
+        { "fecha": "2026-11-02", "tipo": "inhabil", "motivo": "Día de Muertos", "fuente": "cjcdmx-21-2025", "verificado": true },
+        { "fecha": "2026-11-03", "tipo": "suspension", "motivo": "Suspensión de términos por contingencia en el Centro de Datos (excepto materia penal y asuntos urgentes)", "fuente": "oajcdmx-v-93-2026", "verificado": false, "aplicarPorDefecto": false },
+        { "fecha": "2026-11-16", "tipo": "inhabil", "motivo": "Conmemoración del 20 de noviembre (Revolución Mexicana)", "fuente": "cjcdmx-21-2025", "verificado": true },
+        { "desde": "2026-12-16", "hasta": "2026-12-31", "tipo": "vacaciones", "motivo": "Segundo periodo vacacional 2026 (incluye el 25 de diciembre)", "fuente": "cjcdmx-21-2025", "verificado": true },
+        { "desde": "2027-01-01", "hasta": "2027-01-06", "tipo": "vacaciones", "motivo": "Segundo periodo vacacional 2026 (concluye el 6 de enero de 2027)", "fuente": "cjcdmx-21-2025", "verificado": true }
+      ]
+    },
+    "edomex": {
+      "nombre": "Estado de México (Poder Judicial del Estado de México)",
+      "cobertura": { "desde": "2026-01-07", "hasta": "2027-01-06" },
+      "notas": [
+        "Calendario Oficial de Labores 2026 autorizado por el Acuerdo APOAJ/15/2025 del Pleno del Órgano de Administración Judicial (Gaceta del Gobierno, 19 de diciembre de 2025).",
+        "Los periodos vacacionales se cargan con el periodo general de los órganos jurisdiccionales (16–31 de julio y 16 de diciembre de 2026 – 6 de enero de 2027). Juzgados de Control, de guardia y algunos tribunales laborales tienen periodos escalonados: verifique con su órgano.",
+        "El Acuerdo APOAJ/06/2026 habilita días inhábiles solo para procedimientos de contratación pública de la Dirección General de Administración; no modifica el cómputo de plazos procesales.",
+        "El periodo vacacional de invierno 2025-2026 no se cargó (no se localizó su fuente); por eso la cobertura inicia el 7 de enero de 2026."
+      ],
+      "fuentes": [
+        { "id": "apoaj-15-2025", "titulo": "Acuerdo APOAJ/15/2025: Calendario Oficial de Labores del Poder Judicial del Estado de México 2026 (Gaceta del Gobierno, 19-dic-2025)", "url": "https://legislacion.edomex.gob.mx/sites/legislacion.edomex.gob.mx/files/files/pdf/gct/2025/diciembre/dic192/dic192k.pdf", "verificado": true }
+      ],
+      "dias": [
+        { "fecha": "2026-01-01", "tipo": "inhabil", "motivo": "Inicio del año 2026", "fuente": "apoaj-15-2025", "verificado": true },
+        { "fecha": "2026-02-02", "tipo": "inhabil", "motivo": "Conmemoración del 5 de febrero (Constitución)", "fuente": "apoaj-15-2025", "verificado": true },
+        { "fecha": "2026-03-02", "tipo": "inhabil", "motivo": "Aniversario de la fundación del Estado de México", "fuente": "apoaj-15-2025", "verificado": true },
+        { "fecha": "2026-03-08", "tipo": "inhabil", "motivo": "Día Internacional de la Mujer", "fuente": "apoaj-15-2025", "verificado": true },
+        { "fecha": "2026-03-16", "tipo": "inhabil", "motivo": "Conmemoración del 21 de marzo (Natalicio de Benito Juárez)", "fuente": "apoaj-15-2025", "verificado": true },
+        { "desde": "2026-03-29", "hasta": "2026-04-05", "tipo": "suspension", "motivo": "Suspensión de labores (Semana Santa)", "fuente": "apoaj-15-2025", "verificado": true },
+        { "fecha": "2026-05-01", "tipo": "inhabil", "motivo": "Día del Trabajo", "fuente": "apoaj-15-2025", "verificado": true },
+        { "fecha": "2026-05-05", "tipo": "inhabil", "motivo": "Aniversario de la Batalla de Puebla", "fuente": "apoaj-15-2025", "verificado": true },
+        { "fecha": "2026-05-08", "tipo": "inhabil", "motivo": "Día de las Madres", "fuente": "apoaj-15-2025", "verificado": true },
+        { "fecha": "2026-07-13", "tipo": "inhabil", "motivo": "Día del Abogado", "fuente": "apoaj-15-2025", "verificado": true },
+        { "desde": "2026-07-16", "hasta": "2026-07-31", "tipo": "vacaciones", "motivo": "Primer periodo vacacional (verano 2026)", "fuente": "apoaj-15-2025", "verificado": true },
+        { "fecha": "2026-09-16", "tipo": "inhabil", "motivo": "Aniversario del inicio de la Independencia", "fuente": "apoaj-15-2025", "verificado": true },
+        { "fecha": "2026-11-01", "tipo": "suspension", "motivo": "Suspensión de labores", "fuente": "apoaj-15-2025", "verificado": true },
+        { "fecha": "2026-11-02", "tipo": "inhabil", "motivo": "Día de Muertos", "fuente": "apoaj-15-2025", "verificado": true },
+        { "fecha": "2026-11-16", "tipo": "inhabil", "motivo": "Conmemoración del 20 de noviembre (Revolución Mexicana)", "fuente": "apoaj-15-2025", "verificado": true },
+        { "fecha": "2026-12-12", "tipo": "suspension", "motivo": "Suspensión de labores", "fuente": "apoaj-15-2025", "verificado": true },
+        { "desde": "2026-12-16", "hasta": "2027-01-06", "tipo": "vacaciones", "motivo": "Segundo periodo vacacional (invierno 2026; incluye el 25 de diciembre, Navidad)", "fuente": "apoaj-15-2025", "verificado": true }
+      ]
+    },
+    "federal": {
+      "nombre": "Federal (Poder Judicial de la Federación · juzgados y tribunales a cargo del Órgano de Administración Judicial)",
+      "cobertura": { "desde": "2025-12-16", "hasta": "2027-01-01" },
+      "notas": [
+        "Fechas tomadas de la página oficial «Días inhábiles del Órgano de Administración Judicial» (antes CJF), que remite a la Ley de Amparo (art. 19), la Ley Orgánica del PJF (arts. 76, 225 y 229), la Ley Federal del Trabajo (art. 74) y a las Circulares 3/2026, 7/2026 y 8/2026 de la Secretaría Ejecutiva del Pleno del OAJ.",
+        "«Inhábil pero laborable»: el personal trabaja, pero el día no se computa para plazos.",
+        "Los días del Mundial (junio) solo aplican al Primer Circuito (Ciudad de México); se cargan en la variante «Federal · Primer Circuito».",
+        "La Suprema Corte tiene su propio calendario; no se cargó porque su portal no pudo consultarse (ver fuentesNoVerificadas)."
+      ],
+      "fuentes": [
+        { "id": "oaj-2026", "titulo": "Días inhábiles del Órgano de Administración Judicial (tabla oficial 2025 y 2026)", "url": "https://www.oaj.gob.mx/Transparencia/paginas/diasInhabiles.htm", "verificado": true },
+        { "id": "lopjf", "titulo": "Ley Orgánica del Poder Judicial de la Federación, arts. 76, 225 y 229 (Cámara de Diputados)", "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LOPJF.pdf", "verificado": true }
+      ],
+      "dias": [
+        { "desde": "2025-12-16", "hasta": "2025-12-31", "tipo": "vacaciones", "motivo": "Segundo periodo vacacional 2025 (LOPJF art. 76)", "fuente": "oaj-2026", "verificado": true },
+        { "fecha": "2026-01-01", "tipo": "inhabil", "motivo": "Año Nuevo", "fuente": "oaj-2026", "verificado": true },
+        { "fecha": "2026-02-02", "tipo": "inhabil", "motivo": "Primer lunes de febrero (LFT art. 74)", "fuente": "oaj-2026", "verificado": true },
+        { "fecha": "2026-02-05", "tipo": "inhabil", "motivo": "5 de febrero (inhábil pero laborable)", "fuente": "oaj-2026", "verificado": true },
+        { "fecha": "2026-03-16", "tipo": "inhabil", "motivo": "Tercer lunes de marzo (LFT art. 74)", "fuente": "oaj-2026", "verificado": true },
+        { "desde": "2026-04-01", "hasta": "2026-04-03", "tipo": "inhabil", "motivo": "Semana Santa (Circular 3/2026 del OAJ)", "fuente": "oaj-2026", "verificado": true },
+        { "fecha": "2026-05-01", "tipo": "inhabil", "motivo": "Día del Trabajo", "fuente": "oaj-2026", "verificado": true },
+        { "fecha": "2026-05-04", "tipo": "inhabil", "motivo": "Circular 3/2026 del OAJ", "fuente": "oaj-2026", "verificado": true },
+        { "fecha": "2026-05-05", "tipo": "inhabil", "motivo": "5 de mayo (Ley de Amparo art. 19)", "fuente": "oaj-2026", "verificado": true },
+        { "fecha": "2026-06-11", "tipo": "suspension", "motivo": "Mundial 2026 · inhábil pero laborable a distancia (Circulares 7/2026 y 8/2026)", "fuente": "oaj-2026", "verificado": true, "circuito": "primero" },
+        { "fecha": "2026-06-17", "tipo": "suspension", "motivo": "Mundial 2026 · inhábil pero laborable a distancia (Circulares 7/2026 y 8/2026)", "fuente": "oaj-2026", "verificado": true, "circuito": "primero" },
+        { "fecha": "2026-06-24", "tipo": "suspension", "motivo": "Mundial 2026 · inhábil pero laborable a distancia (Circulares 7/2026 y 8/2026)", "fuente": "oaj-2026", "verificado": true, "circuito": "primero" },
+        { "fecha": "2026-06-30", "tipo": "suspension", "motivo": "Mundial 2026 · inhábil pero laborable a distancia (Circulares 7/2026 y 8/2026)", "fuente": "oaj-2026", "verificado": true, "circuito": "primero" },
+        { "desde": "2026-07-16", "hasta": "2026-07-31", "tipo": "vacaciones", "motivo": "Primer periodo vacacional (LOPJF arts. 76 y 225)", "fuente": "oaj-2026", "verificado": true },
+        { "fecha": "2026-09-14", "tipo": "inhabil", "motivo": "14 de septiembre (Ley de Amparo art. 19; LOPJF art. 229)", "fuente": "oaj-2026", "verificado": true },
+        { "fecha": "2026-09-15", "tipo": "inhabil", "motivo": "Circular 3/2026 del OAJ", "fuente": "oaj-2026", "verificado": true },
+        { "fecha": "2026-09-16", "tipo": "inhabil", "motivo": "Independencia de México", "fuente": "oaj-2026", "verificado": true },
+        { "fecha": "2026-10-12", "tipo": "inhabil", "motivo": "12 de octubre (Ley de Amparo art. 19)", "fuente": "oaj-2026", "verificado": true },
+        { "fecha": "2026-11-02", "tipo": "inhabil", "motivo": "Circular 3/2026 del OAJ", "fuente": "oaj-2026", "verificado": true },
+        { "fecha": "2026-11-16", "tipo": "inhabil", "motivo": "Tercer lunes de noviembre (LFT art. 74)", "fuente": "oaj-2026", "verificado": true },
+        { "fecha": "2026-11-20", "tipo": "inhabil", "motivo": "20 de noviembre (inhábil pero laborable)", "fuente": "oaj-2026", "verificado": true },
+        { "desde": "2026-12-16", "hasta": "2026-12-31", "tipo": "vacaciones", "motivo": "Segundo periodo vacacional (LOPJF arts. 76 y 225; incluye el 25 de diciembre)", "fuente": "oaj-2026", "verificado": true },
+        { "fecha": "2027-01-01", "tipo": "inhabil", "motivo": "Año Nuevo", "fuente": "oaj-2026", "verificado": true }
+      ]
+    }
+  },
+  "leyes": {
+    "amparo": {
+      "titulo": "Ley de Amparo, art. 19 (días inhábiles legales del juicio de amparo)",
+      "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LAmp.pdf",
+      "verificado": true,
+      "aplica": "materia amparo, en cualquier jurisdicción y cualquier año",
+      "fechasFijas": [
+        { "md": "01-01", "motivo": "1 de enero" },
+        { "md": "02-05", "motivo": "5 de febrero" },
+        { "md": "03-21", "motivo": "21 de marzo" },
+        { "md": "05-01", "motivo": "1 de mayo" },
+        { "md": "05-05", "motivo": "5 de mayo" },
+        { "md": "09-14", "motivo": "14 de septiembre" },
+        { "md": "09-16", "motivo": "16 de septiembre" },
+        { "md": "10-12", "motivo": "12 de octubre" },
+        { "md": "11-20", "motivo": "20 de noviembre" },
+        { "md": "12-25", "motivo": "25 de diciembre" }
+      ]
+    },
+    "lopjf": {
+      "titulo": "Ley Orgánica del Poder Judicial de la Federación, art. 229",
+      "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LOPJF.pdf",
+      "verificado": true,
+      "aplica": "jurisdicción federal, cualquier año",
+      "fechasFijas": [
+        { "md": "01-01", "motivo": "1 de enero" },
+        { "md": "02-05", "motivo": "5 de febrero" },
+        { "md": "03-21", "motivo": "21 de marzo" },
+        { "md": "05-01", "motivo": "1 de mayo" },
+        { "md": "09-14", "motivo": "14 de septiembre" },
+        { "md": "09-16", "motivo": "16 de septiembre" },
+        { "md": "11-20", "motivo": "20 de noviembre" }
+      ]
+    },
+    "lft": {
+      "titulo": "Ley Federal del Trabajo, art. 74 (descanso obligatorio)",
+      "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFT.pdf",
+      "verificado": true,
+      "aplica": "materia laboral, cualquier año (complementa el calendario del órgano)",
+      "fechasFijas": [
+        { "md": "01-01", "motivo": "1 de enero" },
+        { "md": "05-01", "motivo": "1 de mayo" },
+        { "md": "09-16", "motivo": "16 de septiembre" },
+        { "md": "12-25", "motivo": "25 de diciembre" }
+      ],
+      "lunes": [
+        { "mes": 2, "n": 1, "motivo": "Primer lunes de febrero (5 de febrero)" },
+        { "mes": 3, "n": 3, "motivo": "Tercer lunes de marzo (21 de marzo)" },
+        { "mes": 11, "n": 3, "motivo": "Tercer lunes de noviembre (20 de noviembre)" }
+      ],
+      "nota": "La fracción VII (1 de octubre de cada seis años, transmisión del Ejecutivo) y la IX (jornadas electorales) no se generan automáticamente; añádalas como inhábil propio si aplican."
+    }
+  },
+  "fuentesNoVerificadas": [
+    { "titulo": "Suprema Corte de Justicia de la Nación · Calendario de días inhábiles 2026", "url": "https://transparencia-ciudadana.scjn.gob.mx/procedimientos-de-transparencia/calendario-dias-inhabiles-2026", "verificado": false, "motivo": "El portal respondió con bloqueo de seguridad (Incapsula) y no pudo leerse. No se cargó: para asuntos ante la SCJN, verifique y añada los días como inhábiles propios." },
+    { "titulo": "Poder Judicial de la CDMX · Acuerdo OAJCDMX-V-93/2026 (3 de noviembre de 2026)", "url": "https://www.proceso.com.mx/nacional/cdmx/2026/11/4/poder-judicial-de-cdmx-cumple-dos-dias-sin-sistema-383132.html", "verificado": false, "motivo": "Solo se localizó la cita en prensa; el PDF oficial no apareció en el portal. Cargado como desactivado por defecto. Al 5 de noviembre de 2026 no se encontró acuerdo sobre el 4 de noviembre." }
+  ]
+}
