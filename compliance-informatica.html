@@ -29,7 +29,7 @@ h1{font-size:clamp(2.15rem,6.2vw,4.6rem);letter-spacing:-.03em;margin:16px 0 22p
 h2{font-size:clamp(1.7rem,4vw,3rem);margin:12px 0 20px;letter-spacing:-.02em}
 h3{font-size:clamp(1.15rem,2vw,1.5rem);margin:10px 0 12px}
 p{margin:0 0 18px}a{color:inherit}img,svg{max-width:100%}
-.split>*,.hero-grid>*,.sim>*,.tp>*,.cols>*,.grid>*,.field,.cs,.ctl>*,.out>*{min-width:0}
+.split>*,.hero-grid>*,.sim>*,.cine-main>*,.cols>*,.grid>*,.field,.cs,.ctl>*,.out>*{min-width:0}
 .wrap{width:100%;max-width:1180px;margin-inline:auto;padding-inline:var(--pad)}
 @media(min-width:1700px){.wrap{max-width:1360px}}
 .eyebrow{font:600 .72rem/1.5 system-ui;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
@@ -135,23 +135,167 @@ ul.chk li::after{content:"";position:absolute;left:7px;top:7px;width:6px;height:
 .js .rv.done.route{transition:transform .45s var(--ease),border-color .3s,background .3s}
 .line-draw{display:block;height:2px;width:0;background:linear-gradient(90deg,var(--cy),var(--gold));margin-top:16px;transition:width 1.3s var(--ease) .2s}
 .in .line-draw,.line-draw.in{width:90px}
-/* pestañas de arquitectura */
-.tabs{position:relative;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x proximity;padding-bottom:10px;border-bottom:1px solid var(--line);-webkit-overflow-scrolling:touch}
-.tabs::-webkit-scrollbar{display:none}
-.tab{flex:none;scroll-snap-align:start;background:none;border:0;color:var(--muted);cursor:pointer;padding:12px 16px;font:600 .82rem/1.2 system-ui;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;transition:color .3s}
-.tab span{display:block;font:500 .7rem/1 system-ui;color:var(--cy);margin-bottom:6px;letter-spacing:.2em}
-.tab[aria-selected=true],.tab:hover{color:var(--text)}
-.tab-ind{position:absolute;left:0;bottom:0;height:3px;width:0;background:linear-gradient(90deg,var(--cy),var(--gold));border-radius:3px;transition:transform .6s var(--ease),width .6s var(--ease)}
-.tp-wrap{position:relative;margin-top:clamp(20px,3vw,34px);min-height:260px}
-.tp{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(20px,4vw,48px);align-items:start}
-.tp[hidden]{display:none}
-.tp.ent{animation:entra .85s var(--ease) both}.tp.ent.back{animation-name:entraback}
-.tp.sal{animation:sale .3s ease both;position:absolute;inset:0;pointer-events:none}
-@keyframes entra{from{clip-path:inset(0 100% 0 0);opacity:.2;filter:blur(10px);transform:translateX(30px)}to{clip-path:inset(0);opacity:1;filter:none;transform:none}}
-@keyframes entraback{from{clip-path:inset(0 0 0 100%);opacity:.2;filter:blur(10px);transform:translateX(-30px)}to{clip-path:inset(0);opacity:1;filter:none;transform:none}}
-@keyframes sale{to{opacity:0;filter:blur(8px);transform:scale(.985)}}
-.tp .big{font:400 clamp(3rem,9vw,6.5rem)/1 Georgia,serif;color:#6fd6e81f;-webkit-text-stroke:1px #6fd6e855;margin-bottom:8px}
-.tp h3{font-size:clamp(1.4rem,3vw,2.1rem)}
+/* ===== flujo cinematográfico de las cinco capas ===== */
+.capas{margin:0;padding:0;list-style:none}
+.js .capas{display:none}
+html:not(.js) .capas{display:grid;gap:18px;margin:0 0 20px}
+html:not(.js) .cine{display:none}
+.capas h3{margin:0 0 4px;font-size:1.2rem}.capas .q{color:var(--cy);font-weight:600;margin:0 0 6px}.capas p{margin:0 0 8px}
+.cine{--rp:0;position:relative;display:grid;gap:clamp(16px,2.4vw,26px);margin-top:clamp(6px,2vw,18px)}
+.cine-rail{position:relative;display:grid;grid-template-columns:repeat(5,1fr);padding-top:4px}
+.cine-rail::before{content:"";position:absolute;left:10%;right:10%;top:24px;height:2px;background:#ffffff1c}
+.cine-rail::after{content:"";position:absolute;left:10%;top:24px;height:2px;width:calc(80%*var(--rp));background:linear-gradient(90deg,var(--cy),var(--gold));transition:width 1.1s var(--ease)}
+.rpk{position:absolute;z-index:2;top:17px;left:calc(10% + 80%*var(--rp));width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--gold);box-shadow:0 0 18px 5px #dbc17aa0;opacity:0;transition:left 1.1s var(--ease),opacity .6s;pointer-events:none}
+.cine:not([data-state=idle]) .rpk{opacity:1}
+.rn{position:relative;z-index:1;display:grid;justify-items:center;align-content:start;gap:10px;padding:0 2px 6px;background:none;border:0;color:var(--muted);cursor:pointer;font:600 .74rem/1.25 system-ui;letter-spacing:.07em;text-transform:uppercase;text-align:center;min-height:44px;transition:color .4s}
+.rn i{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--bg2);border:2px solid #ffffff33;font:700 .85rem/1 system-ui;font-style:normal;transition:all .6s var(--ease)}
+.rn:hover i{border-color:#6fd6e8aa}
+.rn.done i{border-color:var(--cy);color:var(--cy)}
+.rn.on{color:var(--text)}
+.rn.on i{background:var(--cy);color:#0a1628;border-color:var(--cy);box-shadow:0 0 0 8px #6fd6e81f,0 0 32px #6fd6e877;transform:scale(1.08)}
+.cine-main{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:clamp(16px,2.6vw,30px);align-items:stretch}
+.cine-left{display:grid;gap:12px;align-content:start;min-width:0}
+.stage{position:relative;aspect-ratio:16/9;overflow:hidden;border:1px solid #6fd6e840;border-radius:18px;background:#07101d;cursor:pointer;box-shadow:0 44px 90px -44px #000,0 0 0 1px #ffffff08 inset;isolation:isolate;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.stage svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.stage::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 90% at 50% 50%,transparent 55%,#00000066);z-index:3}
+.stage.play #cam{transform-origin:400px 225px;animation:drift 16s ease-in-out infinite alternate}
+@keyframes drift{from{transform:scale(1)}to{transform:scale(1.045) translate(-7px,-5px)}}
+.stage.paused *,.stage.paused #cam{animation-play-state:paused!important}
+.stage text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:600;fill:#f4f2ec}
+.stage .tt{text-anchor:middle}
+.stage .ser{font-family:Georgia,serif;font-weight:400}
+.stage .sub{font-weight:500;fill:#9fb0c0}
+.pre{transition:opacity .7s var(--ease)}.stage.play .pre{opacity:0}
+.cut{position:absolute;inset:0;z-index:4;pointer-events:none;background:linear-gradient(100deg,transparent 34%,#6fd6e838 50%,transparent 66%);transform:translateX(-115%)}
+.cut.go{animation:cutgo .95s var(--ease)}
+@keyframes cutgo{from{transform:translateX(-115%)}to{transform:translateX(115%)}}
+.poster{position:absolute;inset:0;z-index:5;display:grid;place-content:center;justify-items:center;gap:10px;text-align:center;padding:16px;background:linear-gradient(180deg,#07101d55,#07101dd9 70%);transition:opacity .6s var(--ease),visibility 0s .6s;color:var(--text)}
+.poster strong{font:600 clamp(1rem,2.2vw,1.35rem)/1.2 Georgia,serif;font-weight:400}
+.poster span:last-child{font-size:.82rem;color:var(--muted)}
+.poster .play{position:relative;display:grid;place-items:center;width:76px;height:76px;border-radius:50%;background:var(--gold);box-shadow:0 14px 40px -10px #dbc17aaa;transition:transform .5s var(--ease)}
+.poster .play::before{content:"";position:absolute;inset:-10px;border-radius:50%;border:2px solid #dbc17a88;animation:ping 2.2s ease-out infinite}
+.poster .play svg{width:34px;height:34px;fill:#0a1628;position:static;margin-left:4px}
+.stage:hover .play{transform:scale(1.08)}
+@keyframes ping{from{opacity:.9;transform:scale(.9)}to{opacity:0;transform:scale(1.5)}}
+.cine:not([data-state=idle]) .poster{opacity:0;visibility:hidden;pointer-events:none}
+.stage:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.cine-ctl{display:flex;align-items:center;gap:8px;flex-wrap:wrap;opacity:1;transition:opacity .5s}
+.cine-ctl[hidden]{display:none}
+.cc{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:#ffffff0a;color:var(--text);cursor:pointer;transition:transform .35s var(--ease),border-color .3s,background .3s}
+.cc:hover{transform:translateY(-2px);border-color:#6fd6e8aa;background:#6fd6e814}
+.cc.big{width:54px;height:54px;background:var(--gold);color:#0a1628;border-color:var(--gold)}
+.cc svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cc.big .i-play{fill:currentColor;stroke:none}.cc.big .i-play,.cc.big[aria-pressed=true] .i-pause{display:none}.cc.big[aria-pressed=true] .i-play{display:block}
+.cc[data-a=voice][aria-pressed=false] .vw{display:none}
+.cc[data-a=voice][aria-pressed=false]{color:var(--muted)}
+.prog{flex:1 1 140px;min-width:120px;height:4px;border-radius:4px;background:#ffffff1c;overflow:hidden;margin-left:6px}
+.prog i{display:block;height:100%;width:100%;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,var(--cy),var(--gold))}
+.cap{display:flex;flex-direction:column;justify-content:flex-start;gap:0;min-width:0}
+.cap-n{font:600 .72rem/1.4 system-ui;letter-spacing:.2em;text-transform:uppercase;color:var(--cy)}
+.cap-q{margin:10px 0 6px;font:600 1.02rem/1.4 system-ui;color:var(--gold)}
+.cap-t{margin:0 0 12px;font-size:clamp(1.5rem,3vw,2.1rem)}
+.cap-x{position:relative;margin:0 0 18px;font-size:.98rem;color:var(--muted)}
+.cap-x .ghost{visibility:hidden;display:block}.cap-x .typed{position:absolute;inset:0;display:block;color:var(--text)}
+.cap-x .typed::after{content:"";display:inline-block;width:2px;height:1.05em;margin-left:2px;vertical-align:-.15em;background:var(--cy);animation:caret 1s steps(1) infinite}
+@keyframes caret{50%{opacity:0}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.cap .btn{align-self:flex-start;margin-top:auto}
+.cine[data-state=idle] .cap-n,.cine[data-state=idle] .cap-q,.cine[data-state=idle] .cap-t{opacity:.55}
+
+/* escenas */
+.scene{opacity:0;transform:translateX(56px) scale(.985);filter:blur(10px);transition:opacity .8s var(--ease),transform 1s var(--ease),filter .8s var(--ease);pointer-events:none}
+.scene.on{opacity:1;transform:none;filter:none}
+.scene.out{opacity:0;transform:translateX(-56px) scale(1.015);filter:blur(10px)}
+.scene .fu{opacity:0}.scene.live .fu{animation:fadeUp .8s var(--ease) var(--d,0s) forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.scene .dr{stroke-dasharray:1;stroke-dashoffset:1}.scene.live .dr{animation:drawS 1.3s var(--ease) var(--d,0s) forwards}
+@keyframes drawS{to{stroke-dashoffset:0}}
+.lane{fill:none;stroke:#6fd6e83d;stroke-width:1.8;stroke-dasharray:5 8}
+.scene.live .lane{animation:flowd 1.4s linear infinite}
+@keyframes flowd{to{stroke-dashoffset:-26}}
+.pk{opacity:0}.scene.live .pk{opacity:1;filter:drop-shadow(0 0 5px currentColor)}
+@keyframes growOne{to{transform:scaleX(1)}}
+@keyframes growX{to{transform:scaleX(var(--v,1))}}
+@keyframes popIn{from{opacity:0;transform:scale(.2)}to{opacity:1;transform:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* 1 */
+.s0 .tile rect{fill:#0d1b2f;stroke:#6fd6e822;stroke-width:1.6;transition:none}
+.s0 .tile use{stroke:#6fd6e8aa;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.s0 .tile{opacity:.4}
+.s0.live .tile{animation:tileOn .9s var(--ease) var(--d) forwards}
+@keyframes tileOn{to{opacity:1}}
+.s0.live .tile rect{animation:okOn 1s ease var(--d) forwards}
+.s0.live .tile.k rect{animation:keyOn 1s ease var(--d) forwards}
+@keyframes okOn{to{stroke:#6fd6e8aa}}
+@keyframes keyOn{to{stroke:#dbc17a;fill:#1a2434}}
+.s0 .badge{opacity:0}.s0 .badge rect{fill:#dbc17a}.s0 .badge text{fill:#0a1628;font-size:10px;font-weight:700}
+.s0.live .badge{animation:fadeUp .6s var(--ease) calc(var(--d) + .6s) forwards}
+.s0 .sweep{opacity:0}
+.s0.live .sweep{animation:sweep 2.9s cubic-bezier(.45,0,.3,1) .2s forwards}
+@keyframes sweep{0%{opacity:0;transform:translateX(0)}8%{opacity:1}92%{opacity:1}100%{opacity:0;transform:translateX(480px)}}
+.s0 .fillb{transform-box:fill-box;transform-origin:left center;transform:scaleX(0)}
+.s0.live .fillb{animation:growX 1.6s var(--ease) var(--d) forwards}
+/* 2 */
+.s1 .box{fill:#0d1b2f;stroke:#6fd6e8aa;stroke-width:2.2;stroke-linejoin:round}.s1 .box.g{stroke:#dbc17acc}
+.s1 .lk{fill:none;stroke:#6fd6e877;stroke-width:2.2;stroke-linecap:round}
+.s1.live .lk.us{animation:drawS 1.2s var(--ease) var(--d) forwards,lighten 9s ease-in-out 4s infinite}
+.s1.live .lk.up{animation:drawS 1.2s var(--ease) var(--d) forwards,fail 9s ease-in-out 4s infinite}
+.s1.live .prodg{animation:fail 9s ease-in-out 4s infinite}
+@keyframes fail{0%,36%,76%,100%{opacity:1}44%,66%{opacity:.2}}
+@keyframes lighten{0%,36%,76%,100%{opacity:.25}44%,66%{opacity:1}}
+.s1 .fo{opacity:0}.s1.live .fo{animation:badgeF 9s ease-in-out 4s infinite}
+@keyframes badgeF{0%,38%,74%,100%{opacity:0}46%,64%{opacity:1}}
+/* 3 */
+.s2 .ln{transform-box:fill-box;transform-origin:left center;transform:scaleX(0)}
+.s2.live .ln{animation:growOne .55s var(--ease) var(--d) forwards}
+.s2 .arc{fill:none;stroke:#dbc17a;stroke-width:10;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:100;transform:rotate(-90deg);transform-origin:410px 225px}
+.s2.live .arc{animation:arcgo 5.2s linear .6s forwards}
+@keyframes arcgo{to{stroke-dashoffset:0}}
+.s2 .hand{stroke:#f4f2ec;stroke-width:4;stroke-linecap:round;transform-origin:410px 225px}
+.s2.live .hand{animation:spin 5.2s linear .6s forwards}
+.s2 .tk{fill:none;stroke:#7be0a3;stroke-width:3.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.s2.live .tk{animation:drawS .55s var(--ease) var(--d) forwards}
+.s2 .stamp{transform-box:fill-box;transform-origin:center;opacity:0}
+.s2.live .stamp{animation:stampIn .55s cubic-bezier(.2,1.4,.4,1) 5.6s forwards}
+@keyframes stampIn{from{opacity:0;transform:scale(2.3) rotate(-6deg)}to{opacity:1;transform:scale(1) rotate(-6deg)}}
+/* 4 */
+.s3 rect.nd{fill:#0d1b2f;stroke:#6fd6e8aa;stroke-width:2.2}
+.s3.live g.in rect.nd{animation:infect .5s ease var(--a) forwards,heal .6s ease var(--b) forwards}
+@keyframes infect{to{stroke:#ff7b7b;fill:#3a1620}}
+@keyframes heal{to{stroke:#7be0a3;fill:#10281f}}
+.s3 .bar{transform-box:fill-box;transform-origin:top center;transform:scaleY(0);fill:#dbc17a}
+.s3.live .bar{animation:growY .5s var(--ease) 2.3s forwards}
+@keyframes growY{to{transform:scaleY(1)}}
+.s3 .st{opacity:0}.s3 .st.a{fill:#ff7b7b}.s3 .st.b{fill:#dbc17a}.s3 .st.c{fill:#7be0a3}
+.s3.live .st.a{animation:stA 2.4s ease forwards}
+.s3.live .st.b{animation:stA 1.6s ease 2.3s forwards}
+.s3.live .st.c{animation:fadeUp .6s var(--ease) 3.9s forwards}
+@keyframes stA{0%{opacity:0}10%,86%{opacity:1}100%{opacity:0}}
+.s3 .pg{fill:#7be0a3;transform-box:fill-box;transform-origin:left center;transform:scaleX(0)}
+.s3.live .pg{animation:growOne 2.6s linear 3.8s forwards}
+/* 5 */
+.s4 .ring{fill:none;stroke:#6fd6e888;stroke-width:3;stroke-dasharray:16 12}
+.s4.live .ring{animation:flowr 1.8s linear infinite}
+@keyframes flowr{to{stroke-dashoffset:-28}}
+.s4 .rg{transform-origin:200px 235px}.s4.live .rg{animation:spin 9s linear infinite}
+.s4 .trend{fill:none;stroke:#6fd6e8;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.s4.live .trend{animation:drawS 3.6s ease-in-out .6s forwards}
+.s4 .pt{fill:#0a1628;stroke:#6fd6e8;stroke-width:3.2;transform-box:fill-box;transform-origin:center;opacity:0}.s4 .pt.ok{stroke:#7be0a3}
+.s4.live .pt{animation:popIn .5s cubic-bezier(.2,1.4,.4,1) var(--d) forwards}
+
+/* adaptación */
+@media(max-width:1040px){.cine-main{grid-template-columns:1fr}.cap{min-height:0}}
+@media(max-width:640px){
+ .stage{margin-inline:calc(var(--pad)*-1);border-radius:0;border-inline:0}
+ .rn span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+ .rn{min-height:50px}
+ .stage .sub{display:none}
+ .poster .play{width:64px;height:64px}
+ .cc{width:48px;height:48px}.cc.big{width:56px;height:56px}
+ .prog{flex-basis:100%;margin:6px 0 0}
+}
+@media(prefers-reduced-motion:reduce){.stage.play #cam{animation:none}.poster .play::before{animation:none}.cap-x .typed::after{animation:none}.pk{display:none}.cut{display:none}}
+
 /* simulador */
 .sim{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,48px)}
 .ctl{display:grid;gap:22px}
@@ -229,7 +373,7 @@ footer{padding:clamp(34px,5vw,56px) 0 calc(34px + env(safe-area-inset-bottom));b
 footer a,.note a{display:inline-block;padding:8px 2px}
 footer .brand{color:var(--text);margin-bottom:8px;font-size:1.2rem}
 /* ===== adaptación ===== */
-@media(max-width:1040px){.hero-grid,.split,.sim,.tp{grid-template-columns:1fr}.hero-grid>.diag{order:-1;max-width:520px;margin-inline:auto;width:100%}.tp .big{display:none}}
+@media(max-width:1040px){.hero-grid,.split,.sim{grid-template-columns:1fr}.hero-grid>.diag{order:-1;max-width:520px;margin-inline:auto;width:100%}}
 @media(max-width:960px){
  .menu{display:block}
  nav{position:fixed;inset:0;z-index:90;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:4px;padding:96px var(--pad) calc(32px + env(safe-area-inset-bottom));overflow-y:auto;background:radial-gradient(900px 600px at 100% 0,#173352,#07101d 70%);
@@ -249,7 +393,7 @@ footer .brand{color:var(--text);margin-bottom:8px;font-size:1.2rem}
 @media(max-width:640px){.cols{grid-template-columns:1fr}.actions .btn{flex:1 1 100%}.brand small{letter-spacing:.2em}.tab{padding:10px 12px}.header{min-height:70px}.hero{padding-top:28px}}
 @media(max-width:360px){h1{font-size:2rem}.brand{font-size:1rem}.brand small{display:none}}
 @media(max-height:480px) and (orientation:landscape){.hero{padding-top:20px}nav{padding-top:76px}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important;scroll-behavior:auto!important}.js .rv{opacity:1;translate:none;filter:none;clip-path:none}.cs-opt,.dd-in a{opacity:1;transform:none;filter:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important;scroll-behavior:auto!important}.js .rv{opacity:1;translate:none;filter:none;clip-path:none}.cs-opt,.dd-in a{opacity:1;transform:none;filter:none}}
 </style></head><body>
 <div id="progreso" aria-hidden="true"></div>
 <div id="fx" aria-hidden="true"></div>
@@ -306,23 +450,175 @@ footer .brand{color:var(--text);margin-bottom:8px;font-size:1.2rem}
 </div></section>
 
 <section class="alt" id="arquitectura"><div class="wrap">
- <div class="head"><span class="eyebrow cy rv">Arquitectura de servicios</span><h2 class="rv" style="--d:1">Seis capas, un solo objetivo:<br>que su operación sobreviva.</h2><span class="line-draw rv"></span><p class="lead rv" style="--d:2">Cada capa responde a una pregunta que un auditor, un cliente o un juez puede hacerle a su empresa después de un incidente. Elija una capa.</p></div>
- <div class="tabs rv" role="tablist" aria-label="Capas de la arquitectura" id="tablist">
-  <button class="tab" role="tab" aria-selected="true" aria-controls="tp0" id="t0"><span>01</span>Diagnosticar</button>
-  <button class="tab" role="tab" aria-selected="false" aria-controls="tp1" id="t1" tabindex="-1"><span>02</span>Diseñar</button>
-  <button class="tab" role="tab" aria-selected="false" aria-controls="tp2" id="t2" tabindex="-1"><span>03</span>Documentar</button>
-  <button class="tab" role="tab" aria-selected="false" aria-controls="tp3" id="t3" tabindex="-1"><span>04</span>Probar</button>
-  <button class="tab" role="tab" aria-selected="false" aria-controls="tp4" id="t4" tabindex="-1"><span>05</span>Responder</button>
-  <button class="tab" role="tab" aria-selected="false" aria-controls="tp5" id="t5" tabindex="-1"><span>06</span>Mejorar</button>
-  <span class="tab-ind" id="tabind"></span>
- </div>
- <div class="tp-wrap">
-  <div class="tp" role="tabpanel" id="tp0" aria-labelledby="t0"><div><h3>Impacto y prioridades</h3><p class="lead">Análisis de impacto al negocio (BIA): qué procesos no pueden detenerse, cuánto tiempo pueden estar fuera (RTO) y cuánta información puede perderse (RPO).</p><ul class="chk"><li style="--i:0">Inventario de sistemas, dependencias y riesgos.</li><li style="--i:1">Clasificación por criticidad con la dirección.</li><li style="--i:2">RTO y RPO propuestos por sistema.</li></ul></div><div class="big" aria-hidden="true">01</div></div>
-  <div class="tp" role="tabpanel" id="tp1" aria-labelledby="t1" hidden><div><h3>Arquitectura resiliente</h3><p class="lead">Redundancia de servidores, almacenamiento y red; réplica de datos; respaldos con copia fuera de sitio e inmutable. Se diseña para el RTO/RPO acordado, no para el catálogo de un proveedor.</p><ul class="chk"><li style="--i:0">Eliminación de puntos únicos de falla.</li><li style="--i:1">Respaldo 3-2-1 con copia inmutable.</li><li style="--i:2">Sitio alterno o nube cuando se justifica.</li></ul></div><div class="big" aria-hidden="true">02</div></div>
-  <div class="tp" role="tabpanel" id="tp2" aria-labelledby="t2" hidden><div><h3>Plan DRP y BCP</h3><p class="lead">Procedimientos paso a paso, responsables, árbol de llamadas, criterios para declarar un desastre y orden de restauración. Un documento que se puede ejecutar a las 3 de la mañana.</p><ul class="chk"><li style="--i:0">Roles, contactos y escalamiento.</li><li style="--i:1">Orden de restauración por criticidad.</li><li style="--i:2">Comunicación a clientes, autoridad y aseguradora.</li></ul></div><div class="big" aria-hidden="true">03</div></div>
-  <div class="tp" role="tabpanel" id="tp3" aria-labelledby="t3" hidden><div><h3>Simulacros con evidencia</h3><p class="lead">Pruebas de restauración y de conmutación por falla (failover) con tiempos medidos y actas. Un plan que nunca se probó no demuestra nada ante una auditoría.</p><ul class="chk"><li style="--i:0">Restauración real desde respaldo.</li><li style="--i:1">Tiempos medidos contra el RTO/RPO.</li><li style="--i:2">Acta firmada con hallazgos y mejoras.</li></ul></div><div class="big" aria-hidden="true">04</div></div>
-  <div class="tp" role="tabpanel" id="tp4" aria-labelledby="t4" hidden><div><h3>Incidente y forense</h3><p class="lead">Cuando algo ocurre: contención, preservación de evidencia digital con cadena de custodia y restauración. La evidencia queda lista para la vía civil, mercantil o penal.</p><ul class="chk"><li style="--i:0">Contención para detener la propagación.</li><li style="--i:1">Evidencia preservada con cadena de custodia.</li><li style="--i:2">Restauración desde respaldos verificados.</li></ul></div><div class="big" aria-hidden="true">05</div></div>
-  <div class="tp" role="tabpanel" id="tp5" aria-labelledby="t5" hidden><div><h3>Revisión continua</h3><p class="lead">Actualización del plan ante cambios de sistemas, personal o proveedores, y revisión periódica de indicadores de disponibilidad y de los resultados de cada simulacro.</p><ul class="chk"><li style="--i:0">Revisión tras cada cambio relevante.</li><li style="--i:1">Indicadores de disponibilidad para la dirección.</li><li style="--i:2">Nuevo simulacro y acta periódica.</li></ul></div><div class="big" aria-hidden="true">06</div></div>
+ <div class="head"><span class="eyebrow cy rv">Arquitectura de servicios</span><h2 class="rv" style="--d:1">Cinco capas, un solo objetivo:<br>que su operación sobreviva.</h2><span class="line-draw rv"></span><p class="lead rv" style="--d:2">Cada capa responde a una pregunta que un auditor, un cliente o un juez puede hacerle a su empresa después de un incidente. Toque la sección para ver el proceso en acción.</p></div>
+
+ <ol class="capas" id="capas">
+  <li><h3>Diagnosticar</h3><p class="q">¿Sabe qué no puede dejar de funcionar, y cuánto aguantaría sin ello?</p><p>Primero se identifica qué procesos no pueden detenerse. Para cada uno se fija el RTO, el tiempo máximo sin servicio, y el RPO, la información que podría perderse.</p></li>
+  <li><h3>Diseñar</h3><p class="q">¿Su infraestructura sigue en pie si una pieza falla?</p><p>Con esos tiempos se diseña la arquitectura: servidores redundantes, réplica de datos y un respaldo inmutable fuera de sitio. Si una pieza falla, otra toma su lugar.</p></li>
+  <li><h3>Documentar y probar</h3><p class="q">¿Puede demostrar que su plan de recuperación funciona?</p><p>El plan se escribe paso a paso y se ensaya. Cada simulacro mide el tiempo real contra el RTO y termina en un acta firmada: eso es lo que un auditor pide ver.</p></li>
+  <li><h3>Responder</h3><p class="q">¿Qué hizo cuando ocurrió, y puede probarlo?</p><p>Si ocurre un incidente, se contiene para detener el avance, se preserva la evidencia con cadena de custodia y se restaura por prioridad hasta volver a operar.</p></li>
+  <li><h3>Mejorar</h3><p class="q">¿Qué cambió después, para que no se repita?</p><p>Cada simulacro o incidente deja aprendizajes. Se ajusta el plan, se repite la prueba y el tiempo de recuperación baja hasta quedar dentro del RTO pactado.</p></li>
+ </ol>
+
+ <div class="cine rv" id="cine" data-state="idle" data-cur="0">
+  <div class="cine-rail" role="group" aria-label="Las cinco capas">
+   <span class="rpk" aria-hidden="true"></span>
+   <button type="button" class="rn" data-i="0"><i>1</i><span>Diagnosticar</span></button>
+   <button type="button" class="rn" data-i="1"><i>2</i><span>Diseñar</span></button>
+   <button type="button" class="rn" data-i="2"><i>3</i><span>Probar</span></button>
+   <button type="button" class="rn" data-i="3"><i>4</i><span>Responder</span></button>
+   <button type="button" class="rn" data-i="4"><i>5</i><span>Mejorar</span></button>
+  </div>
+  <div class="cine-main">
+   <div class="cine-left">
+    <div class="stage" id="stage" role="button" tabindex="0" aria-label="Ver el proceso de las cinco capas. Toque o pulse Enter para iniciar">
+     <svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+      <defs>
+       <radialGradient id="cg" cx="50%" cy="40%" r="75%"><stop offset="0" stop-color="#173352"/><stop offset="1" stop-color="#07101d"/></radialGradient>
+       <pattern id="gp" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#6fd6e80f" stroke-width="1"/></pattern>
+       <linearGradient id="sw" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#6fd6e800"/><stop offset=".85" stop-color="#6fd6e866"/><stop offset="1" stop-color="#6fd6e8"/></linearGradient>
+       <symbol id="i-srv" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="6" rx="1.5"/><rect x="4" y="14" width="16" height="6" rx="1.5"/><path d="M8 7h.01M8 17h.01"/></symbol>
+       <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></symbol>
+       <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 8l9 6 9-6"/></symbol>
+       <symbol id="i-doc" viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h6M10 16h6"/></symbol>
+       <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-4 3-6 7-6s7 2 7 6"/></symbol>
+       <symbol id="i-web" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
+       <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+       <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 3h6"/></symbol>
+      </defs>
+      <rect width="800" height="450" fill="url(#cg)"/><rect width="800" height="450" fill="url(#gp)"/>
+      <g id="cam">
+       <!-- vista previa en reposo -->
+       <g class="pre">
+        <path d="M110 225H690" stroke="#6fd6e833" stroke-width="2" stroke-dasharray="5 8"/>
+        <g fill="#0d1b2f" stroke="#6fd6e888" stroke-width="2"><circle cx="110" cy="225" r="34"/><circle cx="255" cy="225" r="34"/><circle cx="400" cy="225" r="34"/><circle cx="545" cy="225" r="34"/><circle cx="690" cy="225" r="34"/></g>
+        <g class="ser" text-anchor="middle" fill="#f4f2ec" font-family="Georgia,serif" font-size="30"><text x="110" y="236">1</text><text x="255" y="236">2</text><text x="400" y="236">3</text><text x="545" y="236">4</text><text x="690" y="236">5</text></g>
+        <g text-anchor="middle" fill="#9fb0c0" font-family="system-ui,sans-serif" font-size="17" font-weight="600"><text x="110" y="290">Diagnosticar</text><text x="255" y="290">Diseñar</text><text x="400" y="290">Probar</text><text x="545" y="290">Responder</text><text x="690" y="290">Mejorar</text></g>
+       </g>
+
+       <!-- 1 · DIAGNOSTICAR -->
+       <g class="scene s0" data-i="0">
+        <g class="tile k" style="--d:1.3s"><rect x="30" y="70" width="150" height="100" rx="14"/><use href="#i-srv" x="63" y="82" width="34" height="34"/><text class="tt" x="105" y="152" font-size="18">ERP</text></g>
+        <g class="tile" style="--d:.45s"><rect x="190" y="70" width="150" height="100" rx="14"/><use href="#i-mail" x="223" y="82" width="34" height="34"/><text class="tt" x="265" y="152" font-size="18">Correo</text></g>
+        <g class="tile k" style="--d:2.15s"><rect x="350" y="70" width="150" height="100" rx="14"/><use href="#i-doc" x="383" y="82" width="34" height="34"/><text class="tt" x="425" y="152" font-size="18">Facturación</text></g>
+        <g class="tile k" style="--d:.45s"><rect x="30" y="200" width="150" height="100" rx="14"/><use href="#i-db" x="63" y="212" width="34" height="34"/><text class="tt" x="105" y="282" font-size="18">Base de datos</text></g>
+        <g class="tile" style="--d:1.3s"><rect x="190" y="200" width="150" height="100" rx="14"/><use href="#i-user" x="223" y="212" width="34" height="34"/><text class="tt" x="265" y="282" font-size="18">Nómina</text></g>
+        <g class="tile" style="--d:2.15s"><rect x="350" y="200" width="150" height="100" rx="14"/><use href="#i-web" x="383" y="212" width="34" height="34"/><text class="tt" x="425" y="282" font-size="18">Sitio web</text></g>
+        <g class="badge sub" style="--d:.45s"><rect x="132" y="78" width="40" height="18" rx="9"/><text class="tt" x="152" y="91" font-size="10">CLAVE</text></g>
+        <g class="badge sub" style="--d:1.3s"><rect x="132" y="208" width="40" height="18" rx="9"/><text class="tt" x="152" y="221" font-size="10">CLAVE</text></g>
+        <g class="badge sub" style="--d:2.15s"><rect x="452" y="78" width="40" height="18" rx="9"/><text class="tt" x="472" y="91" font-size="10">CLAVE</text></g>
+        <rect class="sweep" x="24" y="60" width="12" height="250"/>
+        <path class="lane" d="M505 120 C522 118 524 140 542 140" data-n="3" data-d="2.2"/>
+        <path class="lane" d="M505 250 C522 252 524 250 542 250" data-n="3" data-d="2.2" data-c="#dbc17a"/>
+        <text class="ser fu" x="545" y="106" font-size="30" fill="#dbc17a" style="--d:2.6s">RTO</text>
+        <text class="sub fu" x="545" y="128" font-size="15" style="--d:2.7s">tiempo sin servicio</text>
+        <rect x="545" y="142" width="235" height="14" rx="7" fill="#ffffff1a"/><rect class="fillb" x="545" y="142" width="235" height="14" rx="7" fill="#6fd6e8" style="--v:.55;--d:2.8s"/>
+        <text class="ser fu" x="545" y="226" font-size="30" fill="#dbc17a" style="--d:3.4s">RPO</text>
+        <text class="sub fu" x="545" y="248" font-size="15" style="--d:3.5s">datos que puede perder</text>
+        <rect x="545" y="262" width="235" height="14" rx="7" fill="#ffffff1a"/><rect class="fillb" x="545" y="262" width="235" height="14" rx="7" fill="#dbc17a" style="--v:.3;--d:3.6s"/>
+        <g class="fu" style="--d:4.8s"><path d="M30 350h470" stroke="#6fd6e833" stroke-width="2"/><use href="#i-doc" x="30" y="366" width="34" height="34" stroke="#7be0a3" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><text x="74" y="391" font-size="20">Prioridades definidas por la dirección</text></g>
+       </g>
+
+       <!-- 2 · DISEÑAR -->
+       <g class="scene s1" data-i="1">
+        <g class="fu" style="--d:.1s"><use href="#i-user" x="380" y="12" width="40" height="40" stroke="#dbc17a" fill="none" stroke-width="1.6" stroke-linecap="round"/><text class="tt" x="400" y="76" font-size="18">Usuarios</text></g>
+        <path class="lk us dr" pathLength="1" d="M385 82 C310 100 230 118 190 150" style="--d:.5s"/>
+        <path class="lk up dr" pathLength="1" d="M415 82 C490 100 570 118 610 150" style="--d:.5s"/>
+        <g class="prodg"><g class="fu" style="--d:.3s"><rect class="box dr" pathLength="1" x="70" y="150" width="230" height="110" rx="16" style="--d:.3s"/><use href="#i-srv" x="91" y="168" width="36" height="36" stroke="#6fd6e8" fill="none" stroke-width="1.5" stroke-linecap="round"/><text class="tt" x="195" y="205" font-size="22">Producción</text><text class="tt sub" x="195" y="232" font-size="14">Servidor principal</text></g></g>
+        <g class="fu" style="--d:.8s"><rect class="box dr" pathLength="1" x="500" y="150" width="230" height="110" rx="16" style="--d:.8s"/><use href="#i-srv" x="521" y="168" width="36" height="36" stroke="#6fd6e8" fill="none" stroke-width="1.5" stroke-linecap="round"/><text class="tt" x="625" y="205" font-size="22">Réplica</text><text class="tt sub" x="625" y="232" font-size="14">Conmutación automática</text></g>
+        <path class="lane" d="M300 205 L500 205" data-n="4" data-d="2"/>
+        <path class="lane" d="M195 260 C200 310 250 345 280 362" data-n="2" data-d="2.4" data-c="#dbc17a"/>
+        <path class="lane" d="M625 260 C620 310 570 345 520 362" data-n="2" data-d="2.4" data-c="#dbc17a"/>
+        <g class="fu" style="--d:1.4s"><rect class="box g dr" pathLength="1" x="275" y="325" width="250" height="100" rx="16" style="--d:1.4s"/><use href="#i-lock" x="294" y="345" width="32" height="32" stroke="#dbc17a" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><text class="tt" x="410" y="372" font-size="19">Respaldo inmutable</text><text class="tt sub" x="410" y="398" font-size="14">Copia fuera de sitio</text></g>
+        <g class="fo"><rect x="320" y="166" width="160" height="26" rx="13" fill="#dbc17a"/><text class="tt" x="400" y="184" font-size="13" fill="#0a1628" style="fill:#0a1628;font-weight:700">FALLA → CONMUTA</text></g>
+       </g>
+
+       <!-- 3 · DOCUMENTAR Y PROBAR -->
+       <g class="scene s2" data-i="2">
+        <rect x="50" y="60" width="220" height="330" rx="14" fill="#0d1b2f" stroke="#6fd6e8aa" stroke-width="2"/>
+        <text class="tt fu" x="160" y="102" font-size="22" fill="#dbc17a" style="--d:.1s;fill:#dbc17a">Plan DRP</text>
+        <g fill="#6fd6e84d">
+         <rect class="ln" x="76" y="130" width="170" height="9" rx="4.5" style="--d:.3s"/><rect class="ln" x="76" y="160" width="140" height="9" rx="4.5" style="--d:.6s"/><rect class="ln" x="76" y="190" width="160" height="9" rx="4.5" style="--d:.9s"/><rect class="ln" x="76" y="220" width="120" height="9" rx="4.5" style="--d:1.2s"/>
+         <rect class="ln" x="76" y="250" width="170" height="9" rx="4.5" style="--d:1.5s"/><rect class="ln" x="76" y="280" width="100" height="9" rx="4.5" style="--d:1.8s"/><rect class="ln" x="76" y="310" width="150" height="9" rx="4.5" style="--d:2.1s"/><rect class="ln" x="76" y="340" width="90" height="9" rx="4.5" style="--d:2.4s"/>
+        </g>
+        <path class="lane" d="M270 225 L322 225" data-n="2" data-d="1.6"/>
+        <circle cx="410" cy="225" r="85" fill="#0d1b2f" stroke="#ffffff22" stroke-width="10"/>
+        <circle class="arc" cx="410" cy="225" r="85" pathLength="100"/>
+        <line class="hand" x1="410" y1="225" x2="410" y2="160"/>
+        <circle cx="410" cy="225" r="6" fill="#f4f2ec"/>
+        <text class="ser tt" x="410" y="280" font-size="26" fill="#dbc17a" style="fill:#dbc17a">RTO</text>
+        <text class="tt sub" x="410" y="338" font-size="16">tiempo medido</text>
+        <path class="lane" d="M500 225 L540 225" data-n="2" data-d="1.4" data-c="#7be0a3"/>
+        <g><circle cx="568" cy="112" r="15" fill="none" stroke="#6fd6e8" stroke-width="2.5"/><path class="tk" pathLength="1" d="M561 112l5 5 9-10" style="--d:1.6s"/><text class="fu" x="596" y="119" font-size="19" style="--d:1s">Restauración real</text></g>
+        <g><circle cx="568" cy="187" r="15" fill="none" stroke="#6fd6e8" stroke-width="2.5"/><path class="tk" pathLength="1" d="M561 187l5 5 9-10" style="--d:3.2s"/><text class="fu" x="596" y="194" font-size="19" style="--d:2.6s">Tiempo vs. RTO</text></g>
+        <g><circle cx="568" cy="262" r="15" fill="none" stroke="#6fd6e8" stroke-width="2.5"/><path class="tk" pathLength="1" d="M561 262l5 5 9-10" style="--d:4.8s"/><text class="fu" x="596" y="269" font-size="19" style="--d:4.2s">Acta firmada</text></g>
+        <g class="stamp"><rect x="580" y="320" width="170" height="60" rx="8" fill="#dbc17a14" stroke="#dbc17a" stroke-width="3.5"/><text class="tt ser" x="665" y="362" font-size="30" style="fill:#dbc17a">ACTA</text></g>
+       </g>
+
+       <!-- 4 · RESPONDER -->
+       <g class="scene s3" data-i="3">
+        <text class="st a" x="40" y="62" font-size="26">● Alerta</text><text class="st b" x="40" y="62" font-size="26">● Contenido</text><text class="st c" x="40" y="62" font-size="26">● Restaurado</text>
+        <g>
+         <g class="nd in" style="--a:.4s;--b:3.9s"><rect class="nd" x="40" y="130" width="90" height="90" rx="16"/><use href="#i-srv" x="62" y="152" width="46" height="46" stroke="#f4f2ec" fill="none" stroke-width="1.4" stroke-linecap="round"/></g>
+         <g class="nd in" style="--a:.75s;--b:4.35s"><rect class="nd" x="160" y="130" width="90" height="90" rx="16"/><use href="#i-srv" x="182" y="152" width="46" height="46" stroke="#f4f2ec" fill="none" stroke-width="1.4" stroke-linecap="round"/></g>
+         <g class="nd in" style="--a:1.1s;--b:4.8s"><rect class="nd" x="280" y="130" width="90" height="90" rx="16"/><use href="#i-srv" x="302" y="152" width="46" height="46" stroke="#f4f2ec" fill="none" stroke-width="1.4" stroke-linecap="round"/></g>
+         <g class="nd in" style="--a:1.45s;--b:5.25s"><rect class="nd" x="400" y="130" width="90" height="90" rx="16"/><use href="#i-srv" x="422" y="152" width="46" height="46" stroke="#f4f2ec" fill="none" stroke-width="1.4" stroke-linecap="round"/></g>
+         <g class="nd"><rect class="nd" x="530" y="130" width="90" height="90" rx="16"/><use href="#i-srv" x="552" y="152" width="46" height="46" stroke="#f4f2ec" fill="none" stroke-width="1.4" stroke-linecap="round"/></g>
+         <g class="nd"><rect class="nd" x="650" y="130" width="90" height="90" rx="16"/><use href="#i-srv" x="672" y="152" width="46" height="46" stroke="#f4f2ec" fill="none" stroke-width="1.4" stroke-linecap="round"/></g>
+        </g>
+        <rect class="bar" x="505" y="100" width="12" height="160" rx="4"/>
+        <text class="tt sub fu" x="511" y="88" font-size="15" style="--d:2.5s;fill:#dbc17a">contención</text>
+        <text class="fu" x="40" y="298" font-size="19" style="--d:3.6s">Restauración por criticidad</text>
+        <rect x="40" y="312" width="700" height="12" rx="6" fill="#ffffff1a"/><rect class="pg" x="40" y="312" width="700" height="12" rx="6"/>
+        <g class="fu" style="--d:2.8s"><rect x="40" y="356" width="200" height="58" rx="12" fill="#0d1b2f" stroke="#dbc17a99" stroke-width="2"/><text class="tt" x="140" y="392" font-size="19">Evidencia</text></g>
+        <path class="lane" d="M240 385 L290 385" data-n="2" data-d="1.4" data-c="#dbc17a"/>
+        <g class="fu" style="--d:3.4s"><rect x="290" y="356" width="220" height="58" rx="12" fill="#0d1b2f" stroke="#dbc17a99" stroke-width="2"/><text class="tt" x="400" y="392" font-size="18">Custodia</text></g>
+        <path class="lane" d="M510 385 L560 385" data-n="2" data-d="1.4" data-c="#dbc17a"/>
+        <g class="fu" style="--d:4s"><rect x="560" y="356" width="180" height="58" rx="12" fill="#0d1b2f" stroke="#dbc17a99" stroke-width="2"/><text class="tt" x="650" y="392" font-size="19">Informe</text></g>
+       </g>
+
+       <!-- 5 · MEJORAR -->
+       <g class="scene s4" data-i="4">
+        <circle class="ring" cx="200" cy="235" r="95"/>
+        <g class="rg"><path d="M193 132l14 8-14 8z" fill="#6fd6e8"/><path d="M193 132l14 8-14 8z" fill="#6fd6e8" transform="rotate(120 200 235)"/><path d="M193 132l14 8-14 8z" fill="#6fd6e8" transform="rotate(240 200 235)"/></g>
+        <text class="ser tt fu" x="200" y="246" font-size="30" style="--d:.2s;fill:#dbc17a">Mejora</text>
+        <text class="tt fu" x="200" y="112" font-size="20" style="--d:.4s">Revisar</text>
+        <text class="fu" x="296" y="298" font-size="20" style="--d:.8s">Probar</text>
+        <text class="fu" text-anchor="end" x="104" y="298" font-size="20" style="--d:1.2s">Ajustar</text>
+        <path class="orbit" d="M200 140 a95 95 0 1 1 -0.1 0" fill="none" stroke="none"/>
+        <path class="lane" d="M200 140 a95 95 0 1 1 -0.1 0" data-n="4" data-d="5" style="stroke:none"/>
+        <text class="tt fu" x="600" y="84" font-size="20" style="--d:.3s">Tiempo de recuperación</text>
+        <line x1="440" y1="210" x2="760" y2="210" stroke="#dbc17a" stroke-width="2" stroke-dasharray="8 8"/>
+        <text class="sub" text-anchor="end" x="760" y="198" font-size="15" style="fill:#dbc17a">RTO pactado</text>
+        <path class="trend" pathLength="1" d="M470 140 L555 180 L640 235 L725 275"/>
+        <circle class="pt" cx="470" cy="140" r="9" style="--d:.6s"/><circle class="pt" cx="555" cy="180" r="9" style="--d:1.5s"/><circle class="pt ok" cx="640" cy="235" r="9" style="--d:2.5s"/><circle class="pt ok" cx="725" cy="275" r="9" style="--d:3.5s"/>
+        <g class="tt fu" style="--d:.5s"><text x="470" y="330" font-size="17">S1</text></g><g class="tt fu" style="--d:1.4s"><text class="tt" x="555" y="330" font-size="17">S2</text></g><g class="tt fu" style="--d:2.4s"><text class="tt" x="640" y="330" font-size="17">S3</text></g><g class="tt fu" style="--d:3.4s"><text class="tt" x="725" y="330" font-size="17">S4</text></g>
+        <text class="tt sub fu" x="600" y="362" font-size="14" style="--d:.6s">simulacros</text>
+        <g class="fu" style="--d:4.2s"><rect x="568" y="378" width="190" height="34" rx="17" fill="#7be0a31f" stroke="#7be0a3" stroke-width="2"/><text class="tt" x="663" y="401" font-size="17" style="fill:#7be0a3">Dentro del RTO</text></g>
+       </g>
+      </g>
+     </svg>
+     <div class="cut" aria-hidden="true"></div>
+     <div class="poster" id="poster"><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span><strong>Toque para ver el proceso</strong><span>5 capas · menos de un minuto · con narración</span></div>
+    </div>
+    <div class="cine-ctl" id="cine-ctl" hidden>
+     <button type="button" class="cc" data-a="prev" aria-label="Capa anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+     <button type="button" class="cc big" data-a="play" aria-label="Pausar" aria-pressed="false"><svg class="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></svg><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+     <button type="button" class="cc" data-a="next" aria-label="Capa siguiente"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+     <button type="button" class="cc" data-a="voice" aria-label="Narración con voz" aria-pressed="true"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path class="vw" d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg></button>
+     <button type="button" class="cc" data-a="replay" aria-label="Ver de nuevo"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 3-6.2M4 4v4h4"/></svg></button>
+     <div class="prog" aria-hidden="true"><i id="cine-prog"></i></div>
+    </div>
+   </div>
+   <div class="cap panel" id="cap">
+    <div class="cap-n" id="cap-n">Las cinco capas</div>
+    <p class="cap-q" id="cap-q">Cada capa responde a una pregunta de auditor.</p>
+    <h3 class="cap-t" id="cap-t">Proceso de recuperación</h3>
+    <p class="cap-x" aria-hidden="true"><span class="ghost" id="cap-ghost">Toque la animación para empezar el recorrido. Verá cómo se identifican las prioridades, se diseña la arquitectura, se prueba el plan, se responde ante un incidente y se mejora.</span><span class="typed" id="cap-typed">Toque la animación para empezar el recorrido. Verá cómo se identifican las prioridades, se diseña la arquitectura, se prueba el plan, se responde ante un incidente y se mejora.</span></p>
+    <p class="sr" id="cap-sr" aria-live="polite"></p>
+    <a class="btn" id="cap-cta" href="#contacto" hidden>Solicitar diagnóstico inicial →</a>
+   </div>
+  </div>
  </div>
 </div></section>
 
@@ -504,19 +800,60 @@ if('IntersectionObserver' in window&&!reduce.matches){const io=new IntersectionO
 setTimeout(()=>rv.forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight)reveal(el)}),1200);
 /* ---------- tarjetas: foco de luz e inclinación ---------- */
 $$('.card').forEach(c=>{c.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;const r=c.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;c.style.setProperty('--mx',x+'px');c.style.setProperty('--my',y+'px');if(c.classList.contains('tilt')&&!reduce.matches){c.style.setProperty('--ty',((x/r.width-.5)*5).toFixed(2)+'deg');c.style.setProperty('--tx',((.5-y/r.height)*5).toFixed(2)+'deg')}});c.addEventListener('pointerleave',()=>{c.style.setProperty('--tx','0deg');c.style.setProperty('--ty','0deg')})});
-/* ---------- pestañas de arquitectura ---------- */
-const tabs=$$('.tab'),tps=$$('.tp'),tind=$('#tabind'),tl=$('#tablist');let cur=0;
-function ind(){const t=tabs[cur];tind.style.width=t.offsetWidth+'px';tind.style.transform=`translateX(${t.offsetLeft}px)`}
-function showTab(n,focus){if(n===cur){return}const back=n<cur,old=tps[cur],nw=tps[n];cur=n;
- tabs.forEach((t,i)=>{t.setAttribute('aria-selected',String(i===n));t.tabIndex=i===n?0:-1});ind();
- if(focus)tabs[n].focus();tabs[n].scrollIntoView({inline:'center',block:'nearest',behavior:reduce.matches?'auto':'smooth'});
- old.classList.remove('ent','back');old.classList.add('sal');
- setTimeout(()=>{old.hidden=true;old.classList.remove('sal')},reduce.matches?0:280);
- setTimeout(()=>{nw.hidden=false;nw.classList.remove('ent','back');void nw.offsetWidth;nw.classList.add('ent');if(back)nw.classList.add('back');nw.classList.add('in')},reduce.matches?0:260)}
-tabs.forEach((t,i)=>t.addEventListener('click',()=>showTab(i)));
-tl.addEventListener('keydown',e=>{const k={ArrowRight:1,ArrowLeft:-1}[e.key];if(k){e.preventDefault();showTab((cur+k+tabs.length)%tabs.length,true)}else if(e.key==='Home'){e.preventDefault();showTab(0,true)}else if(e.key==='End'){e.preventDefault();showTab(tabs.length-1,true)}});
-addEventListener('resize',ind);document.fonts&&document.fonts.ready.then(ind);setTimeout(ind,300);tps[0].classList.add('in');
-$$('.tp ul.chk').forEach(u=>u.classList.add('in'));
+/* ---------- flujo cinematográfico de las cinco capas (solo arranca con un clic) ---------- */
+(()=>{
+ const cine=$('#cine'),stage=$('#stage');if(!cine||!stage)return;
+ const NS='http://www.w3.org/2000/svg',svg=$('svg',stage),scenes=$$('.scene',stage),rn=$$('.rn',cine),ctl=$('#cine-ctl'),prog=$('#cine-prog'),cut=$('.cut',stage);
+ const capN=$('#cap-n'),capQ=$('#cap-q'),capT=$('#cap-t'),ghost=$('#cap-ghost'),typed=$('#cap-typed'),sr=$('#cap-sr'),cta=$('#cap-cta'),btnPlay=$('[data-a=play]',ctl),btnVoice=$('[data-a=voice]',ctl);
+ const data=$$('#capas li').map(li=>({t:$('h3',li).textContent,q:$('.q',li).textContent,x:$$('p',li).pop().textContent.trim()}));
+ const last=scenes.length-1,synth='speechSynthesis' in window&&'SpeechSynthesisUtterance' in window;
+ let st='idle',cur=0,t=0,dur=9000,voice=synth&&!reduce.matches,speaking=false,typeTimer=0,auto=false,fallback=0;
+ if(!synth)btnVoice.hidden=true;btnVoice.setAttribute('aria-pressed',String(voice));
+ /* paquetes de datos que fluyen por cada carril (SMIL: funciona en todos los navegadores) */
+ if(!reduce.matches)$$('.lane',stage).forEach(p=>{const n=+p.dataset.n||3,d=+p.dataset.d||2.4,col=p.dataset.c||'#6fd6e8';
+  for(let k=0;k<n;k++){const c=document.createElementNS(NS,'circle');c.setAttribute('r','4.5');c.setAttribute('fill',col);c.setAttribute('class','pk');c.style.color=col;
+   const a=document.createElementNS(NS,'animateMotion');a.setAttribute('dur',d+'s');a.setAttribute('repeatCount','indefinite');a.setAttribute('begin','indefinite');a.setAttribute('path',p.getAttribute('d'));a.dataset.off=(d/n*k).toFixed(2);c.appendChild(a);p.after(c)}});
+ const pk=(s,on)=>{if(reduce.matches)return;$$('animateMotion',s).forEach(a=>{try{on?a.beginElementAt(-(parseFloat(a.dataset.off)||0)):a.endElement()}catch(e){}})};
+ const pickVoice=()=>{const v=speechSynthesis.getVoices();return v.find(x=>/^es[-_]MX/i.test(x.lang))||v.find(x=>/^es/i.test(x.lang))||null};
+ function speak(txt){if(!synth||!voice)return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(txt),v=pickVoice();if(v){u.voice=v;u.lang=v.lang}else u.lang='es-MX';u.rate=1.02;speaking=true;u.onend=u.onerror=()=>{speaking=false};speechSynthesis.speak(u);clearTimeout(fallback);fallback=setTimeout(()=>{if(speaking&&!speechSynthesis.speaking&&!speechSynthesis.pending)speaking=false},1800)}catch(e){speaking=false}}
+ function hush(){if(!synth)return;try{speechSynthesis.cancel()}catch(e){}speaking=false}
+ function caption(i){const d=data[i];capN.textContent=`Capa ${i+1} de ${data.length}`;capQ.textContent=d.q;capT.textContent=d.t;ghost.textContent=d.x;sr.textContent=`Capa ${i+1} de ${data.length}: ${d.t}. ${d.q} ${d.x}`;
+  clearInterval(typeTimer);if(reduce.matches){typed.textContent=d.x;return}
+  typed.textContent='';let n=0;const step=Math.max(18,Math.round(dur*.8/d.x.length));typeTimer=setInterval(()=>{if(st==='paused'||document.hidden)return;n++;typed.textContent=d.x.slice(0,n);if(n>=d.x.length)clearInterval(typeTimer)},step)}
+ function setScene(i){const prev=cur;cur=i;cine.dataset.cur=i;
+  scenes.forEach((s,k)=>{
+   if(k===i){s.classList.remove('out','live','on');void s.getBoundingClientRect();s.classList.add('live');requestAnimationFrame(()=>requestAnimationFrame(()=>s.classList.add('on')));pk(s,true)}
+   else if(k===prev&&prev!==i){s.classList.remove('on');s.classList.add('out');pk(s,false);setTimeout(()=>{if(cur!==k)s.classList.remove('live','out')},950)}
+   else if(k!==i&&!s.classList.contains('out')){s.classList.remove('on','live');pk(s,false)}});
+  rn.forEach((b,k)=>{b.classList.toggle('on',k===i);b.classList.toggle('done',k<i);b.setAttribute('aria-current',k===i?'step':'false')});
+  cine.style.setProperty('--rp',(i/last).toFixed(3));
+  cut.classList.remove('go');void cut.offsetWidth;if(!reduce.matches)cut.classList.add('go');
+  t=0;prog.style.transform='scaleX(0)';cta.hidden=true;
+  dur=Math.min(11500,Math.max(7500,data[i].x.length*58));
+  caption(i);hush();speak(data[i].x)}
+ function go(i){i=Math.max(0,Math.min(last,i));if(st==='idle'){st=reduce.matches?'manual':'playing';cine.dataset.state=st;stage.classList.add('play');ctl.hidden=false;stage.removeAttribute('aria-label');stage.setAttribute('aria-label','Animación del proceso. Pulse Enter para pausar o reanudar');stage.setAttribute('aria-pressed','false')}
+  else if(st==='done')set('playing');
+  setScene(i)}
+ function set(s){st=s;cine.dataset.state=s;stage.classList.toggle('paused',s==='paused');btnPlay.setAttribute('aria-pressed',String(s==='paused'||s==='done'));btnPlay.setAttribute('aria-label',s==='paused'?'Reanudar':s==='done'?'Ver de nuevo':'Pausar')}
+ function pause(a){if(st!=='playing')return;auto=!!a;set('paused');try{svg.pauseAnimations()}catch(e){}if(synth)try{speechSynthesis.pause()}catch(e){}}
+ function resume(){if(st!=='paused')return;auto=false;set('playing');try{svg.unpauseAnimations()}catch(e){}if(synth)try{speechSynthesis.resume()}catch(e){}}
+ function finish(){set('done');clearInterval(typeTimer);typed.textContent=data[cur].x;cta.hidden=false;prog.style.transform='scaleX(1)'}
+ setInterval(()=>{if(st!=='playing'||document.hidden)return;t+=100;prog.style.transform=`scaleX(${Math.min(1,t/dur)})`;
+  const wait=voice&&speaking&&t<dur+7000;if(t>=dur&&!wait){cur<last?setScene(cur+1):finish()}},100);
+ /* eventos */
+ cine.addEventListener('click',e=>{if(st!=='idle')return;const b=e.target.closest('.rn');go(b?+b.dataset.i:0)});
+ stage.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();if(st==='idle')go(0);else if(st==='playing')pause();else if(st==='paused')resume();else if(st==='done')go(0)}});
+ stage.addEventListener('click',()=>{if(st==='playing')pause();else if(st==='paused')resume()});
+ rn.forEach(b=>b.addEventListener('click',e=>{if(st==='idle')return;e.stopPropagation();go(+b.dataset.i)}));
+ ctl.addEventListener('click',e=>{const b=e.target.closest('.cc');if(!b)return;e.stopPropagation();const a=b.dataset.a;
+  if(a==='prev')go(cur-1);else if(a==='next')go(cur+1);else if(a==='replay')go(0);
+  else if(a==='play'){if(st==='playing')pause();else if(st==='paused')resume();else if(st==='done'||st==='manual')go(st==='done'?0:cur)}
+  else if(a==='voice'){voice=!voice;b.setAttribute('aria-pressed',String(voice));if(!voice)hush();else if(st!=='idle')speak(data[cur].x)}});
+ cine.addEventListener('keydown',e=>{if(st==='idle')return;if(e.key==='ArrowRight'){e.preventDefault();go(cur+1)}else if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1)}});
+ if('IntersectionObserver' in window)new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting&&st==='playing')pause(true);else if(e.isIntersecting&&auto&&st==='paused')resume()}),{threshold:.25}).observe(stage);
+ addEventListener('pagehide',hush);
+})();
+
 /* ---------- simulador ---------- */
 const RTO=[['30 minutos',.5],['1 hora',1],['2 horas',2],['4 horas',4],['8 horas',8],['12 horas',12],['24 horas',24],['48 horas',48],['72 horas',72]];
 const RPO=[['cero (sin pérdida)',0],['15 minutos',.25],['1 hora',1],['4 horas',4],['12 horas',12],['24 horas',24]];
