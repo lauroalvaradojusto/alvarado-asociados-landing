@@ -3,12 +3,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="dark">
-<title>Compliance TI · Planes DRP y Alta Disponibilidad | Alvarado & Asociados – División Informática</title>
-<meta name="description" content="Arquitectura de servicios de compliance tecnológico: planes de recuperación ante desastres (DRP), alta disponibilidad de soluciones informáticas, continuidad del negocio, póliza de continuidad y respuesta a ransomware.">
+<title>Continuidad tecnológica y planes DRP con respaldo jurídico | Alvarado &amp; Asociados</title>
+<meta name="description" content="¿Cuánto tarda su empresa en volver a operar si sus sistemas se detienen? Lo medimos, lo reducimos con una arquitectura probada y lo dejamos por escrito: planes DRP, alta disponibilidad, póliza de continuidad y respuesta a ransomware, con respaldo jurídico.">
 <link rel="canonical" href="https://alvarado-asociados-landing.vercel.app/compliance-informatica">
 <link rel="icon" type="image/x-icon" href="favicon.ico"><link rel="icon" type="image/png" href="favicon.png">
-<meta property="og:title" content="División Informática | Planes DRP y Alta Disponibilidad">
-<meta property="og:description" content="Tu operación no se detiene. Tu información, a salvo. DRP, alta disponibilidad, póliza de continuidad y respuesta a incidentes.">
+<meta property="og:title" content="Si sus sistemas se detienen mañana, ¿cuánto tarda en volver a facturar?">
+<meta property="og:description" content="Recuperación medida, probada y comprometida por contrato. Ingeniería de continuidad y respaldo jurídico en una sola firma.">
 <meta property="og:image" content="https://alvarado-asociados-landing.vercel.app/og-informatica.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Alvarado & Asociados, División Informática: planes DRP y alta disponibilidad">
@@ -296,6 +296,20 @@ html:not(.js) .cine{display:none}
 }
 @media(prefers-reduced-motion:reduce){.stage.play #cam{animation:none}.poster .play::before{animation:none}.cap-x .typed::after{animation:none}.pk{display:none}.cut{display:none}}
 
+.punch{margin:clamp(28px,4vw,44px) 0 0;font:400 clamp(1.25rem,2.6vw,1.9rem)/1.3 Georgia,serif;text-align:center;max-width:860px;margin-inline:auto}
+.ba{display:grid;gap:12px}
+.ba-h{display:grid;grid-template-columns:1fr 40px 1fr;gap:16px;padding:0 22px;font:600 .72rem/1.4 system-ui;letter-spacing:.2em;text-transform:uppercase}
+.ba-h span:first-child{color:var(--muted)}.ba-h span:last-child{color:var(--cy)}
+.ba-row{display:grid;grid-template-columns:1fr 40px 1fr;gap:16px;align-items:center;padding:18px 22px;border:1px solid var(--line);border-radius:14px;background:#ffffff06;transition:border-color .35s,background .35s}
+.ba-row:hover{border-color:#6fd6e866;background:#6fd6e80a}
+.ba-row p{margin:0;font-size:.98rem}
+.ba-row .antes{color:#98a6b5;position:relative;padding-left:26px}
+.ba-row .antes::before{content:"✕";position:absolute;left:0;top:0;color:#ff8f8f;font-weight:700}
+.ba-row .despues{color:var(--text);font-weight:600;position:relative;padding-left:26px}
+.ba-row .despues::before{content:"✓";position:absolute;left:0;top:0;color:var(--cy);font-weight:700}
+.ba-row .fl{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#6fd6e814;color:var(--cy);font-weight:700;transition:transform .5s var(--ease)}
+.ba-row:hover .fl{transform:translateX(4px)}
+@media(max-width:760px){.ba-h{display:none}.ba-row{grid-template-columns:1fr;gap:10px}.ba-row .fl{transform:rotate(90deg);width:32px;height:32px}.ba-row:hover .fl{transform:rotate(90deg)}}
 /* simulador */
 .sim{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,48px)}
 .ctl{display:grid;gap:22px}
@@ -404,14 +418,14 @@ footer .brand{color:var(--text);margin-bottom:8px;font-size:1.2rem}
  <nav id="navegacion" aria-label="Principal">
   <div class="dd" id="dd-serv" style="--i:0"><button type="button" class="dd-btn" aria-expanded="false" aria-controls="dd-serv-p">Servicios <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 4l4 4 4-4"/></svg></button>
    <div class="dd-panel" id="dd-serv-p"><div class="dd-in">
-    <a href="#poliza" style="--i:0"><b>Póliza de continuidad</b><small>Recuperación con RTO comprometido por contrato</small></a>
-    <a href="#drp" style="--i:1"><b>Plan de recuperación (DRP)</b><small>Procedimientos probados, con actas</small></a>
-    <a href="#alta-disponibilidad" style="--i:2"><b>Alta disponibilidad</b><small>Sin un solo punto de falla</small></a>
-    <a href="#respuesta" style="--i:3"><b>Respuesta a incidentes</b><small>Ransomware, caídas y evidencia forense</small></a>
+    <a href="#poliza" style="--i:0"><b>Póliza de continuidad</b><small>Cuota predecible, recuperación comprometida</small></a>
+    <a href="#drp" style="--i:1"><b>Plan de recuperación (DRP)</b><small>Ejecutable a las 3 de la mañana</small></a>
+    <a href="#alta-disponibilidad" style="--i:2"><b>Alta disponibilidad</b><small>Que una falla no sea una caída</small></a>
+    <a href="#respuesta" style="--i:3"><b>Respuesta a incidentes</b><small>Ransomware y caídas: atención inmediata</small></a>
    </div></div></div>
   <a href="#arquitectura" style="--i:1">Arquitectura</a>
-  <a href="#simulador" style="--i:2">Simulador</a>
-  <a href="#cumplimiento" style="--i:3">Cumplimiento</a>
+  <a href="#simulador" style="--i:2">Calcular riesgo</a>
+  <a href="#inversion" style="--i:3">Por qué invertir</a>
   <a href="/" style="--i:4">Firma jurídica</a>
   <a class="btn" href="#contacto">Diagnóstico inicial</a>
  </nav></div></header>
@@ -419,17 +433,17 @@ footer .brand{color:var(--text);margin-bottom:8px;font-size:1.2rem}
 <main id="contenido">
 <section class="hero" id="inicio"><div class="wrap hero-grid">
  <div>
-  <span class="eyebrow cy rv">Compliance · División Informática</span>
-  <h1 class="rv" style="--d:1">Tu operación no se detiene.<br><span class="gold">Tu información, a salvo.</span></h1>
-  <p class="lead rv" style="--d:2">Arquitectura de servicios de compliance tecnológico: planes de recuperación ante desastres (DRP), alta disponibilidad de soluciones informáticas y continuidad del negocio, alineados con las obligaciones que su empresa debe demostrar.</p>
-  <p class="hero-proof rv" style="--d:3">Prevenir el incidente. Recuperarse a tiempo. Poder probarlo.</p>
-  <div class="actions rv" style="--d:4"><a class="btn" href="#contacto">Solicitar diagnóstico inicial →</a><a class="btn secondary" href="tel:+525625135109">Llamar a la división</a></div>
+  <span class="eyebrow cy rv">Continuidad tecnológica con respaldo jurídico</span>
+  <h1 class="rv" style="--d:1">Si sus sistemas se detienen mañana,<br><span class="gold">¿cuánto tarda en volver a facturar?</span></h1>
+  <p class="lead rv" style="--d:2">Esa respuesta no debería descubrirse el día del incidente. Nosotros la medimos hoy, la reducimos con una arquitectura probada y la dejamos por escrito en un contrato. Ingeniería de recuperación y respaldo legal, en una sola firma.</p>
+  <ul class="chips rv" style="--d:3"><li>Tiempo de recuperación pactado por contrato</li><li>Evidencia lista para su aseguradora y su auditor</li><li>Un solo responsable, técnico y legal</li></ul>
+  <div class="actions rv" style="--d:4"><a class="btn" href="#contacto">Quiero conocer mi tiempo de recuperación →</a><a class="btn secondary" href="tel:+525625135109">¿Incidente en curso? Llame ahora</a></div>
   <div class="routes">
-   <a class="route rv" style="--d:5" href="#respuesta"><strong>¿Sufrió ransomware o una caída? →</strong><span>Contención, evidencia forense y restauración ordenada.</span></a>
-   <a class="route rv" style="--d:6" href="#poliza"><strong>¿Quiere asegurar la recuperación? →</strong><span>Póliza de continuidad con RTO comprometido en el contrato.</span></a>
-   <a class="route rv" style="--d:7" href="#drp"><strong>¿Le piden un plan de continuidad? →</strong><span>DRP documentado, con simulacros y evidencia.</span></a>
+   <a class="route rv" style="--d:5" href="#respuesta"><strong>Nos atacaron o se cayó todo →</strong><span>Contención inmediata, evidencia con cadena de custodia y restauración en orden.</span></a>
+   <a class="route rv" style="--d:6" href="#drp"><strong>Nos piden demostrar continuidad →</strong><span>Auditor, cliente corporativo o aseguradora: plan, simulacro y acta.</span></a>
+   <a class="route rv" style="--d:7" href="#poliza"><strong>Queremos dejar de depender de la suerte →</strong><span>Póliza de continuidad: cuota predecible y recuperación comprometida.</span></a>
   </div>
-  <p class="coverage rv" style="--d:8"><strong>Atención:</strong> CDMX · Estado de México · Querétaro · Puebla, y en línea en todo México. Infraestructuras Windows, Linux (Red Hat), VMware ESXi y nube. Los tiempos de recuperación se definen y se prueban con cada cliente; no se prometen cifras sin medirlas en su infraestructura.</p>
+  <p class="coverage rv" style="--d:8"><strong>Cobertura:</strong> CDMX · Estado de México · Querétaro · Puebla, y en línea en todo México. Windows y Windows Server, Red Hat Enterprise Linux, VMware ESXi y nube. Cada tiempo de recuperación se mide en su infraestructura antes de comprometerlo: no vendemos cifras de catálogo.</p>
  </div>
  <div class="diag rv wipe" style="--d:3">
   <svg class="diagram" viewBox="0 0 520 440" role="img" aria-label="Esquema: si el servidor de producción falla, los usuarios pasan automáticamente a la réplica y se conserva un respaldo inmutable">
@@ -449,15 +463,38 @@ footer .brand{color:var(--text);margin-bottom:8px;font-size:1.2rem}
  </div>
 </div></section>
 
+<section id="riesgo"><div class="wrap">
+ <div class="head"><span class="eyebrow cy rv">El costo que no aparece en el presupuesto</span><h2 class="rv" style="--d:1">Una caída no empieza siendo cara.<br><span class="gold">Se vuelve cara por improvisar.</span></h2><p class="lead rv" style="--d:2">Así suele avanzar un incidente cuando nadie decidió antes qué hacer. Ninguno de estos momentos es técnico al principio; todos terminan siéndolo.</p></div>
+ <div class="grid">
+  <article class="card rv tilt" style="--d:1"><span class="n">Hora 1</span><h3>La operación se congela</h3><p>No sale una factura, no se surte un pedido, no se paga la nómina. Su equipo espera y sus clientes empiezan a llamar.</p></article>
+  <article class="card rv tilt" style="--d:2"><span class="n">Hora 3</span><h3>El respaldo no responde</h3><p>Se descubre que la copia estaba incompleta, desactualizada o también cifrada. Nadie la había restaurado nunca.</p></article>
+  <article class="card rv tilt" style="--d:3"><span class="n">Semana 1</span><h3>La aseguradora pide pruebas</h3><p>¿Qué pasó, cuándo y qué hicieron? Sin bitácora, actas ni evidencia preservada, la reclamación se complica.</p></article>
+  <article class="card rv tilt" style="--d:4"><span class="n">Mes 1</span><h3>La pregunta llega a la dirección</h3><p>Consejo, clientes o autoridad preguntan por las medidas de seguridad que la ley de protección de datos exige demostrar. Alguien tiene que responder.</p></article>
+ </div>
+ <p class="punch rv">La diferencia entre un mal día y una crisis no es la tecnología que tiene.<br><span class="gold">Es si ya decidió, probó y documentó qué hacer.</span></p>
+</div></section>
+
+<section class="alt" id="cambio"><div class="wrap">
+ <div class="head"><span class="eyebrow cy rv">Lo que cambia con un plan</span><h2 class="rv" style="--d:1">De depender de la suerte<br><span class="gold">a tener la respuesta por escrito.</span></h2></div>
+ <div class="ba">
+  <div class="ba-h rv" aria-hidden="true"><span>Hoy</span><span></span><span>Con Alvarado &amp; Asociados</span></div>
+  <div class="ba-row rv" style="--d:1"><p class="antes">Nadie sabe cuánto tardaría en volver a operar.</p><span class="fl" aria-hidden="true">→</span><p class="despues">Un tiempo de recuperación por sistema, aprobado por la dirección y medido en simulacro.</p></div>
+  <div class="ba-row rv" style="--d:2"><p class="antes">Un respaldo que «se supone» que funciona.</p><span class="fl" aria-hidden="true">→</span><p class="despues">Restauración real probada, con tiempos y acta firmada.</p></div>
+  <div class="ba-row rv" style="--d:3"><p class="antes">Cada incidente se resuelve sobre la marcha.</p><span class="fl" aria-hidden="true">→</span><p class="despues">Un plan paso a paso: quién decide, quién ejecuta y quién comunica.</p></div>
+  <div class="ba-row rv" style="--d:4"><p class="antes">La aseguradora y el auditor piden pruebas que no existen.</p><span class="fl" aria-hidden="true">→</span><p class="despues">Bitácoras, actas y dictamen técnico listos antes de que se los pidan.</p></div>
+  <div class="ba-row rv" style="--d:5"><p class="antes">Un proveedor técnico y otro legal, con dos versiones de lo ocurrido.</p><span class="fl" aria-hidden="true">→</span><p class="despues">Un solo responsable que firma la parte técnica y la jurídica.</p></div>
+ </div>
+</div></section>
+
 <section class="alt" id="arquitectura"><div class="wrap">
- <div class="head"><span class="eyebrow cy rv">Arquitectura de servicios</span><h2 class="rv" style="--d:1">Cinco capas, un solo objetivo:<br>que su operación sobreviva.</h2><span class="line-draw rv"></span><p class="lead rv" style="--d:2">Cada capa responde a una pregunta que un auditor, un cliente o un juez puede hacerle a su empresa después de un incidente. Toque la sección para ver el proceso en acción.</p></div>
+ <div class="head"><span class="eyebrow cy rv">Arquitectura de servicios</span><h2 class="rv" style="--d:1">Cinco capas, un solo objetivo:<br>que su operación sobreviva.</h2><span class="line-draw rv"></span><p class="lead rv" style="--d:2">Cada capa responde a una pregunta que un auditor, una aseguradora o un juez le hará a su empresa después de un incidente. Toque la sección y vea el proceso completo, de principio a fin.</p></div>
 
  <ol class="capas" id="capas">
-  <li><h3>Diagnosticar</h3><p class="q">¿Sabe qué no puede dejar de funcionar, y cuánto aguantaría sin ello?</p><p>Primero se identifica qué procesos no pueden detenerse. Para cada uno se fija el RTO, el tiempo máximo sin servicio, y el RPO, la información que podría perderse.</p></li>
-  <li><h3>Diseñar</h3><p class="q">¿Su infraestructura sigue en pie si una pieza falla?</p><p>Con esos tiempos se diseña la arquitectura: servidores redundantes, réplica de datos y un respaldo inmutable fuera de sitio. Si una pieza falla, otra toma su lugar.</p></li>
-  <li><h3>Documentar y probar</h3><p class="q">¿Puede demostrar que su plan de recuperación funciona?</p><p>El plan se escribe paso a paso y se ensaya. Cada simulacro mide el tiempo real contra el RTO y termina en un acta firmada: eso es lo que un auditor pide ver.</p></li>
-  <li><h3>Responder</h3><p class="q">¿Qué hizo cuando ocurrió, y puede probarlo?</p><p>Si ocurre un incidente, se contiene para detener el avance, se preserva la evidencia con cadena de custodia y se restaura por prioridad hasta volver a operar.</p></li>
-  <li><h3>Mejorar</h3><p class="q">¿Qué cambió después, para que no se repita?</p><p>Cada simulacro o incidente deja aprendizajes. Se ajusta el plan, se repite la prueba y el tiempo de recuperación baja hasta quedar dentro del RTO pactado.</p></li>
+  <li><h3>Diagnosticar</h3><p class="q">¿Sabe qué no puede dejar de funcionar, y cuánto aguantaría sin ello?</p><p>Empezamos por su negocio, no por los servidores. Identificamos qué procesos no pueden detenerse y fijamos con la dirección dos números: cuánto tiempo puede estar sin servicio y cuánta información puede perder.</p></li>
+  <li><h3>Diseñar</h3><p class="q">¿Su infraestructura sigue en pie si una pieza falla?</p><p>Con esos números diseñamos la arquitectura justa: redundancia donde importa, réplica de datos y un respaldo inmutable fuera de sitio. Ni más inversión de la necesaria, ni menos protección de la que exige su riesgo.</p></li>
+  <li><h3>Documentar y probar</h3><p class="q">¿Puede demostrar que su plan de recuperación funciona?</p><p>Escribimos el plan paso a paso y lo ensayamos. Cada simulacro mide el tiempo real contra el objetivo y termina en un acta firmada: la prueba que su auditor y su aseguradora quieren ver.</p></li>
+  <li><h3>Responder</h3><p class="q">¿Qué hizo cuando ocurrió, y puede probarlo?</p><p>Si ocurre un incidente, contenemos el daño, preservamos la evidencia con cadena de custodia y restauramos por prioridad. Su equipo sabe qué hacer mientras nosotros documentamos cada paso.</p></li>
+  <li><h3>Mejorar</h3><p class="q">¿Qué cambió después, para que no se repita?</p><p>Cada simulacro e incidente deja aprendizajes. Ajustamos el plan, repetimos la prueba y el tiempo de recuperación baja hasta quedar dentro de lo pactado.</p></li>
  </ol>
 
  <div class="cine rv" id="cine" data-state="idle" data-cur="0">
@@ -623,24 +660,24 @@ footer .brand{color:var(--text);margin-bottom:8px;font-size:1.2rem}
 </div></section>
 
 <section id="drp"><div class="wrap split">
- <div><span class="eyebrow cy rv">Plan de recuperación ante desastres</span><h2 class="rv" style="--d:1">Cuando todo falla,<br><span class="gold">ya sabe qué hacer.</span></h2><p class="lead rv" style="--d:2">Un DRP no es una póliza en un cajón: es la secuencia exacta para volver a operar tras un ransomware, un incendio, una falla de hardware o el error de un usuario.</p>
-  <ul class="chk rv" style="--d:3"><li style="--i:0"><strong>Objetivos medibles:</strong> RTO y RPO por sistema, aprobados por la dirección.</li><li style="--i:1"><strong>Respaldo 3-2-1 con copia inmutable:</strong> tres copias, dos medios, una fuera de sitio y protegida contra borrado y cifrado.</li><li style="--i:2"><strong>Orden de restauración:</strong> primero lo que sostiene la operación (identidad, red, base de datos).</li><li style="--i:3"><strong>Roles y contactos:</strong> quién decide, quién ejecuta y a quién se informa.</li><li style="--i:4"><strong>Pruebas periódicas</strong> con acta, tiempos reales y acciones de mejora.</li></ul></div>
- <div class="panel rv" style="--d:2"><h3>Lo que recibe</h3><p>Plan DRP por escrito, matriz de sistemas críticos con RTO/RPO, diagrama de la arquitectura de respaldo, procedimientos de restauración probados y el acta del primer simulacro.</p><p class="note">Se adapta a su infraestructura: Windows y Windows Server, Red Hat Enterprise Linux, VMware ESXi y servicios en la nube.</p><div class="actions"><a class="btn" data-area="Plan de recuperación ante desastres (DRP)" href="#contacto">Solicitar un plan DRP →</a></div></div>
+ <div><span class="eyebrow cy rv">Plan de recuperación ante desastres (DRP)</span><h2 class="rv" style="--d:1">Un plan que se puede ejecutar<br><span class="gold">a las 3 de la mañana.</span></h2><p class="lead rv" style="--d:2">Ransomware, un incendio, un disco que falla o un error humano: el origen cambia, la pregunta es la misma. ¿Quién hace qué, en qué orden y en cuánto tiempo? Su DRP lo responde antes de que alguien tenga que improvisarlo.</p>
+  <ul class="chk rv" style="--d:3"><li style="--i:0"><strong>Objetivos medibles:</strong> tiempo máximo sin servicio (RTO) e información tolerable a perder (RPO), por sistema y aprobados por la dirección.</li><li style="--i:1"><strong>Respaldo 3-2-1 con copia inmutable:</strong> tres copias, dos medios y una fuera de sitio que ni un atacante puede borrar ni cifrar.</li><li style="--i:2"><strong>Orden de restauración:</strong> primero lo que sostiene la operación (identidad, red y bases de datos).</li><li style="--i:3"><strong>Roles y contactos:</strong> quién decide, quién ejecuta y a quién se informa, con suplentes.</li><li style="--i:4"><strong>Simulacros periódicos</strong> con acta, tiempos reales y acciones de mejora.</li></ul></div>
+ <div class="panel rv" style="--d:2"><h3>Lo que recibe</h3><p>Plan DRP por escrito, matriz de sistemas críticos con sus tiempos de recuperación, diagrama de la arquitectura de respaldo, procedimientos de restauración probados y el acta del primer simulacro.</p><p class="note">Se adapta a su infraestructura: Windows y Windows Server, Red Hat Enterprise Linux, VMware ESXi y servicios en la nube.</p><div class="actions"><a class="btn" data-area="Plan de recuperación ante desastres (DRP)" href="#contacto">Quiero mi plan DRP →</a></div></div>
 </div></section>
 
 <section class="alt" id="alta-disponibilidad"><div class="wrap">
- <div class="head"><span class="eyebrow cy rv">Alta disponibilidad de soluciones informáticas</span><h2 class="rv" style="--d:1">Diseñado para que una falla<br>no se convierta en una caída.</h2><p class="lead rv" style="--d:2">La alta disponibilidad reduce el tiempo fuera de servicio eliminando puntos únicos de falla. Se dimensiona según lo que cuesta a su empresa cada hora detenida.</p></div>
+ <div class="head"><span class="eyebrow cy rv">Alta disponibilidad de soluciones informáticas</span><h2 class="rv" style="--d:1">Que una falla sea un aviso,<br><span class="gold">no una caída.</span></h2><p class="lead rv" style="--d:2">La alta disponibilidad elimina los puntos únicos de falla: si una pieza se detiene, otra toma su lugar. Se dimensiona con una sola pregunta: ¿cuánto le cuesta cada hora sin servicio?</p></div>
  <div class="grid tiltgrid">
   <article class="card rv tilt" style="--d:1"><svg class="ic" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="6" rx="1.5"/><rect x="4" y="14" width="16" height="6" rx="1.5"/><path d="M8 7h.01M8 17h.01M12 7h4M12 17h4"/></svg><span class="n">Servidores</span><h3>Clúster y conmutación</h3><p>Servidores en clúster y máquinas virtuales que se reinician en otro equipo si el anfitrión falla; balanceo de carga para aplicaciones web y de negocio.</p></article>
   <article class="card rv tilt" style="--d:2"><svg class="ic" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg><span class="n">Datos</span><h3>Réplica y almacenamiento</h3><p>Réplica síncrona o asíncrona de bases de datos y almacenamiento con redundancia, según la distancia entre sitios y la pérdida de datos aceptable.</p></article>
   <article class="card rv tilt" style="--d:3"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.5"/><circle cx="5" cy="6" r="1.8"/><circle cx="19" cy="7" r="1.8"/><circle cx="18" cy="18" r="1.8"/><path d="M10 11L6.3 7.2M14 11l3.6-2.8M13.5 14l3.6 3"/></svg><span class="n">Red y energía</span><h3>Sin un solo punto de falla</h3><p>Enlaces y equipos de red duplicados, energía ininterrumpida y, cuando se justifica, un sitio alterno o en la nube para la recuperación.</p></article>
   <article class="card rv tilt" style="--d:4"><svg class="ic" viewBox="0 0 24 24"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg><span class="n">Monitoreo</span><h3>Detectar antes que el cliente</h3><p>Monitoreo de disponibilidad, capacidad y respaldos con alertas, y reportes de disponibilidad para la dirección.</p></article>
  </div>
- <div class="panel rv" style="margin-top:clamp(20px,3vw,32px)"><p style="margin:0"><strong>Sin promesas vacías:</strong> la disponibilidad (por ejemplo, 99.9&nbsp;%) se calcula y se compromete solo después de diseñar y medir la solución en su entorno. Alta disponibilidad no sustituye al respaldo: un ransomware se replica igual que un dato bueno.</p><div class="actions"><a class="btn" data-area="Alta disponibilidad de sistemas" href="#contacto">Evaluar la disponibilidad de mis sistemas →</a></div></div>
+ <div class="panel rv" style="margin-top:clamp(20px,3vw,32px)"><p style="margin:0"><strong>Sin promesas vacías:</strong> la disponibilidad (por ejemplo, 99.9&nbsp;%) se calcula y se compromete solo después de diseñar y medir la solución en su entorno. Alta disponibilidad no sustituye al respaldo: un ransomware se replica igual que un dato bueno.</p><div class="actions"><a class="btn" data-area="Alta disponibilidad de sistemas" href="#contacto">Evaluar mis puntos únicos de falla →</a></div></div>
 </div></section>
 
 <section id="simulador"><div class="wrap">
- <div class="head"><span class="eyebrow cy rv">Simulador orientativo</span><h2 class="rv" style="--d:1">¿Cuánto puede permitirse<br><span class="gold">estar detenido?</span></h2><p class="lead rv" style="--d:2">Mueva los controles y vea qué significan el RTO y el RPO para su operación y qué tipo de arquitectura suele corresponder. Es una guía para empezar la conversación, no una cotización.</p></div>
+ <div class="head"><span class="eyebrow cy rv">Póngale número a su riesgo</span><h2 class="rv" style="--d:1">¿Cuánto le cuesta<br><span class="gold">una hora detenida?</span></h2><p class="lead rv" style="--d:2">Mueva los controles y escriba su propia cifra. Verá qué significa para su operación y qué arquitectura suele corresponder. Es su número, no el nuestro; es una guía para empezar la conversación, no una cotización.</p></div>
  <div class="panel sim rv">
   <div class="ctl">
    <div><label for="rto"><span>RTO · tiempo máximo sin servicio</span><output id="rtoo" for="rto">4 horas</output></label><input id="rto" type="range" min="0" max="8" step="1" value="3" aria-describedby="rtod"></div>
@@ -658,12 +695,22 @@ footer .brand{color:var(--text);margin-bottom:8px;font-size:1.2rem}
  </div>
 </div></section>
 
-<section class="alt" id="poliza"><div class="wrap">
- <div class="head"><span class="eyebrow cy rv">Póliza de continuidad informática</span><h2 class="rv" style="--d:1">Su infraestructura, asegurada.<br><span class="gold">La recuperación, comprometida por escrito.</span></h2><p class="lead rv" style="--d:2">Una póliza de seguridad informática no es un seguro más: es un contrato de recuperación. La empresa paga una prima y, si su infraestructura cubierta se ve comprometida, <strong>nosotros la recuperamos dentro del tiempo comprometido (RTO)</strong>, con condiciones definidas antes del incidente y no improvisadas durante la crisis.</p></div>
+<section id="inversion"><div class="wrap">
+ <div class="head"><span class="eyebrow cy rv">La cuenta que hace un director financiero</span><h2 class="rv" style="--d:1">Prevenir cuesta una cuota predecible.<br><span class="gold">Improvisar cuesta lo que el incidente decida.</span></h2></div>
  <div class="grid">
-  <article class="card rv tilt" style="--d:1"><span class="n">Prima</span><h3>Una cuota, todo incluido</h3><p>Conforme al contrato, la prima cubre el diagnóstico inicial, el plan DRP, el respaldo gestionado, el monitoreo y las pruebas, y la recuperación se ejecuta sin cargo adicional por evento cubierto.</p></article>
-  <article class="card rv tilt" style="--d:2"><span class="n">RTO</span><h3>Tiempo comprometido por contrato</h3><p>El RTO y el RPO se pactan por sistema después del diagnóstico, según lo que su operación puede resistir. Ese número queda en el contrato —sujeto al alcance y a las condiciones pactadas— y se mide en cada simulacro.</p></article>
-  <article class="card rv tilt" style="--d:3"><span class="n">Evidencia</span><h3>Informe técnico documentado</h3><p>Cada incidente y cada recuperación deja acta, bitácora y dictamen técnico: documentan qué pasó, qué se hizo y en cuánto tiempo, y sirven de base para su aseguradora, sus clientes o un procedimiento. Un documento privado no sustituye la valoración de una autoridad.</p></article>
+  <article class="card rv tilt" style="--d:1"><span class="n">Costo</span><h3>Predecible contra incierto</h3><p>Una cuota fija se presupuesta. Las horas detenidas, la información perdida y la reputación dañada no avisan cuánto van a costar.</p></article>
+  <article class="card rv tilt" style="--d:2"><span class="n">Exigencia</span><h3>Ya se lo están pidiendo</h3><p>Auditores, aseguradoras y clientes corporativos preguntan cada vez más por planes de continuidad y medidas de seguridad. Tenerlos documentados deja de ser opcional.</p></article>
+  <article class="card rv tilt" style="--d:3"><span class="n">Ventaja</span><h3>Continuidad que se puede demostrar</h3><p>Una empresa que prueba que se recupera inspira confianza a clientes, socios e inversionistas. La continuidad también es un argumento comercial.</p></article>
+ </div>
+ <div class="panel rv" style="margin-top:clamp(20px,3vw,32px)"><p style="margin:0">La pregunta no es si puede pagar un plan de continuidad. <strong>Es cuántas horas detenidas puede pagar sin uno.</strong></p><div class="actions"><a class="btn" href="#contacto">Revisar mi caso con un especialista →</a><a class="btn secondary" href="#simulador">Volver a calcular</a></div></div>
+</div></section>
+
+<section class="alt" id="poliza"><div class="wrap">
+ <div class="head"><span class="eyebrow cy rv">Póliza de continuidad informática</span><h2 class="rv" style="--d:1">Una cuota predecible.<br><span class="gold">La recuperación, comprometida por escrito.</span></h2><p class="lead rv" style="--d:2">Piense en ella como un seguro que no le paga con dinero, sino con su operación de vuelta. La empresa paga una prima y, si su infraestructura cubierta se compromete, <strong>nosotros la recuperamos dentro del tiempo pactado (RTO)</strong>, con reglas acordadas antes del incidente y no negociadas en plena crisis.</p></div>
+ <div class="grid">
+  <article class="card rv tilt" style="--d:1"><span class="n">Prima</span><h3>Todo incluido, sin sorpresas</h3><p>Conforme al contrato, la prima cubre el diagnóstico inicial, el plan DRP, el respaldo gestionado, el monitoreo y las pruebas, y la recuperación se ejecuta sin cargo adicional por evento cubierto.</p></article>
+  <article class="card rv tilt" style="--d:2"><span class="n">RTO</span><h3>El tiempo, en el contrato</h3><p>El RTO y el RPO se pactan por sistema después del diagnóstico, según lo que su operación puede resistir. Ese número queda en el contrato —sujeto al alcance y a las condiciones pactadas— y se mide en cada simulacro.</p></article>
+  <article class="card rv tilt" style="--d:3"><span class="n">Evidencia</span><h3>Pruebas para quien las pida</h3><p>Cada incidente y cada recuperación deja acta, bitácora y dictamen técnico: documentan qué pasó, qué se hizo y en cuánto tiempo, y sirven de base para su aseguradora, sus clientes o un procedimiento. Un documento privado no sustituye la valoración de una autoridad.</p></article>
  </div>
  <div class="panel rv" style="margin-top:clamp(20px,3vw,32px)"><h3>Cómo se activa</h3>
   <div class="steps" id="steps1">
@@ -674,19 +721,22 @@ footer .brand{color:var(--text);margin-bottom:8px;font-size:1.2rem}
   </div>
   <p class="note">La cobertura, los límites y las exclusiones se definen en el contrato con el diagnóstico técnico previo: por ejemplo, que la infraestructura cubierta esté documentada, con respaldo operando y con el plan probado. Ninguna póliza cubre una infraestructura que no se dejó proteger.</p>
   <p class="note"><strong>Vía de contratación:</strong> directa con la división, o a través de su aseguradora o bróker de riesgos cibernéticos, que integra este servicio a su cobertura. En ambas vías, la recuperación la ejecuta el mismo equipo técnico del despacho.</p>
-  <div class="actions"><a class="btn" data-area="Póliza de continuidad informática" href="#contacto">Quiero la póliza de continuidad →</a></div></div>
+  <div class="actions"><a class="btn" data-area="Póliza de continuidad informática" href="#contacto">Quiero cotizar mi póliza →</a></div></div>
 </div></section>
 
 <section id="cumplimiento"><div class="wrap split">
- <div><span class="eyebrow cy rv">Compliance tecnológico</span><h2 class="rv" style="--d:1">Cumplir no es tener políticas.<br><span class="gold">Es poder demostrarlo.</span></h2><p class="lead rv" style="--d:2">Trabajamos junto con la firma jurídica: la parte técnica se diseña para responder a las obligaciones legales, contractuales y regulatorias de su empresa.</p>
+ <div><span class="eyebrow cy rv">Por qué con nosotros</span><h2 class="rv" style="--d:1">Cumplir no es tener políticas.<br><span class="gold">Es poder demostrarlo.</span></h2><p class="lead rv" style="--d:2">Somos una firma jurídica con división informática. Eso cambia la forma de trabajar: la parte técnica se diseña para responder a las obligaciones legales, contractuales y regulatorias de su empresa, y la evidencia se genera para que sirva cuando se necesite.</p>
   <p class="muted rv" style="--d:3">Tomamos como referencia marcos reconocidos y las obligaciones de protección de datos personales y de su sector. La certificación, cuando se busca, la otorga un organismo certificador independiente.</p>
-  <ul class="chips rv" style="--d:4"><li>ISO 22301 · Continuidad</li><li>ISO/IEC 27001 · Seguridad</li><li>NIST CSF</li><li>LFPDPPP</li></ul></div>
- <div class="grid" style="grid-template-columns:1fr"><article class="card rv tilt" style="--d:2"><span class="n">Evidencia</span><h3>Bitácoras, actas y reportes</h3><p>Cada respaldo, prueba e incidente deja un registro verificable que sostiene a la empresa frente a auditores, clientes y autoridades.</p></article>
- <article class="card rv tilt" style="--d:3"><span class="n">Contratos</span><h3>Proveedores y niveles de servicio</h3><p>Revisión de los compromisos de disponibilidad, respaldo y respuesta de sus proveedores de TI y nube, para que lo firmado coincida con lo que su operación necesita.</p></article></div>
+  <ul class="chips rv" style="--d:4"><li>ISO 22301 · Continuidad</li><li>ISO/IEC 27001 · Seguridad</li><li>NIST CSF</li><li>Protección de datos personales</li></ul></div>
+ <div class="grid" style="grid-template-columns:1fr">
+  <article class="card rv tilt" style="--d:2"><span class="n">Diferencia</span><h3>Abogados e ingenieros en el mismo plan</h3><p>Contratos con proveedores, avisos de privacidad, respuesta a autoridades y recuperación técnica se coordinan desde un mismo equipo.</p></article>
+  <article class="card rv tilt" style="--d:3"><span class="n">Evidencia</span><h3>Pruebas que resisten</h3><p>Bitácoras, actas y evidencia con cadena de custodia: registros verificables frente a auditores, aseguradoras, clientes y autoridades.</p></article>
+  <article class="card rv tilt" style="--d:4"><span class="n">Responsable</span><h3>Una sola firma rinde cuentas</h3><p>Sin triangular entre proveedores ni versiones encontradas: un responsable técnico y legal de principio a fin.</p></article>
+ </div>
 </div></section>
 
 <section class="alt" id="respuesta"><div class="wrap split">
- <div><span class="eyebrow cy rv">Incidente en curso</span><h2 class="rv" style="--d:1">Ransomware o caída:<br>primero, no empeorarlo.</h2><p class="lead rv" style="--d:2">Las primeras horas deciden si la empresa se recupera y si la evidencia sirve después. No apague, no reinstale y no pague sin asesoría.</p>
+ <div><span class="eyebrow cy rv">Incidente en curso</span><h2 class="rv" style="--d:1">Ransomware o caída:<br><span class="gold">las primeras horas deciden todo.</span></h2><p class="lead rv" style="--d:2">No apague, no reinstale y no pague el rescate sin asesoría: cada una de esas reacciones puede destruir la evidencia o empeorar el daño. Llámenos primero.</p>
   <div class="steps rv" id="steps2" style="--d:3;margin-top:26px">
    <div class="step" data-n="1"><h3>Contención</h3><p>Detener la propagación sin destruir evidencia.</p></div>
    <div class="step" data-n="2"><h3>Preservación</h3><p>Evidencia con cadena de custodia y acta, apta para la aseguradora o un juicio.</p></div>
@@ -697,17 +747,19 @@ footer .brand{color:var(--text);margin-bottom:8px;font-size:1.2rem}
 </div></section>
 
 <section id="faq"><div class="wrap" style="max-width:860px">
- <span class="eyebrow cy rv">Antes del primer contacto</span><h2 class="rv" style="--d:1">Preguntas frecuentes</h2>
+ <span class="eyebrow cy rv">Antes de decidir</span><h2 class="rv" style="--d:1">Lo que suelen preguntarnos</h2>
  <div class="rv" style="--d:2">
+ <details><summary>¿Cuánto cuesta?</summary><div class="fb"><p>Depende del número de sistemas y sitios, y del tiempo de recuperación que su operación necesita. El diagnóstico inicial define alcance y cuota, y usted decide con números en la mano, sin compromiso de contratación.</p></div></details>
+ <details><summary>Ya tengo área de TI o un proveedor. ¿Para qué los necesito?</summary><div class="fb"><p>Los complementamos, no los sustituimos. Su equipo conoce su operación; nosotros aportamos la metodología, las pruebas, la documentación y el respaldo jurídico que convierten su esfuerzo en algo demostrable.</p></div></details>
+ <details><summary>Ya tengo respaldos. ¿No es suficiente?</summary><div class="fb"><p>Es un buen punto de partida. La pregunta es otra: ¿cuándo fue la última vez que restauró uno completo y midió cuánto tardó? Si no tiene la respuesta, ahí empieza el plan.</p></div></details>
+ <details><summary>¿Qué pasa si no se cumple el tiempo de recuperación?</summary><div class="fb"><p>El contrato define el RTO, cómo se mide y qué ocurre si no se alcanza. Todo se pacta por escrito antes de firmar, no después del incidente.</p></div></details>
  <details><summary>¿Qué diferencia hay entre DRP, BCP y alta disponibilidad?</summary><div class="fb"><p>La alta disponibilidad evita que una falla detenga el servicio. El DRP (plan de recuperación ante desastres) es cómo se recuperan los sistemas cuando algo grave sí ocurre. El BCP (plan de continuidad) abarca a toda la empresa: personas, procesos y proveedores, además de la tecnología.</p></div></details>
- <details><summary>¿Necesito comprar equipo nuevo?</summary><div class="fb"><p>No necesariamente. El diagnóstico parte de lo que ya tiene; muchas veces basta con reorganizar respaldos, documentar y probar. Si se requiere inversión, se presenta con su justificación por el riesgo que reduce.</p></div></details>
- <details><summary>¿Cuánto tarda un plan DRP?</summary><div class="fb"><p>Depende del número de sistemas y sitios. Tras el diagnóstico inicial se entrega un cronograma con fases, entregables y fechas de simulacro.</p></div></details>
  <details><summary>¿El formulario envía automáticamente mi mensaje?</summary><div class="fb"><p>No. Primero muestra una vista previa en esta página. Solo al pulsar el segundo botón se abre WhatsApp con el texto para que usted decida enviarlo.</p></div></details>
  </div>
 </div></section>
 
 <section class="alt" id="contacto"><div class="wrap split">
- <div><span class="eyebrow cy rv">Contacto directo</span><h2 class="rv" style="--d:1">Proteja lo que su negocio<br><span class="gold">no puede perder.</span></h2><p class="lead rv" style="--d:2">Solicite un diagnóstico inicial de continuidad y disponibilidad. Indique de forma general su infraestructura y el servicio que le interesa.</p>
+ <div><span class="eyebrow cy rv">Primer paso</span><h2 class="rv" style="--d:1">Cada día sin plan<br><span class="gold">es una apuesta a que no pase nada.</span></h2><p class="lead rv" style="--d:2">Empiece por lo más sencillo: un diagnóstico inicial para saber dónde está parado y cuánto tardaría hoy en recuperarse. Sin tecnicismos y sin compromiso de contratación.</p>
   <div class="actions rv" style="--d:3"><a class="btn" href="tel:+525625135109">Llamar: 56 2513 5109</a><a class="btn secondary" href="/">Conocer la firma jurídica</a></div></div>
  <form class="form rv" id="solicitud" style="--d:2" novalidate><span class="eyebrow cy">Primer contacto</span><h2>Empecemos por su riesgo.</h2>
   <p class="muted">Este primer contacto sirve para delimitar el diagnóstico; no constituye una propuesta ni un servicio contratado.</p>
