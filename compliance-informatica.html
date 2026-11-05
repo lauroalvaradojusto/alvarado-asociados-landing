@@ -1,68 +1,578 @@
 <!doctype html>
 <html lang="es"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark">
 <title>Compliance TI · Planes DRP y Alta Disponibilidad | Alvarado & Asociados – División Informática</title>
-<meta name="description" content="Arquitectura de servicios de compliance tecnológico: planes de recuperación ante desastres (DRP), alta disponibilidad de soluciones informáticas, continuidad del negocio y respuesta a ransomware.">
+<meta name="description" content="Arquitectura de servicios de compliance tecnológico: planes de recuperación ante desastres (DRP), alta disponibilidad de soluciones informáticas, continuidad del negocio, póliza de continuidad y respuesta a ransomware.">
 <link rel="canonical" href="https://alvarado-asociados-landing.vercel.app/compliance-informatica">
 <link rel="icon" type="image/x-icon" href="favicon.ico"><link rel="icon" type="image/png" href="favicon.png">
 <meta property="og:title" content="División Informática | Planes DRP y Alta Disponibilidad">
-<meta property="og:description" content="Tu operación no se detiene. Tu información, a salvo. DRP, alta disponibilidad, continuidad del negocio y respuesta a incidentes.">
-<meta property="og:image" content="https://alvarado-asociados-landing.vercel.app/portada-corporativa.png">
+<meta property="og:description" content="Tu operación no se detiene. Tu información, a salvo. DRP, alta disponibilidad, póliza de continuidad y respuesta a incidentes.">
+<meta property="og:image" content="https://alvarado-asociados-landing.vercel.app/og-informatica.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Alvarado & Asociados, División Informática: planes DRP y alta disponibilidad">
 <meta property="og:type" content="website"><meta property="og:locale" content="es_MX"><meta property="og:url" content="https://alvarado-asociados-landing.vercel.app/compliance-informatica">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://alvarado-asociados-landing.vercel.app/og-informatica.png">
 <meta name="theme-color" content="#0a1628">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Alvarado & Asociados – División Informática","url":"https://alvarado-asociados-landing.vercel.app/compliance-informatica","telephone":"+52 56 2513 5109","areaServed":["Ciudad de México","Estado de México","Querétaro","Puebla","México"],"serviceType":["Plan de recuperación ante desastres (DRP)","Alta disponibilidad de sistemas","Continuidad del negocio","Respuesta a incidentes e informática forense"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Alvarado & Asociados – División Informática","url":"https://alvarado-asociados-landing.vercel.app/compliance-informatica","telephone":"+52 56 2513 5109","areaServed":["Ciudad de México","Estado de México","Querétaro","Puebla","México"],"serviceType":["Plan de recuperación ante desastres (DRP)","Alta disponibilidad de sistemas","Continuidad del negocio","Póliza de continuidad informática","Respuesta a incidentes e informática forense"]}</script>
+<script>document.documentElement.className+=' js'</script>
 <style>
-:root{--bg:#0a1628;--panel:#112238;--gold:#dbc17a;--text:#f4f2ec;--muted:#bcc5cf;--line:#ffffff24}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:110px}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,Segoe UI,sans-serif}h1,h2,h3,.brand{font-family:Georgia,serif;font-weight:400;line-height:1.12}h1{font-size:clamp(42px,5.5vw,76px);margin:20px 0 24px;letter-spacing:-2px}h2{font-size:clamp(32px,4vw,48px);margin:14px 0 24px}h3{font-size:27px;margin:12px 0 18px}p{margin:0 0 20px}a{color:inherit}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:5px}.wrap{max-width:1180px;margin:auto;padding:0 28px}.eyebrow{font:600 12px/1.5 system-ui;letter-spacing:2.4px;text-transform:uppercase;color:var(--gold)}.muted,li{color:var(--muted)}.gold{color:var(--gold)}.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:14px 22px;border-radius:6px;background:var(--gold);color:var(--bg);border:1px solid var(--gold);cursor:pointer;font:600 15px/1.5 system-ui}.btn.secondary{background:transparent;color:var(--text);border-color:var(--line)}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}.skip{position:absolute;left:20px;top:-80px;background:var(--gold);color:var(--bg);padding:10px;z-index:100}.skip:focus{top:10px}header{position:sticky;top:0;z-index:20;background:#0a1628f5;border-bottom:1px solid var(--line)}.header{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:90px}.brand{font-size:25px;text-decoration:none}.brand small{display:block;font:10px/1.4 system-ui;letter-spacing:3px;margin-top:8px;color:var(--muted)}nav{display:flex;align-items:center;gap:24px}nav a{text-decoration:none;font-size:14px}nav a:hover{color:var(--gold)}.menu{display:none}.hero{padding:70px 0;background:radial-gradient(ellipse at 0 0,#20334d,transparent 65%)}.hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:65px;align-items:start}.lead{font-size:19px;color:var(--muted);max-width:610px}.coverage{border-top:1px solid var(--line);padding-top:22px;margin-top:32px;font-size:14px;color:var(--muted)}.form{padding:28px;background:var(--panel);border:1px solid #dbc17a55;border-radius:12px}.form h2{font-size:32px;margin-top:8px}.form label{display:block;font-size:13px;margin:12px 0 5px;color:var(--muted)}input,select,textarea{width:100%;background:#09182a;color:var(--text);border:1px solid #718096;border-radius:5px;padding:12px;font:16px system-ui}textarea{resize:vertical}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form .btn{width:100%;margin-top:18px}.note{font-size:12px;color:var(--muted);line-height:1.6;margin-top:13px}.section{padding:76px 0;border-top:1px solid var(--line)}.alternate{background:#0d1c30}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px}.card{padding:28px;border:1px solid var(--line);border-radius:9px;background:#ffffff03}.card p{color:var(--muted)}.card a{color:var(--gold);text-underline-offset:5px}.number{font:18px Georgia;color:var(--gold)}.split{display:grid;grid-template-columns:1fr 1fr;gap:58px;align-items:center}.picture{width:100%;height:370px;object-fit:cover;border-radius:10px;border:1px solid var(--line)}ul{padding-left:20px}li{margin:10px 0}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:30px}.steps strong{display:block;color:var(--gold);margin-bottom:10px}.contact{text-align:center;max-width:780px}.contact .actions{justify-content:center}.contact .lead{margin-inline:auto}details{border-bottom:1px solid var(--line);padding:18px 0}summary{cursor:pointer;font-weight:600}details p{margin:15px 0 0;color:var(--muted)}footer{padding:35px 0 100px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}.sticky-contact{position:fixed;right:20px;bottom:18px;z-index:15;box-shadow:0 5px 25px #0007}.status{font-size:13px;color:var(--gold)}@media(max-width:900px){.hero-grid,.split{grid-template-columns:1fr;gap:32px}.hero{padding-top:45px}.cards{grid-template-columns:1fr}.picture{height:300px}.menu{display:block;background:none;border:1px solid var(--line);color:var(--text);padding:10px;border-radius:5px}nav{display:none;position:absolute;left:0;right:0;top:90px;background:var(--bg);padding:24px;flex-direction:column;align-items:stretch;border-bottom:1px solid var(--line)}nav.open{display:flex}.section{padding:50px 0}.steps{grid-template-columns:1fr}.brand{font-size:21px}.wrap{padding:0 20px}h1{letter-spacing:-1px}.form{padding:22px}.sticky-contact{font-size:13px;padding:12px 16px}}@media(max-width:380px){.form-grid{grid-template-columns:1fr}.brand{font-size:19px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-
-.brand{display:flex;align-items:center;gap:12px}.brand img{width:62px;height:62px;object-fit:contain;flex-shrink:0}.brand-wordmark{display:block}.brand small{letter-spacing:2px}.brand-banner{margin:0;background:#061321;border-bottom:1px solid #dbc17a55}.brand-banner img{display:block;width:100%;max-width:1440px;height:auto;aspect-ratio:3/1;object-fit:contain;margin:auto}.hero{padding:44px 0 60px}.hero-grid{gap:44px}h1{font-size:clamp(36px,4.4vw,60px)}.picture{border-color:#dbc17a55;box-shadow:0 16px 40px #0003}.form{box-shadow:0 18px 48px #0003}.forensic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:28px 0}.forensic-grid .card h3{font-size:23px}.forensic-intro{align-items:start}.forensic-intro .route-image{background:#07182a}.forensic-footer{border-left:3px solid var(--gold);padding:18px 22px;background:var(--panel)}@media(max-width:900px){.header{min-height:82px}.brand img{width:48px;height:48px}.brand{font-size:20px;gap:9px}nav{top:82px}.hero{padding-top:30px}.hero-grid{gap:28px}.hero h1{margin-top:14px;font-size:clamp(34px,7.3vw,52px);letter-spacing:-1px}.lead{font-size:17px}.brand-banner img{min-height:0}.coverage{margin-top:22px}.actions{margin-top:20px}}@media(max-width:620px){.forensic-grid{grid-template-columns:1fr}}@media(max-width:400px){.brand{font-size:17px}.brand small{font-size:8px}.brand img{width:42px;height:42px}.header{gap:8px}.wrap{padding:0 16px}}
-
-.audience-routes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:24px}.audience-route{display:block;text-decoration:none;border:1px solid #dbc17a77;border-radius:8px;background:#ffffff08;padding:16px 18px;transition:background .2s,border-color .2s}.audience-route:hover{background:#dbc17a18;border-color:var(--gold)}.audience-route strong{display:block;color:var(--gold);font-size:15px;line-height:1.35}.audience-route span{display:block;color:var(--muted);font-size:13px;line-height:1.5;margin-top:5px}.family-panel{border-left:3px solid var(--gold);background:var(--panel);padding:22px 25px;margin:24px 0}.family-panel h3{font-size:25px;margin-top:0}.family-panel p{margin-bottom:10px}.family-panel .actions{margin-top:14px}.family-panel .btn{font-size:14px}@media(max-width:620px){.audience-routes{grid-template-columns:1fr}.family-panel{padding:20px}}
-
-.brand-banner img{max-width:900px;max-height:240px;object-fit:contain}.hero-proof{color:var(--gold);font-size:15px}.route-image{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:12px}.consultation-card{background:#15283e;border-color:#dbc17a66}.consultation-card strong{color:var(--gold)}.method-example{margin-top:30px;padding:24px;border-left:3px solid var(--gold);background:var(--panel)}.method-example p{margin:12px 0 0}.form-extra{margin-top:10px;font-size:14px}.form-extra label{font-size:13px}.message-preview{margin-top:20px;border-top:1px solid var(--line);padding-top:18px}.message-preview h3{font-size:23px}.message-preview pre{font:14px/1.65 system-ui;white-space:pre-wrap;overflow-wrap:anywhere;padding:14px;border:1px solid var(--line);border-radius:5px}.message-preview[hidden]{display:none}.hero-grid{grid-template-columns:1.1fr 1fr}h1{font-size:clamp(38px,4.5vw,62px)}@media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
-.justice-trail{position:fixed;inset:0;pointer-events:none;z-index:12;overflow:hidden;contain:strict}.justice-particle{position:absolute;width:22px;height:22px;color:#dbc17a;opacity:0;will-change:transform,opacity;pointer-events:none}@media(prefers-reduced-motion:reduce){.justice-trail{display:none}}
-nav a{white-space:nowrap}.header{gap:14px}nav{gap:18px}</style></head><body>
+:root{--bg:#07101d;--bg2:#0a1628;--panel:#112238;--panel2:#0d1b2f;--gold:#dbc17a;--cy:#6fd6e8;--text:#f4f2ec;--muted:#b9c4d0;--line:#ffffff1f;--ease:cubic-bezier(.2,.8,.2,1);--r:14px;--pad:clamp(18px,4vw,34px);color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:92px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html.lock{overflow:hidden}
+body{margin:0;background:radial-gradient(1200px 700px at 85% -10%,#173352 0,transparent 60%),var(--bg2);color:var(--text);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:clip;min-height:100vh}
+@media(min-width:1900px){html{font-size:18px}}@media(min-width:2500px){html{font-size:21px}}
+h1,h2,h3,.brand{font-family:Georgia,"Times New Roman",serif;font-weight:400;line-height:1.12;margin:0}
+h1{font-size:clamp(2.15rem,6.2vw,4.6rem);letter-spacing:-.03em;margin:16px 0 22px}
+h2{font-size:clamp(1.7rem,4vw,3rem);margin:12px 0 20px;letter-spacing:-.02em}
+h3{font-size:clamp(1.15rem,2vw,1.5rem);margin:10px 0 12px}
+p{margin:0 0 18px}a{color:inherit}img,svg{max-width:100%}
+.split>*,.hero-grid>*,.sim>*,.tp>*,.cols>*,.grid>*,.field,.cs,.ctl>*,.out>*{min-width:0}
+.wrap{width:100%;max-width:1180px;margin-inline:auto;padding-inline:var(--pad)}
+@media(min-width:1700px){.wrap{max-width:1360px}}
+.eyebrow{font:600 .72rem/1.5 system-ui;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.eyebrow.cy{color:var(--cy)}
+.lead{font-size:clamp(1.02rem,1.5vw,1.2rem);color:var(--muted);max-width:62ch}
+.muted,li{color:var(--muted)}.gold{color:var(--gold)}.cy{color:var(--cy)}
+.note{font-size:.8rem;color:#98a6b5}
+:focus-visible{outline:3px solid var(--gold);outline-offset:4px;border-radius:6px}
+.skip{position:absolute;left:16px;top:-90px;background:var(--gold);color:#0a1628;padding:10px 14px;z-index:200;border-radius:6px}.skip:focus{top:10px}
+/* botones */
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;text-decoration:none;padding:12px 22px;border-radius:8px;background:var(--gold);color:#0a1628;border:1px solid var(--gold);cursor:pointer;font:600 .95rem/1.3 system-ui;transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .3s;text-align:center}
+.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,#ffffff55 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s var(--ease)}
+.btn:hover::after{transform:translateX(120%)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px -8px #dbc17a80}
+.btn.secondary{background:transparent;color:var(--text);border-color:#ffffff40}
+.btn.secondary:hover{border-color:var(--cy);box-shadow:0 10px 30px -10px #6fd6e870}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+/* cabecera */
+#progreso{position:fixed;left:0;top:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--cy),var(--gold));z-index:90;pointer-events:none}
+header{position:sticky;top:0;z-index:80}
+header::before{content:"";position:absolute;inset:0;background:#07101df0;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:background .3s}
+.header{position:relative;display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:84px;transition:min-height .4s var(--ease)}
+header.scrolled .header{min-height:64px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-size:clamp(1.05rem,2.6vw,1.45rem);min-width:0}
+.brand img{width:clamp(40px,7vw,56px);height:auto;flex:none;transition:width .4s var(--ease)}
+.brand small{display:block;font:.68rem/1.4 system-ui;letter-spacing:.28em;margin-top:5px;color:var(--cy)}
+nav{display:flex;align-items:center;gap:clamp(12px,1.8vw,24px)}
+nav>a:not(.btn),.dd-btn{font:500 .9rem/1 system-ui;text-decoration:none;color:var(--text);background:none;border:0;cursor:pointer;padding:10px 4px;position:relative;white-space:nowrap}
+nav>a:not(.btn)::after,.dd-btn::after{content:"";position:absolute;left:4px;right:4px;bottom:3px;height:2px;background:linear-gradient(90deg,var(--cy),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
+nav>a:not(.btn):hover::after,.dd-btn:hover::after,.dd.open .dd-btn::after{transform:scaleX(1)}
+.menu{display:none;width:46px;height:46px;border:1px solid var(--line);border-radius:10px;background:#ffffff0a;cursor:pointer;position:relative;z-index:95;padding:0}
+.menu span{position:absolute;left:12px;right:12px;height:2px;background:var(--text);border-radius:2px;transition:transform .5s var(--ease),opacity .3s,top .5s var(--ease)}
+.menu span:nth-child(1){top:16px}.menu span:nth-child(2){top:22px}.menu span:nth-child(3){top:28px}
+.menu[aria-expanded=true] span:nth-child(1){top:22px;transform:rotate(45deg)}
+.menu[aria-expanded=true] span:nth-child(2){opacity:0;transform:scaleX(0)}
+.menu[aria-expanded=true] span:nth-child(3){top:22px;transform:rotate(-45deg)}
+/* menú desplegable (dropdown cinematográfico) */
+.dd{position:relative}
+.dd-btn svg{width:12px;height:12px;margin-left:6px;vertical-align:-1px;transition:transform .5s var(--ease)}
+.dd.open .dd-btn svg{transform:rotate(180deg)}
+.dd-panel{position:absolute;top:calc(100% + 12px);left:50%;width:min(360px,86vw);margin-left:-180px;z-index:70;visibility:hidden;pointer-events:none;opacity:0;
+ clip-path:inset(0 0 100% 0 round 16px);transform:translateY(-8px) scale(.98);transform-origin:50% 0;
+ background:linear-gradient(160deg,#112238f2,#0a1628f7);border:1px solid #dbc17a44;border-radius:16px;box-shadow:0 30px 70px -20px #000,0 0 0 1px #6fd6e81a inset;
+ transition:clip-path .6s var(--ease),opacity .3s,transform .6s var(--ease),visibility 0s .6s}
+.dd.open .dd-panel{visibility:visible;pointer-events:auto;opacity:1;clip-path:inset(0 0 0 0 round 16px);transform:none;transition-delay:0s}
+.dd-panel::before{content:"";position:absolute;left:0;right:0;top:0;height:60px;background:linear-gradient(180deg,#6fd6e822,transparent);transform:translateY(-100%);pointer-events:none}
+.dd.open .dd-panel::before{animation:barrido 1.1s var(--ease) .1s}
+@keyframes barrido{from{transform:translateY(-100%)}to{transform:translateY(520%)}}
+.dd-in{padding:10px;display:grid;gap:2px}
+.dd-in a{display:block;text-decoration:none;padding:12px 14px;border-radius:10px;opacity:0;transform:translateY(12px);filter:blur(5px);transition:opacity .45s var(--ease),transform .45s var(--ease),filter .45s var(--ease),background .25s}
+.dd.open .dd-in a{opacity:1;transform:none;filter:none;transition-delay:calc(var(--i)*55ms + 140ms)}
+.dd-in a:hover,.dd-in a:focus-visible{background:#6fd6e814}
+.dd-in b{display:block;font:600 .92rem/1.3 system-ui;color:var(--text)}.dd-in small{color:var(--muted);font-size:.78rem}
+/* hero */
+.hero{position:relative;padding:clamp(36px,7vw,92px) 0 clamp(40px,6vw,80px);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-20% -10% auto auto;width:70vw;height:70vw;max-width:900px;max-height:900px;background:radial-gradient(circle,#6fd6e822,transparent 62%);transform:translate(calc(var(--px,0)*18px),calc(var(--py,0)*18px));transition:transform .6s var(--ease);pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(24px,5vw,64px);align-items:center}
+.hero-proof{font:600 .85rem/1.5 system-ui;letter-spacing:.06em;color:var(--cy)}
+.routes{display:grid;gap:12px;margin-top:30px;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
+.route{display:block;text-decoration:none;padding:16px 18px;border:1px solid var(--line);border-radius:var(--r);background:#ffffff08;transition:transform .45s var(--ease),border-color .3s,background .3s}
+.route:hover{transform:translateY(-4px);border-color:#6fd6e888;background:#6fd6e80d}
+.route strong{display:block;font:600 .95rem/1.35 system-ui;margin-bottom:4px}.route span{font-size:.84rem;color:var(--muted)}
+.coverage{border-top:1px solid var(--line);padding-top:20px;margin-top:28px;font-size:.84rem;color:var(--muted)}
+.diagram{width:100%;height:auto;filter:drop-shadow(0 30px 40px #00000066)}
+.diagram text{font:600 13px system-ui;fill:#f4f2ec}.diagram .sub{font:500 10.5px system-ui;fill:#9fb0c0}
+.node rect{fill:#0d1b2f;stroke:#6fd6e888;stroke-width:1.5}
+.link{fill:none;stroke:#6fd6e855;stroke-width:1.6;stroke-dasharray:5 7;animation:fluye 1.6s linear infinite}
+.link.g{stroke:#dbc17a66}
+@keyframes fluye{to{stroke-dashoffset:-24}}
+.prod{animation:falla 9s ease-in-out infinite}
+@keyframes falla{0%,38%,72%,100%{opacity:1}46%,64%{opacity:.25}}
+.l-prod{animation:fluye 1.6s linear infinite,usa 9s ease-in-out infinite}
+.l-rep{animation:fluye 1.6s linear infinite,usb 9s ease-in-out infinite}
+@keyframes usa{0%,38%,72%,100%{stroke:#6fd6e8cc}46%,64%{stroke:#6fd6e822}}
+@keyframes usb{0%,38%,72%,100%{stroke:#6fd6e822}46%,64%{stroke:#dbc17aee}}
+.diagram text.badge{font:700 10.5px system-ui;fill:#0a1628}.node.g rect{stroke:#dbc17acc}.badge-bg{fill:#dbc17a;opacity:0;animation:aviso 9s ease-in-out infinite}.badge-t{opacity:0;animation:aviso 9s ease-in-out infinite}
+@keyframes aviso{0%,40%,70%,100%{opacity:0}48%,62%{opacity:1}}
+/* secciones */
+section{position:relative;padding:clamp(52px,8vw,104px) 0}
+.alt{background:linear-gradient(180deg,#ffffff06,#ffffff03);border-block:1px solid #ffffff0d}
+.head{max-width:760px;margin-bottom:clamp(24px,4vw,44px)}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vw,64px);align-items:start}
+.grid{display:grid;gap:clamp(14px,2vw,22px);grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))}
+.card{position:relative;padding:clamp(20px,2.6vw,28px);border:1px solid var(--line);border-radius:var(--r);background:linear-gradient(160deg,#112238cc,#0d1b2fcc);overflow:hidden;transition:border-color .35s,transform .5s var(--ease),box-shadow .5s var(--ease);transform:perspective(900px) rotateX(var(--tx,0deg)) rotateY(var(--ty,0deg))}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(380px circle at var(--mx,50%) var(--my,0%),#6fd6e824,transparent 62%);opacity:0;transition:opacity .4s;pointer-events:none}
+.card:hover{border-color:#6fd6e866;box-shadow:0 24px 50px -24px #000}.card:hover::before{opacity:1}
+.card .n{font:600 .7rem/1.4 system-ui;letter-spacing:.2em;color:var(--cy);text-transform:uppercase}
+.card svg.ic{width:34px;height:34px;stroke:var(--cy);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;margin-bottom:10px}
+.card p{font-size:.94rem;margin:0}
+ul.chk{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:12px}
+ul.chk li{position:relative;padding-left:32px;font-size:.96rem}
+ul.chk li::before{content:"";position:absolute;left:0;top:3px;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--cy);background:#6fd6e814}
+ul.chk li::after{content:"";position:absolute;left:7px;top:7px;width:6px;height:10px;border:solid var(--cy);border-width:0 2px 2px 0;transform:rotate(45deg) scale(0);transition:transform .5s var(--ease) calc(var(--i,0)*90ms + 300ms)}
+.in ul.chk li::after,ul.chk.in li::after{transform:rotate(45deg) scale(1)}
+.panel{padding:clamp(20px,3vw,32px);border:1px solid #dbc17a44;border-radius:var(--r);background:linear-gradient(160deg,#112238,#0c1a2d)}
+/* revelado al desplazar */
+.js .rv{opacity:0;translate:0 30px;filter:blur(8px);transition:opacity .9s var(--ease),translate .9s var(--ease),filter .9s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
+.js .rv.in{opacity:1;translate:none;filter:none}
+.js .rv.wipe{clip-path:inset(0 100% 0 0);translate:none;filter:none;transition:clip-path 1.1s var(--ease),opacity .6s;transition-delay:calc(var(--d,0)*90ms)}
+.js .rv.wipe.in{clip-path:inset(0 0 0 0)}
+.js .rv.done{transition-delay:0s}
+.js .rv.done.card{transition:border-color .35s,transform .5s var(--ease),box-shadow .5s var(--ease)}
+.js .rv.done.route{transition:transform .45s var(--ease),border-color .3s,background .3s}
+.line-draw{display:block;height:2px;width:0;background:linear-gradient(90deg,var(--cy),var(--gold));margin-top:16px;transition:width 1.3s var(--ease) .2s}
+.in .line-draw,.line-draw.in{width:90px}
+/* pestañas de arquitectura */
+.tabs{position:relative;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x proximity;padding-bottom:10px;border-bottom:1px solid var(--line);-webkit-overflow-scrolling:touch}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;scroll-snap-align:start;background:none;border:0;color:var(--muted);cursor:pointer;padding:12px 16px;font:600 .82rem/1.2 system-ui;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;transition:color .3s}
+.tab span{display:block;font:500 .7rem/1 system-ui;color:var(--cy);margin-bottom:6px;letter-spacing:.2em}
+.tab[aria-selected=true],.tab:hover{color:var(--text)}
+.tab-ind{position:absolute;left:0;bottom:0;height:3px;width:0;background:linear-gradient(90deg,var(--cy),var(--gold));border-radius:3px;transition:transform .6s var(--ease),width .6s var(--ease)}
+.tp-wrap{position:relative;margin-top:clamp(20px,3vw,34px);min-height:260px}
+.tp{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(20px,4vw,48px);align-items:start}
+.tp[hidden]{display:none}
+.tp.ent{animation:entra .85s var(--ease) both}.tp.ent.back{animation-name:entraback}
+.tp.sal{animation:sale .3s ease both;position:absolute;inset:0;pointer-events:none}
+@keyframes entra{from{clip-path:inset(0 100% 0 0);opacity:.2;filter:blur(10px);transform:translateX(30px)}to{clip-path:inset(0);opacity:1;filter:none;transform:none}}
+@keyframes entraback{from{clip-path:inset(0 0 0 100%);opacity:.2;filter:blur(10px);transform:translateX(-30px)}to{clip-path:inset(0);opacity:1;filter:none;transform:none}}
+@keyframes sale{to{opacity:0;filter:blur(8px);transform:scale(.985)}}
+.tp .big{font:400 clamp(3rem,9vw,6.5rem)/1 Georgia,serif;color:#6fd6e81f;-webkit-text-stroke:1px #6fd6e855;margin-bottom:8px}
+.tp h3{font-size:clamp(1.4rem,3vw,2.1rem)}
+/* simulador */
+.sim{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,48px)}
+.ctl{display:grid;gap:22px}
+.ctl label,.field label{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font:600 .82rem/1.3 system-ui;color:var(--text);margin-bottom:8px}
+.ctl output{font:600 1.15rem/1 Georgia,serif;color:var(--gold)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:30px;background:transparent;cursor:pointer;touch-action:pan-y}
+input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:6px;background:linear-gradient(90deg,var(--cy) var(--fill,0%),#ffffff1c var(--fill,0%))}
+input[type=range]::-moz-range-track{height:6px;border-radius:6px;background:#ffffff1c}input[type=range]::-moz-range-progress{height:6px;border-radius:6px;background:var(--cy)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;margin-top:-9px;border-radius:50%;background:var(--gold);border:3px solid #0a1628;box-shadow:0 0 0 1px var(--gold),0 6px 18px -4px #000;transition:transform .3s var(--ease)}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--gold);border:3px solid #0a1628}
+input[type=range]:active::-webkit-slider-thumb{transform:scale(1.25)}
+input[type=number],input[type=text],textarea{width:100%;min-height:46px;background:#09182a;color:var(--text);border:1px solid #ffffff2e;border-radius:10px;padding:11px 14px;font:inherit;transition:border-color .3s,box-shadow .3s}
+input[type=number]:focus,input[type=text]:focus,textarea:focus{outline:0;border-color:var(--cy);box-shadow:0 0 0 4px #6fd6e81c}
+textarea{resize:vertical;min-height:96px}
+.out{display:grid;gap:14px;align-content:start}
+.res{padding:16px 18px;border:1px solid var(--line);border-radius:12px;background:#ffffff07}
+.res b{display:block;font:600 .7rem/1.4 system-ui;letter-spacing:.18em;text-transform:uppercase;color:var(--cy);margin-bottom:6px}
+.res p{margin:0;font-size:.96rem;color:var(--text)}
+.res .v{font:400 clamp(1.5rem,3vw,2.1rem)/1.1 Georgia,serif;color:var(--gold);display:block;margin-bottom:4px;transition:opacity .2s}
+.flash{animation:destello .7s var(--ease)}@keyframes destello{from{background:#6fd6e822;transform:translateX(6px)}to{background:#ffffff07;transform:none}}
+/* pasos / línea de tiempo */
+.steps{position:relative;display:grid;gap:clamp(16px,2.4vw,26px);padding-left:clamp(34px,5vw,52px)}
+.steps::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:#ffffff1c}
+.steps::after{content:"";position:absolute;left:11px;top:6px;width:2px;height:calc((100% - 12px)*var(--p,0));background:linear-gradient(180deg,var(--cy),var(--gold));transition:height .25s linear}
+.step{position:relative}
+.step::before{content:attr(data-n);position:absolute;left:calc(-1*clamp(34px,5vw,52px) + 0px);top:2px;width:24px;height:24px;border-radius:50%;background:var(--bg2);border:2px solid #ffffff33;display:grid;place-items:center;font:700 .7rem/1 system-ui;color:var(--muted);transition:all .5s var(--ease)}
+.step.on::before{border-color:var(--cy);color:#0a1628;background:var(--cy);box-shadow:0 0 0 6px #6fd6e81f}
+.step h3{margin:0 0 6px;font-size:1.2rem}.step p{margin:0;font-size:.94rem}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 0;padding:0;list-style:none}
+.chips li{padding:8px 14px;border:1px solid #ffffff2a;border-radius:99px;font:600 .78rem/1 system-ui;color:var(--text);background:#ffffff08}
+/* faq */
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:18px 0;font:600 1.02rem/1.4 system-ui;display:flex;justify-content:space-between;align-items:center;gap:16px;color:var(--text)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";flex:none;width:30px;height:30px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;font-size:1.2rem;transition:transform .5s var(--ease),background .3s,color .3s}
+details[open] summary::after{transform:rotate(135deg);background:var(--cy);color:#0a1628;border-color:var(--cy)}
+.fb{overflow:hidden}.fb p{padding-bottom:18px;margin:0}
+/* formulario + selectores cinematográficos */
+.form{padding:clamp(20px,3vw,32px);background:linear-gradient(160deg,#112238,#0c1a2d);border:1px solid #dbc17a55;border-radius:16px;box-shadow:0 40px 80px -40px #000}
+.form h2{font-size:clamp(1.5rem,3vw,2rem)}
+.field{margin-top:16px}.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cs{position:relative}
+.cs-native{position:absolute!important;opacity:0;pointer-events:none;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.cs-btn{width:100%;min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:#09182a;color:var(--text);border:1px solid #ffffff2e;border-radius:10px;padding:11px 14px;font:inherit;text-align:left;cursor:pointer;transition:border-color .3s,box-shadow .3s}
+.cs-btn:hover{border-color:#6fd6e888}
+.cs.open .cs-btn,.cs-btn:focus-visible{border-color:var(--cy);box-shadow:0 0 0 4px #6fd6e81c;outline:0}
+.cs-val{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.cs-car{width:14px;height:14px;flex:none;stroke:var(--cy);fill:none;stroke-width:2;transition:transform .55s var(--ease)}
+.cs.open .cs-car{transform:rotate(180deg)}
+.cs-panel{position:absolute;left:0;right:0;top:calc(100% + 8px);z-index:40;visibility:hidden;pointer-events:none;opacity:0;
+ clip-path:inset(0 0 100% 0 round 14px);transform:translateY(-8px) scale(.985);transform-origin:50% 0;
+ background:linear-gradient(170deg,#112238f7,#0a1628fb);border:1px solid #6fd6e855;border-radius:14px;box-shadow:0 36px 70px -20px #000;
+ transition:clip-path .6s var(--ease),opacity .3s,transform .6s var(--ease),visibility 0s .6s;max-height:min(340px,60vh);overflow:auto;overscroll-behavior:contain}
+.cs.open .cs-panel{visibility:visible;pointer-events:auto;opacity:1;clip-path:inset(0 0 0 0 round 14px);transform:none;transition-delay:0s}
+.cs.up .cs-panel{top:auto;bottom:calc(100% + 8px);transform-origin:50% 100%;clip-path:inset(100% 0 0 0 round 14px);transform:translateY(8px) scale(.985)}
+.cs.up.open .cs-panel{clip-path:inset(0 0 0 0 round 14px);transform:none}
+.cs-list:focus-visible{outline:0}.cs-list{position:relative;list-style:none;margin:0;padding:8px;outline:0}
+.cs-ind{position:absolute;left:8px;right:8px;top:0;height:44px;border-radius:9px;background:linear-gradient(90deg,#6fd6e824,#dbc17a1a);border-left:3px solid var(--cy);transform:translateY(8px);opacity:0;transition:transform .45s var(--ease),height .3s,opacity .3s;pointer-events:none}
+.cs.open .cs-ind{opacity:1}
+.cs-opt{position:relative;padding:12px 14px;border-radius:9px;color:var(--muted);cursor:pointer;font-size:.93rem;line-height:1.35;opacity:0;transform:translateY(14px);filter:blur(6px);transition:opacity .5s var(--ease),transform .5s var(--ease),filter .5s var(--ease),color .25s;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.cs.open .cs-opt{opacity:1;transform:none;filter:none;transition-delay:calc(var(--i)*42ms + 130ms),calc(var(--i)*42ms + 130ms),calc(var(--i)*42ms + 130ms),0s}
+.cs-opt[aria-selected=true]{color:var(--text)}
+.cs-opt[aria-selected=true]::after{content:"";width:8px;height:14px;border:solid var(--gold);border-width:0 2px 2px 0;transform:rotate(45deg) translateY(-2px);flex:none}
+.cs-opt.act{color:var(--text)}
+.cs-panel::after{content:"";position:absolute;left:0;right:0;top:0;height:54px;background:linear-gradient(180deg,#6fd6e82e,transparent);transform:translateY(-110%);pointer-events:none}
+.cs.open .cs-panel::after{animation:barrido 1s var(--ease) .05s}
+.vista{white-space:pre-line;color:var(--text);font-size:.92rem}
+#status{min-height:1.2em;font-size:.84rem;color:var(--cy);margin:12px 0 0}
+/* partículas */
+#fx{position:fixed;inset:0;pointer-events:none;z-index:70;overflow:hidden;contain:strict}
+.p{position:absolute;width:24px;height:24px;opacity:0;will-change:transform,opacity;pointer-events:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+/* barra móvil */
+.dock{display:none}
+footer{padding:clamp(34px,5vw,56px) 0 calc(34px + env(safe-area-inset-bottom));border-top:1px solid var(--line);font-size:.86rem;color:var(--muted)}
+footer a,.note a{display:inline-block;padding:8px 2px}
+footer .brand{color:var(--text);margin-bottom:8px;font-size:1.2rem}
+/* ===== adaptación ===== */
+@media(max-width:1040px){.hero-grid,.split,.sim,.tp{grid-template-columns:1fr}.hero-grid>.diag{order:-1;max-width:520px;margin-inline:auto;width:100%}.tp .big{display:none}}
+@media(max-width:960px){
+ .menu{display:block}
+ nav{position:fixed;inset:0;z-index:90;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:4px;padding:96px var(--pad) calc(32px + env(safe-area-inset-bottom));overflow-y:auto;background:radial-gradient(900px 600px at 100% 0,#173352,#07101d 70%);
+  clip-path:circle(0 at calc(100% - 44px) 44px);visibility:hidden;transition:clip-path .8s var(--ease),visibility 0s .8s}
+ nav.open{clip-path:circle(150% at calc(100% - 44px) 44px);visibility:visible;transition-delay:0s}
+ nav>a:not(.btn),.dd-btn{font:600 1.35rem/1.2 Georgia,serif;padding:16px 4px;border-bottom:1px solid var(--line);width:100%;text-align:left;display:flex;justify-content:space-between;align-items:center;opacity:0;transform:translateX(30px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+ nav.open>a:not(.btn),nav.open .dd-btn{opacity:1;transform:none;transition-delay:calc(var(--i,0)*70ms + 250ms)}
+ nav>a.btn{margin-top:20px;opacity:0;transition:opacity .6s .6s}nav.open>a.btn{opacity:1}
+ nav>a:not(.btn)::after,.dd-btn::after{display:none}
+ .dd{width:100%}
+ .dd-panel{position:static;width:auto;margin:0;display:grid;grid-template-rows:0fr;visibility:visible;clip-path:none;opacity:1;transform:none;border:0;box-shadow:none;background:none;transition:grid-template-rows .6s var(--ease)}
+ .dd.open .dd-panel{grid-template-rows:1fr}.dd-panel::before{display:none}
+ .dd-in{overflow:hidden;padding:0 0 0 8px}.dd.open .dd-in{padding:8px 0 8px 8px}
+ .dock{display:grid;grid-template-columns:1fr 1.4fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px var(--pad) calc(10px + env(safe-area-inset-bottom));background:#07101dee;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .6s var(--ease)}
+ .dock.show{transform:none}body{padding-bottom:0}footer{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+}
+@media(max-width:640px){.cols{grid-template-columns:1fr}.actions .btn{flex:1 1 100%}.brand small{letter-spacing:.2em}.tab{padding:10px 12px}.header{min-height:70px}.hero{padding-top:28px}}
+@media(max-width:360px){h1{font-size:2rem}.brand{font-size:1rem}.brand small{display:none}}
+@media(max-height:480px) and (orientation:landscape){.hero{padding-top:20px}nav{padding-top:76px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important;scroll-behavior:auto!important}.js .rv{opacity:1;translate:none;filter:none;clip-path:none}.cs-opt,.dd-in a{opacity:1;transform:none;filter:none}}
+</style></head><body>
+<div id="progreso" aria-hidden="true"></div>
+<div id="fx" aria-hidden="true"></div>
 <a class="skip" href="#contenido">Saltar al contenido</a>
-<header><div class="wrap header"><a class="brand" href="/"><img src="logo-despacho.webp" alt="Emblema A&A" width="62" height="62"><span class="brand-wordmark">Alvarado <span class="gold">&</span> Asociados<small>DIVISIÓN INFORMÁTICA</small></span></a><button class="menu" aria-expanded="false" aria-controls="navegacion" id="menu">Menú</button><nav id="navegacion" aria-label="Principal"><a href="#poliza">Póliza</a><a href="#drp">DRP</a><a href="#alta-disponibilidad">Alta disponibilidad</a><a href="#arquitectura">Arquitectura</a><a href="#cumplimiento">Cumplimiento</a><a href="/">Firma jurídica</a><a class="btn" href="#solicitud">Diagnóstico inicial</a></nav></div></header>
+<header id="top"><div class="wrap header">
+ <a class="brand" href="/"><img src="logo-despacho.webp" alt="" width="56" height="56"><span>Alvarado <span class="gold">&amp;</span> Asociados<small>DIVISIÓN INFORMÁTICA</small></span></a>
+ <button class="menu" id="menu" type="button" aria-expanded="false" aria-controls="navegacion" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+ <nav id="navegacion" aria-label="Principal">
+  <div class="dd" id="dd-serv" style="--i:0"><button type="button" class="dd-btn" aria-expanded="false" aria-controls="dd-serv-p">Servicios <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 4l4 4 4-4"/></svg></button>
+   <div class="dd-panel" id="dd-serv-p"><div class="dd-in">
+    <a href="#poliza" style="--i:0"><b>Póliza de continuidad</b><small>Recuperación con RTO comprometido por contrato</small></a>
+    <a href="#drp" style="--i:1"><b>Plan de recuperación (DRP)</b><small>Procedimientos probados, con actas</small></a>
+    <a href="#alta-disponibilidad" style="--i:2"><b>Alta disponibilidad</b><small>Sin un solo punto de falla</small></a>
+    <a href="#respuesta" style="--i:3"><b>Respuesta a incidentes</b><small>Ransomware, caídas y evidencia forense</small></a>
+   </div></div></div>
+  <a href="#arquitectura" style="--i:1">Arquitectura</a>
+  <a href="#simulador" style="--i:2">Simulador</a>
+  <a href="#cumplimiento" style="--i:3">Cumplimiento</a>
+  <a href="/" style="--i:4">Firma jurídica</a>
+  <a class="btn" href="#contacto">Diagnóstico inicial</a>
+ </nav></div></header>
+
 <main id="contenido">
-<section class="hero" id="inicio"><div class="wrap hero-grid"><div><span class="eyebrow">Compliance · División Informática</span><h1>Tu operación no se detiene.<br><span class="gold">Tu información, a salvo.</span></h1><p class="lead">Arquitectura de servicios de compliance tecnológico: planes de recuperación ante desastres (DRP), alta disponibilidad de soluciones informáticas y continuidad del negocio, alineados con las obligaciones que su empresa debe demostrar.</p><p class="hero-proof">Prevenir el incidente. Recuperarse a tiempo. Poder probarlo.</p><div class="actions"><a class="btn" href="#solicitud">Solicitar diagnóstico inicial →</a><a class="btn secondary" href="tel:+525625135109">Llamar a la división</a></div><div class="audience-routes" aria-label="Rutas según su situación"><a class="audience-route" href="#respuesta"><strong>¿Sufrió ransomware o una caída? →</strong><span>Contención, evidencia forense y restauración ordenada de la operación.</span></a><a class="audience-route" href="#poliza"><strong>¿Quiere asegurar la recuperación? →</strong><span>Póliza de continuidad: prima anual y recuperación con RTO comprometido en el contrato.</span></a><a class="audience-route" href="#drp"><strong>¿Le piden un plan de continuidad? →</strong><span>DRP documentado, con tiempos de recuperación medidos y simulacros con evidencia.</span></a></div><p class="coverage"><strong>Atención:</strong> CDMX · Estado de México · Querétaro · Puebla, y en línea en todo México.<br>Infraestructuras Windows, Linux (Red Hat), VMware ESXi y nube.<br>Los tiempos de recuperación se definen y se prueban con cada cliente; no se prometen cifras sin medirlas en su infraestructura.</p></div>
-<form class="form" id="solicitud"><span class="eyebrow">Primer contacto</span><h2>Empecemos por su riesgo.</h2><p class="muted">Indique qué necesita y el tamaño aproximado de su infraestructura. Este primer contacto sirve para delimitar el diagnóstico; no constituye una propuesta ni un servicio contratado.</p><label for="area">Servicio</label><select id="area" name="area"><option>Póliza de continuidad informática</option><option>Plan de recuperación ante desastres (DRP)</option><option>Alta disponibilidad de sistemas</option><option>Continuidad del negocio (BCP)</option><option>Respaldo inmutable y protección contra ransomware</option><option>Respuesta a incidente e informática forense</option><option>Cumplimiento normativo de TI</option></select><div class="form-grid"><div><label for="servidores">Servidores / equipos</label><select id="servidores" name="servidores"><option>Menos de 10</option><option>10 a 50</option><option>50 a 200</option><option>Más de 200</option></select></div><div><label for="urgencia">Situación</label><select id="urgencia" name="urgencia"><option>Prevención (sin incidente)</option><option>Auditoría o requerimiento próximo</option><option>Incidente en curso</option></select></div></div><label for="nombre">Nombre y empresa (opcional)</label><input id="nombre" name="nombre" autocomplete="organization" maxlength="120"><label for="objetivo">¿Qué quiere lograr? (opcional)</label><textarea id="objetivo" name="objetivo" rows="3" maxlength="400" placeholder="Ej.: recuperar el ERP en menos de 4 horas si falla el servidor principal"></textarea><button class="btn" type="submit">Preparar mensaje</button><div id="mensaje-preparado" hidden><p class="note">Vista previa del mensaje:</p><p class="note" id="vista-mensaje" style="white-space:pre-line;color:var(--text)"></p><a class="btn" id="enviar-whatsapp" href="#" target="_blank" rel="noopener noreferrer">Abrir WhatsApp con este mensaje</a></div><p class="status" id="status" role="status"></p><p class="note">No incluya contraseñas, direcciones IP ni datos sensibles en este primer mensaje.</p></form></div></section>
-
-<section class="section alternate" id="arquitectura"><div class="wrap"><span class="eyebrow">Arquitectura de servicios</span><h2>Cinco capas, un solo objetivo:<br>que su operación sobreviva.</h2><p class="lead">Cada capa responde a una pregunta que un auditor, un cliente o un juez puede hacerle a su empresa después de un incidente.</p><div class="cards"><article class="card"><span class="number">01 / DIAGNOSTICAR</span><h3>Impacto y prioridades</h3><p>Análisis de impacto al negocio (BIA): qué procesos no pueden detenerse, cuánto tiempo pueden estar fuera (RTO) y cuánta información puede perderse (RPO). Inventario de sistemas, dependencias y riesgos.</p></article><article class="card"><span class="number">02 / DISEÑAR</span><h3>Arquitectura resiliente</h3><p>Redundancia de servidores, almacenamiento y red; réplica de datos; respaldos con copia fuera de sitio e inmutable. Se diseña para el RTO/RPO acordado, no para el catálogo de un proveedor.</p></article><article class="card"><span class="number">03 / DOCUMENTAR</span><h3>Plan DRP y BCP</h3><p>Procedimientos paso a paso, responsables, árbol de llamadas, criterios para declarar un desastre y orden de restauración. Un documento que se puede ejecutar a las 3 de la mañana.</p></article><article class="card"><span class="number">04 / PROBAR</span><h3>Simulacros con evidencia</h3><p>Pruebas de restauración y de conmutación por falla (failover) con tiempos medidos y actas. Un plan que nunca se probó no demuestra nada ante una auditoría.</p></article><article class="card"><span class="number">05 / RESPONDER</span><h3>Incidente y forense</h3><p>Cuando algo ocurre: contención, preservación de evidencia digital con cadena de custodia y restauración. La evidencia queda lista para la vía civil, mercantil o penal.</p></article><article class="card"><span class="number">06 / MEJORAR</span><h3>Revisión continua</h3><p>Actualización del plan ante cambios de sistemas, personal o proveedores, y revisión periódica de indicadores de disponibilidad y de los resultados de cada simulacro.</p></article></div></div></section>
-
-<section class="section" id="drp"><div class="wrap"><div class="split"><div><span class="eyebrow">Plan de recuperación ante desastres</span><h2>Cuando todo falla,<br><span class="gold">ya sabe qué hacer.</span></h2><p class="lead">Un DRP no es una póliza en un cajón: es la secuencia exacta para volver a operar tras un ransomware, un incendio, una falla de hardware o el error de un usuario.</p><ul><li><strong>Objetivos medibles:</strong> RTO y RPO por sistema, aprobados por la dirección.</li><li><strong>Respaldo 3-2-1 con copia inmutable:</strong> tres copias, dos medios, una fuera de sitio y protegida contra borrado y cifrado.</li><li><strong>Orden de restauración:</strong> primero lo que sostiene la operación (identidad, red, base de datos), después lo demás.</li><li><strong>Roles y contactos:</strong> quién decide, quién ejecuta y a quién se informa (clientes, autoridad, aseguradora).</li><li><strong>Pruebas periódicas</strong> con acta, tiempos reales y acciones de mejora.</li></ul></div><div class="family-panel"><h3>Lo que recibe</h3><p>Plan DRP por escrito, matriz de sistemas críticos con RTO/RPO, diagrama de la arquitectura de respaldo, procedimientos de restauración probados y el acta del primer simulacro.</p><p class="note">El plan se adapta a su infraestructura: Windows y Windows Server, Red Hat Enterprise Linux, VMware ESXi y servicios en la nube.</p><div class="actions"><a class="btn" data-area="Plan de recuperación ante desastres (DRP)" href="#solicitud">Solicitar un plan DRP →</a></div></div></div></div></section>
-
-<section class="section alternate" id="alta-disponibilidad"><div class="wrap"><span class="eyebrow">Alta disponibilidad de soluciones informáticas</span><h2>Diseñado para que una falla<br>no se convierta en una caída.</h2><p class="lead">La alta disponibilidad reduce el tiempo fuera de servicio eliminando puntos únicos de falla. Se dimensiona según lo que cuesta a su empresa cada hora detenida.</p><div class="forensic-grid"><article class="card"><span class="number">SERVIDORES</span><h3>Clúster y conmutación</h3><p>Servidores en clúster y máquinas virtuales que se reinician en otro equipo si el anfitrión falla; balanceo de carga para aplicaciones web y de negocio.</p></article><article class="card"><span class="number">DATOS</span><h3>Réplica y almacenamiento redundante</h3><p>Réplica síncrona o asíncrona de bases de datos y almacenamiento con redundancia, según la distancia entre sitios y la pérdida de datos aceptable.</p></article><article class="card"><span class="number">RED Y ENERGÍA</span><h3>Sin un solo punto de falla</h3><p>Enlaces y equipos de red duplicados, energía ininterrumpida y, cuando se justifica, un sitio alterno o en la nube para la recuperación.</p></article><article class="card"><span class="number">MONITOREO</span><h3>Detectar antes que el cliente</h3><p>Monitoreo de disponibilidad, capacidad y respaldos con alertas, y reportes de disponibilidad para la dirección.</p></article></div><div class="forensic-footer"><p><strong>Sin promesas vacías:</strong> la disponibilidad (por ejemplo, 99.9 %) se calcula y se compromete solo después de diseñar y medir la solución en su entorno. Alta disponibilidad no sustituye al respaldo: un ransomware se replica igual que un dato bueno.</p><a class="btn" data-area="Alta disponibilidad de sistemas" href="#solicitud">Evaluar la disponibilidad de mis sistemas →</a></div></div></section>
-
-
-<section class="section" id="poliza"><div class="wrap"><span class="eyebrow">Póliza de continuidad informática</span><h2>Su infraestructura, asegurada.<br><span class="gold">La recuperación, comprometida por escrito.</span></h2><p class="lead">Una póliza de seguridad informática no es un seguro más: es un contrato de recuperación. La empresa paga una prima y, si su infraestructura cubierta se ve comprometida, <strong>nosotros la recuperamos dentro del tiempo comprometido (RTO)</strong>, con las condiciones definidas antes del incidente y no improvisadas durante la crisis.</p>
-<div class="cards"><article class="card"><span class="number">PRIMA</span><h3>Una cuota, todo incluido</h3><p>Conforme al contrato, la prima cubre el diagnóstico inicial, el plan DRP, el respaldo gestionado, el monitoreo y las pruebas, y la recuperación se ejecuta sin cargo adicional por evento cubierto.</p></article><article class="card"><span class="number">RTO</span><h3>Tiempo comprometido por contrato</h3><p>El RTO y el RPO se pactan por sistema después del diagnóstico, según lo que su operación puede resistir. Ese número queda en el contrato —sujeto al alcance y a las condiciones pactadas— y se mide en cada simulacro.</p></article><article class="card"><span class="number">EVIDENCIA</span><h3>Informe con validez documental</h3><p>Cada incidente y cada recuperación deja acta, bitácora y dictamen técnico: documentan qué pasó, qué se hizo y en cuánto tiempo, y sirven de base para su aseguradora, sus clientes o un procedimiento. Un documento privado no sustituye la valoración que haga una autoridad.</p></article></div>
-<div class="family-panel"><h3>Cómo se activa</h3><p><strong>1.</strong> Incidente confirmado sobre la infraestructura cubierta. <strong>2.</strong> Contención y preservación de evidencia. <strong>3.</strong> Restauración por orden de criticidad hasta el RTO comprometido. <strong>4.</strong> Informe de causa raíz y plan de mejora.</p><p class="note">La cobertura, los límites y las exclusiones se definen en el contrato con el diagnóstico técnico previo: por ejemplo, que la infraestructura cubierta esté documentada, con respaldo operando y con el plan probado. Ninguna póliza cubre una infraestructura que no se dejó proteger.</p><p class="note"><strong>Vía de contratación:</strong> directa con la división, o a través de su aseguradora o bróker de riesgos cibernéticos, que integra este servicio a su cobertura. En ambas vías, la recuperación la ejecuta el mismo equipo técnico del despacho.</p><div class="actions"><a class="btn" data-area="Póliza de continuidad informática" href="#solicitud">Quiero la póliza de continuidad →</a></div></div>
+<section class="hero" id="inicio"><div class="wrap hero-grid">
+ <div>
+  <span class="eyebrow cy rv">Compliance · División Informática</span>
+  <h1 class="rv" style="--d:1">Tu operación no se detiene.<br><span class="gold">Tu información, a salvo.</span></h1>
+  <p class="lead rv" style="--d:2">Arquitectura de servicios de compliance tecnológico: planes de recuperación ante desastres (DRP), alta disponibilidad de soluciones informáticas y continuidad del negocio, alineados con las obligaciones que su empresa debe demostrar.</p>
+  <p class="hero-proof rv" style="--d:3">Prevenir el incidente. Recuperarse a tiempo. Poder probarlo.</p>
+  <div class="actions rv" style="--d:4"><a class="btn" href="#contacto">Solicitar diagnóstico inicial →</a><a class="btn secondary" href="tel:+525625135109">Llamar a la división</a></div>
+  <div class="routes">
+   <a class="route rv" style="--d:5" href="#respuesta"><strong>¿Sufrió ransomware o una caída? →</strong><span>Contención, evidencia forense y restauración ordenada.</span></a>
+   <a class="route rv" style="--d:6" href="#poliza"><strong>¿Quiere asegurar la recuperación? →</strong><span>Póliza de continuidad con RTO comprometido en el contrato.</span></a>
+   <a class="route rv" style="--d:7" href="#drp"><strong>¿Le piden un plan de continuidad? →</strong><span>DRP documentado, con simulacros y evidencia.</span></a>
+  </div>
+  <p class="coverage rv" style="--d:8"><strong>Atención:</strong> CDMX · Estado de México · Querétaro · Puebla, y en línea en todo México. Infraestructuras Windows, Linux (Red Hat), VMware ESXi y nube. Los tiempos de recuperación se definen y se prueban con cada cliente; no se prometen cifras sin medirlas en su infraestructura.</p>
+ </div>
+ <div class="diag rv wipe" style="--d:3">
+  <svg class="diagram" viewBox="0 0 520 440" role="img" aria-label="Esquema: si el servidor de producción falla, los usuarios pasan automáticamente a la réplica y se conserva un respaldo inmutable">
+   <defs><radialGradient id="gl" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#6fd6e8" stop-opacity=".18"/><stop offset="1" stop-color="#6fd6e8" stop-opacity="0"/></radialGradient></defs>
+   <circle cx="260" cy="220" r="210" fill="url(#gl)"/>
+   <path class="link l-prod" d="M230 78 C170 110 130 150 120 196"/>
+   <path class="link l-rep" d="M290 78 C350 110 390 150 400 196"/>
+   <path class="link g" d="M184 232 C230 252 290 252 336 232"/>
+   <path class="link g" d="M120 268 C130 310 180 335 224 346"/>
+   <path class="link g" d="M400 268 C390 310 340 335 296 346"/>
+   <g class="node"><circle cx="260" cy="52" r="26" fill="#0d1b2f" stroke="#dbc17acc" stroke-width="1.5"/><path d="M252 56a8 8 0 0 1 16 0M250 48h20" stroke="#dbc17a" fill="none" stroke-width="1.5"/><text x="260" y="98" text-anchor="middle">Usuarios</text></g>
+   <g class="node prod"><rect x="50" y="196" width="140" height="72" rx="12"/><text x="120" y="228" text-anchor="middle">Producción</text><text class="sub" x="120" y="248" text-anchor="middle">Servidor principal</text></g>
+   <g class="node"><rect x="330" y="196" width="140" height="72" rx="12"/><text x="400" y="228" text-anchor="middle">Réplica</text><text class="sub" x="400" y="248" text-anchor="middle">Conmutación (failover)</text></g>
+   <g class="node g"><rect x="190" y="346" width="140" height="72" rx="12"/><text x="260" y="378" text-anchor="middle">Respaldo inmutable</text><text class="sub" x="260" y="398" text-anchor="middle">Copia fuera de sitio</text></g>
+   <rect class="badge-bg" x="196" y="128" width="128" height="26" rx="13"/><text class="badge badge-t" x="260" y="145" text-anchor="middle">FALLA → CONMUTA</text>
+  </svg>
+ </div>
 </div></section>
-<section class="section" id="cumplimiento"><div class="wrap"><div class="split"><div><span class="eyebrow">Compliance tecnológico</span><h2>Cumplir no es tener políticas.<br><span class="gold">Es poder demostrarlo.</span></h2><p class="lead">Trabajamos junto con la firma jurídica: la parte técnica se diseña para responder a las obligaciones legales, contractuales y regulatorias de su empresa.</p><p class="muted">Tomamos como referencia marcos reconocidos —ISO 22301 (continuidad del negocio), ISO/IEC 27001 (seguridad de la información) y NIST CSF— y las obligaciones de protección de datos personales y de su sector. La certificación, cuando se busca, la otorga un organismo certificador independiente.</p></div><div class="cards" style="grid-template-columns:1fr;margin-top:0"><article class="card"><span class="number">EVIDENCIA</span><h3>Bitácoras, actas y reportes</h3><p>Cada respaldo, prueba e incidente deja un registro verificable que sostiene a la empresa frente a auditores, clientes y autoridades.</p></article><article class="card"><span class="number">CONTRATOS</span><h3>Proveedores y niveles de servicio</h3><p>Revisión de los compromisos de disponibilidad, respaldo y respuesta de sus proveedores de TI y nube, para que lo firmado coincida con lo que su operación necesita.</p></article></div></div></div></section>
 
-<section class="section alternate" id="respuesta"><div class="wrap"><div class="split"><div><span class="eyebrow">Incidente en curso</span><h2>Ransomware o caída:<br>primero, no empeorarlo.</h2><p class="lead">Las primeras horas deciden si la empresa se recupera y si la evidencia sirve después. No apague, no reinstale y no pague sin asesoría.</p><ul><li>Contención para detener la propagación.</li><li>Preservación de evidencia con cadena de custodia y acta, apta para reclamar ante la aseguradora o en juicio.</li><li>Restauración ordenada desde respaldos verificados.</li><li>Informe de causa raíz y medidas para que no se repita.</li></ul></div><div class="family-panel"><h3>Atención inmediata</h3><p>Si el incidente está ocurriendo, llame directamente; no espere la respuesta de un formulario.</p><div class="actions"><a class="btn" href="tel:+525625135109">Llamar ahora: 56 2513 5109</a><a class="btn secondary" data-area="Respuesta a incidente e informática forense" href="#solicitud">Escribir por WhatsApp</a></div><p class="note">La recuperación depende del estado de los respaldos y de los sistemas afectados; se evalúa caso por caso.</p></div></div></div></section>
+<section class="alt" id="arquitectura"><div class="wrap">
+ <div class="head"><span class="eyebrow cy rv">Arquitectura de servicios</span><h2 class="rv" style="--d:1">Seis capas, un solo objetivo:<br>que su operación sobreviva.</h2><span class="line-draw rv"></span><p class="lead rv" style="--d:2">Cada capa responde a una pregunta que un auditor, un cliente o un juez puede hacerle a su empresa después de un incidente. Elija una capa.</p></div>
+ <div class="tabs rv" role="tablist" aria-label="Capas de la arquitectura" id="tablist">
+  <button class="tab" role="tab" aria-selected="true" aria-controls="tp0" id="t0"><span>01</span>Diagnosticar</button>
+  <button class="tab" role="tab" aria-selected="false" aria-controls="tp1" id="t1" tabindex="-1"><span>02</span>Diseñar</button>
+  <button class="tab" role="tab" aria-selected="false" aria-controls="tp2" id="t2" tabindex="-1"><span>03</span>Documentar</button>
+  <button class="tab" role="tab" aria-selected="false" aria-controls="tp3" id="t3" tabindex="-1"><span>04</span>Probar</button>
+  <button class="tab" role="tab" aria-selected="false" aria-controls="tp4" id="t4" tabindex="-1"><span>05</span>Responder</button>
+  <button class="tab" role="tab" aria-selected="false" aria-controls="tp5" id="t5" tabindex="-1"><span>06</span>Mejorar</button>
+  <span class="tab-ind" id="tabind"></span>
+ </div>
+ <div class="tp-wrap">
+  <div class="tp" role="tabpanel" id="tp0" aria-labelledby="t0"><div><h3>Impacto y prioridades</h3><p class="lead">Análisis de impacto al negocio (BIA): qué procesos no pueden detenerse, cuánto tiempo pueden estar fuera (RTO) y cuánta información puede perderse (RPO).</p><ul class="chk"><li style="--i:0">Inventario de sistemas, dependencias y riesgos.</li><li style="--i:1">Clasificación por criticidad con la dirección.</li><li style="--i:2">RTO y RPO propuestos por sistema.</li></ul></div><div class="big" aria-hidden="true">01</div></div>
+  <div class="tp" role="tabpanel" id="tp1" aria-labelledby="t1" hidden><div><h3>Arquitectura resiliente</h3><p class="lead">Redundancia de servidores, almacenamiento y red; réplica de datos; respaldos con copia fuera de sitio e inmutable. Se diseña para el RTO/RPO acordado, no para el catálogo de un proveedor.</p><ul class="chk"><li style="--i:0">Eliminación de puntos únicos de falla.</li><li style="--i:1">Respaldo 3-2-1 con copia inmutable.</li><li style="--i:2">Sitio alterno o nube cuando se justifica.</li></ul></div><div class="big" aria-hidden="true">02</div></div>
+  <div class="tp" role="tabpanel" id="tp2" aria-labelledby="t2" hidden><div><h3>Plan DRP y BCP</h3><p class="lead">Procedimientos paso a paso, responsables, árbol de llamadas, criterios para declarar un desastre y orden de restauración. Un documento que se puede ejecutar a las 3 de la mañana.</p><ul class="chk"><li style="--i:0">Roles, contactos y escalamiento.</li><li style="--i:1">Orden de restauración por criticidad.</li><li style="--i:2">Comunicación a clientes, autoridad y aseguradora.</li></ul></div><div class="big" aria-hidden="true">03</div></div>
+  <div class="tp" role="tabpanel" id="tp3" aria-labelledby="t3" hidden><div><h3>Simulacros con evidencia</h3><p class="lead">Pruebas de restauración y de conmutación por falla (failover) con tiempos medidos y actas. Un plan que nunca se probó no demuestra nada ante una auditoría.</p><ul class="chk"><li style="--i:0">Restauración real desde respaldo.</li><li style="--i:1">Tiempos medidos contra el RTO/RPO.</li><li style="--i:2">Acta firmada con hallazgos y mejoras.</li></ul></div><div class="big" aria-hidden="true">04</div></div>
+  <div class="tp" role="tabpanel" id="tp4" aria-labelledby="t4" hidden><div><h3>Incidente y forense</h3><p class="lead">Cuando algo ocurre: contención, preservación de evidencia digital con cadena de custodia y restauración. La evidencia queda lista para la vía civil, mercantil o penal.</p><ul class="chk"><li style="--i:0">Contención para detener la propagación.</li><li style="--i:1">Evidencia preservada con cadena de custodia.</li><li style="--i:2">Restauración desde respaldos verificados.</li></ul></div><div class="big" aria-hidden="true">05</div></div>
+  <div class="tp" role="tabpanel" id="tp5" aria-labelledby="t5" hidden><div><h3>Revisión continua</h3><p class="lead">Actualización del plan ante cambios de sistemas, personal o proveedores, y revisión periódica de indicadores de disponibilidad y de los resultados de cada simulacro.</p><ul class="chk"><li style="--i:0">Revisión tras cada cambio relevante.</li><li style="--i:1">Indicadores de disponibilidad para la dirección.</li><li style="--i:2">Nuevo simulacro y acta periódica.</li></ul></div><div class="big" aria-hidden="true">06</div></div>
+ </div>
+</div></section>
 
-<section class="section"><div class="wrap"><span class="eyebrow">Antes del primer contacto</span><h2>Preguntas frecuentes</h2><details><summary>¿Qué diferencia hay entre DRP, BCP y alta disponibilidad?</summary><p>La alta disponibilidad evita que una falla detenga el servicio. El DRP (plan de recuperación ante desastres) es cómo se recuperan los sistemas cuando algo grave sí ocurre. El BCP (plan de continuidad) abarca a toda la empresa: personas, procesos y proveedores, además de la tecnología.</p></details><details><summary>¿Necesito comprar equipo nuevo?</summary><p>No necesariamente. El diagnóstico parte de lo que ya tiene; muchas veces basta con reorganizar respaldos, documentar y probar. Si se requiere inversión, se presenta con su justificación por el riesgo que reduce.</p></details><details><summary>¿Cuánto tarda un plan DRP?</summary><p>Depende del número de sistemas y sitios. Tras el diagnóstico inicial se entrega un cronograma con fases, entregables y fechas de simulacro.</p></details><details><summary>¿El formulario envía automáticamente mi mensaje?</summary><p>No. Primero muestra una vista previa en esta página. Solo al pulsar el segundo botón se abre WhatsApp con el texto para que usted decida enviarlo.</p></details></div></section>
+<section id="drp"><div class="wrap split">
+ <div><span class="eyebrow cy rv">Plan de recuperación ante desastres</span><h2 class="rv" style="--d:1">Cuando todo falla,<br><span class="gold">ya sabe qué hacer.</span></h2><p class="lead rv" style="--d:2">Un DRP no es una póliza en un cajón: es la secuencia exacta para volver a operar tras un ransomware, un incendio, una falla de hardware o el error de un usuario.</p>
+  <ul class="chk rv" style="--d:3"><li style="--i:0"><strong>Objetivos medibles:</strong> RTO y RPO por sistema, aprobados por la dirección.</li><li style="--i:1"><strong>Respaldo 3-2-1 con copia inmutable:</strong> tres copias, dos medios, una fuera de sitio y protegida contra borrado y cifrado.</li><li style="--i:2"><strong>Orden de restauración:</strong> primero lo que sostiene la operación (identidad, red, base de datos).</li><li style="--i:3"><strong>Roles y contactos:</strong> quién decide, quién ejecuta y a quién se informa.</li><li style="--i:4"><strong>Pruebas periódicas</strong> con acta, tiempos reales y acciones de mejora.</li></ul></div>
+ <div class="panel rv" style="--d:2"><h3>Lo que recibe</h3><p>Plan DRP por escrito, matriz de sistemas críticos con RTO/RPO, diagrama de la arquitectura de respaldo, procedimientos de restauración probados y el acta del primer simulacro.</p><p class="note">Se adapta a su infraestructura: Windows y Windows Server, Red Hat Enterprise Linux, VMware ESXi y servicios en la nube.</p><div class="actions"><a class="btn" data-area="Plan de recuperación ante desastres (DRP)" href="#contacto">Solicitar un plan DRP →</a></div></div>
+</div></section>
 
-<section class="section alternate" id="contacto"><div class="wrap contact"><span class="eyebrow">Contacto directo</span><h2>Proteja lo que su negocio<br>no puede perder.</h2><p class="lead">Solicite un diagnóstico inicial de continuidad y disponibilidad. Indique de forma general su infraestructura y el servicio que le interesa.</p><div class="actions"><a class="btn" href="https://wa.me/525625135109?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20de%20la%20Divisi%C3%B3n%20Inform%C3%A1tica%20de%20Alvarado%20%26%20Asociados%20y%20deseo%20un%20diagn%C3%B3stico%20inicial." target="_blank" rel="noopener noreferrer">WhatsApp: 56 2513 5109</a><a class="btn secondary" href="tel:+525625135109">Llamar</a><a class="btn secondary" href="/">Conocer la firma jurídica</a></div></div></section>
+<section class="alt" id="alta-disponibilidad"><div class="wrap">
+ <div class="head"><span class="eyebrow cy rv">Alta disponibilidad de soluciones informáticas</span><h2 class="rv" style="--d:1">Diseñado para que una falla<br>no se convierta en una caída.</h2><p class="lead rv" style="--d:2">La alta disponibilidad reduce el tiempo fuera de servicio eliminando puntos únicos de falla. Se dimensiona según lo que cuesta a su empresa cada hora detenida.</p></div>
+ <div class="grid tiltgrid">
+  <article class="card rv tilt" style="--d:1"><svg class="ic" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="6" rx="1.5"/><rect x="4" y="14" width="16" height="6" rx="1.5"/><path d="M8 7h.01M8 17h.01M12 7h4M12 17h4"/></svg><span class="n">Servidores</span><h3>Clúster y conmutación</h3><p>Servidores en clúster y máquinas virtuales que se reinician en otro equipo si el anfitrión falla; balanceo de carga para aplicaciones web y de negocio.</p></article>
+  <article class="card rv tilt" style="--d:2"><svg class="ic" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg><span class="n">Datos</span><h3>Réplica y almacenamiento</h3><p>Réplica síncrona o asíncrona de bases de datos y almacenamiento con redundancia, según la distancia entre sitios y la pérdida de datos aceptable.</p></article>
+  <article class="card rv tilt" style="--d:3"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.5"/><circle cx="5" cy="6" r="1.8"/><circle cx="19" cy="7" r="1.8"/><circle cx="18" cy="18" r="1.8"/><path d="M10 11L6.3 7.2M14 11l3.6-2.8M13.5 14l3.6 3"/></svg><span class="n">Red y energía</span><h3>Sin un solo punto de falla</h3><p>Enlaces y equipos de red duplicados, energía ininterrumpida y, cuando se justifica, un sitio alterno o en la nube para la recuperación.</p></article>
+  <article class="card rv tilt" style="--d:4"><svg class="ic" viewBox="0 0 24 24"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg><span class="n">Monitoreo</span><h3>Detectar antes que el cliente</h3><p>Monitoreo de disponibilidad, capacidad y respaldos con alertas, y reportes de disponibilidad para la dirección.</p></article>
+ </div>
+ <div class="panel rv" style="margin-top:clamp(20px,3vw,32px)"><p style="margin:0"><strong>Sin promesas vacías:</strong> la disponibilidad (por ejemplo, 99.9&nbsp;%) se calcula y se compromete solo después de diseñar y medir la solución en su entorno. Alta disponibilidad no sustituye al respaldo: un ransomware se replica igual que un dato bueno.</p><div class="actions"><a class="btn" data-area="Alta disponibilidad de sistemas" href="#contacto">Evaluar la disponibilidad de mis sistemas →</a></div></div>
+</div></section>
+
+<section id="simulador"><div class="wrap">
+ <div class="head"><span class="eyebrow cy rv">Simulador orientativo</span><h2 class="rv" style="--d:1">¿Cuánto puede permitirse<br><span class="gold">estar detenido?</span></h2><p class="lead rv" style="--d:2">Mueva los controles y vea qué significan el RTO y el RPO para su operación y qué tipo de arquitectura suele corresponder. Es una guía para empezar la conversación, no una cotización.</p></div>
+ <div class="panel sim rv">
+  <div class="ctl">
+   <div><label for="rto"><span>RTO · tiempo máximo sin servicio</span><output id="rtoo" for="rto">4 horas</output></label><input id="rto" type="range" min="0" max="8" step="1" value="3" aria-describedby="rtod"></div>
+   <div><label for="rpo"><span>RPO · información que puede perder</span><output id="rpoo" for="rpo">1 hora</output></label><input id="rpo" type="range" min="0" max="5" step="1" value="2" aria-describedby="rpod"></div>
+   <div><label for="coste"><span>Costo estimado de una hora detenida (MXN)</span></label><input id="coste" type="number" inputmode="numeric" min="0" step="1000" placeholder="Ej.: 25000" autocomplete="off"></div>
+   <p class="note" style="margin:0">Las cifras que escriba se calculan en su navegador y no se envían a ningún lado.</p>
+  </div>
+  <div class="out" aria-live="polite">
+   <div class="res" id="r1"><b>Operación</b><span class="v" id="v1"></span><p id="rtod"></p></div>
+   <div class="res" id="r2"><b>Datos</b><span class="v" id="v2"></span><p id="rpod"></p></div>
+   <div class="res" id="r3"><b>Arquitectura orientativa</b><p id="v3"></p></div>
+   <div class="res" id="r4" hidden><b>Exposición máxima por incidente</b><span class="v" id="v4"></span><p id="p4"></p></div>
+   <button type="button" class="btn" id="llevar">Llevar este escenario al diagnóstico →</button>
+  </div>
+ </div>
+</div></section>
+
+<section class="alt" id="poliza"><div class="wrap">
+ <div class="head"><span class="eyebrow cy rv">Póliza de continuidad informática</span><h2 class="rv" style="--d:1">Su infraestructura, asegurada.<br><span class="gold">La recuperación, comprometida por escrito.</span></h2><p class="lead rv" style="--d:2">Una póliza de seguridad informática no es un seguro más: es un contrato de recuperación. La empresa paga una prima y, si su infraestructura cubierta se ve comprometida, <strong>nosotros la recuperamos dentro del tiempo comprometido (RTO)</strong>, con condiciones definidas antes del incidente y no improvisadas durante la crisis.</p></div>
+ <div class="grid">
+  <article class="card rv tilt" style="--d:1"><span class="n">Prima</span><h3>Una cuota, todo incluido</h3><p>Conforme al contrato, la prima cubre el diagnóstico inicial, el plan DRP, el respaldo gestionado, el monitoreo y las pruebas, y la recuperación se ejecuta sin cargo adicional por evento cubierto.</p></article>
+  <article class="card rv tilt" style="--d:2"><span class="n">RTO</span><h3>Tiempo comprometido por contrato</h3><p>El RTO y el RPO se pactan por sistema después del diagnóstico, según lo que su operación puede resistir. Ese número queda en el contrato —sujeto al alcance y a las condiciones pactadas— y se mide en cada simulacro.</p></article>
+  <article class="card rv tilt" style="--d:3"><span class="n">Evidencia</span><h3>Informe técnico documentado</h3><p>Cada incidente y cada recuperación deja acta, bitácora y dictamen técnico: documentan qué pasó, qué se hizo y en cuánto tiempo, y sirven de base para su aseguradora, sus clientes o un procedimiento. Un documento privado no sustituye la valoración de una autoridad.</p></article>
+ </div>
+ <div class="panel rv" style="margin-top:clamp(20px,3vw,32px)"><h3>Cómo se activa</h3>
+  <div class="steps" id="steps1">
+   <div class="step" data-n="1"><h3>Incidente confirmado</h3><p>Sobre la infraestructura cubierta por la póliza.</p></div>
+   <div class="step" data-n="2"><h3>Contención y evidencia</h3><p>Se detiene la propagación y se preserva la evidencia.</p></div>
+   <div class="step" data-n="3"><h3>Restauración por criticidad</h3><p>Hasta el RTO comprometido, en el orden definido en el plan.</p></div>
+   <div class="step" data-n="4"><h3>Informe y mejora</h3><p>Causa raíz, acta y plan de mejora.</p></div>
+  </div>
+  <p class="note">La cobertura, los límites y las exclusiones se definen en el contrato con el diagnóstico técnico previo: por ejemplo, que la infraestructura cubierta esté documentada, con respaldo operando y con el plan probado. Ninguna póliza cubre una infraestructura que no se dejó proteger.</p>
+  <p class="note"><strong>Vía de contratación:</strong> directa con la división, o a través de su aseguradora o bróker de riesgos cibernéticos, que integra este servicio a su cobertura. En ambas vías, la recuperación la ejecuta el mismo equipo técnico del despacho.</p>
+  <div class="actions"><a class="btn" data-area="Póliza de continuidad informática" href="#contacto">Quiero la póliza de continuidad →</a></div></div>
+</div></section>
+
+<section id="cumplimiento"><div class="wrap split">
+ <div><span class="eyebrow cy rv">Compliance tecnológico</span><h2 class="rv" style="--d:1">Cumplir no es tener políticas.<br><span class="gold">Es poder demostrarlo.</span></h2><p class="lead rv" style="--d:2">Trabajamos junto con la firma jurídica: la parte técnica se diseña para responder a las obligaciones legales, contractuales y regulatorias de su empresa.</p>
+  <p class="muted rv" style="--d:3">Tomamos como referencia marcos reconocidos y las obligaciones de protección de datos personales y de su sector. La certificación, cuando se busca, la otorga un organismo certificador independiente.</p>
+  <ul class="chips rv" style="--d:4"><li>ISO 22301 · Continuidad</li><li>ISO/IEC 27001 · Seguridad</li><li>NIST CSF</li><li>LFPDPPP</li></ul></div>
+ <div class="grid" style="grid-template-columns:1fr"><article class="card rv tilt" style="--d:2"><span class="n">Evidencia</span><h3>Bitácoras, actas y reportes</h3><p>Cada respaldo, prueba e incidente deja un registro verificable que sostiene a la empresa frente a auditores, clientes y autoridades.</p></article>
+ <article class="card rv tilt" style="--d:3"><span class="n">Contratos</span><h3>Proveedores y niveles de servicio</h3><p>Revisión de los compromisos de disponibilidad, respaldo y respuesta de sus proveedores de TI y nube, para que lo firmado coincida con lo que su operación necesita.</p></article></div>
+</div></section>
+
+<section class="alt" id="respuesta"><div class="wrap split">
+ <div><span class="eyebrow cy rv">Incidente en curso</span><h2 class="rv" style="--d:1">Ransomware o caída:<br>primero, no empeorarlo.</h2><p class="lead rv" style="--d:2">Las primeras horas deciden si la empresa se recupera y si la evidencia sirve después. No apague, no reinstale y no pague sin asesoría.</p>
+  <div class="steps rv" id="steps2" style="--d:3;margin-top:26px">
+   <div class="step" data-n="1"><h3>Contención</h3><p>Detener la propagación sin destruir evidencia.</p></div>
+   <div class="step" data-n="2"><h3>Preservación</h3><p>Evidencia con cadena de custodia y acta, apta para la aseguradora o un juicio.</p></div>
+   <div class="step" data-n="3"><h3>Restauración</h3><p>Ordenada, desde respaldos verificados.</p></div>
+   <div class="step" data-n="4"><h3>Causa raíz</h3><p>Informe y medidas para que no se repita.</p></div>
+  </div></div>
+ <div class="panel rv" style="--d:2"><h3>Atención inmediata</h3><p>Si el incidente está ocurriendo, llame directamente; no espere la respuesta de un formulario.</p><div class="actions"><a class="btn" href="tel:+525625135109">Llamar ahora: 56 2513 5109</a><a class="btn secondary" data-area="Respuesta a incidente e informática forense" href="#contacto">Escribir por WhatsApp</a></div><p class="note" style="margin-top:18px">La recuperación depende del estado de los respaldos y de los sistemas afectados; se evalúa caso por caso.</p></div>
+</div></section>
+
+<section id="faq"><div class="wrap" style="max-width:860px">
+ <span class="eyebrow cy rv">Antes del primer contacto</span><h2 class="rv" style="--d:1">Preguntas frecuentes</h2>
+ <div class="rv" style="--d:2">
+ <details><summary>¿Qué diferencia hay entre DRP, BCP y alta disponibilidad?</summary><div class="fb"><p>La alta disponibilidad evita que una falla detenga el servicio. El DRP (plan de recuperación ante desastres) es cómo se recuperan los sistemas cuando algo grave sí ocurre. El BCP (plan de continuidad) abarca a toda la empresa: personas, procesos y proveedores, además de la tecnología.</p></div></details>
+ <details><summary>¿Necesito comprar equipo nuevo?</summary><div class="fb"><p>No necesariamente. El diagnóstico parte de lo que ya tiene; muchas veces basta con reorganizar respaldos, documentar y probar. Si se requiere inversión, se presenta con su justificación por el riesgo que reduce.</p></div></details>
+ <details><summary>¿Cuánto tarda un plan DRP?</summary><div class="fb"><p>Depende del número de sistemas y sitios. Tras el diagnóstico inicial se entrega un cronograma con fases, entregables y fechas de simulacro.</p></div></details>
+ <details><summary>¿El formulario envía automáticamente mi mensaje?</summary><div class="fb"><p>No. Primero muestra una vista previa en esta página. Solo al pulsar el segundo botón se abre WhatsApp con el texto para que usted decida enviarlo.</p></div></details>
+ </div>
+</div></section>
+
+<section class="alt" id="contacto"><div class="wrap split">
+ <div><span class="eyebrow cy rv">Contacto directo</span><h2 class="rv" style="--d:1">Proteja lo que su negocio<br><span class="gold">no puede perder.</span></h2><p class="lead rv" style="--d:2">Solicite un diagnóstico inicial de continuidad y disponibilidad. Indique de forma general su infraestructura y el servicio que le interesa.</p>
+  <div class="actions rv" style="--d:3"><a class="btn" href="tel:+525625135109">Llamar: 56 2513 5109</a><a class="btn secondary" href="/">Conocer la firma jurídica</a></div></div>
+ <form class="form rv" id="solicitud" style="--d:2" novalidate><span class="eyebrow cy">Primer contacto</span><h2>Empecemos por su riesgo.</h2>
+  <p class="muted">Este primer contacto sirve para delimitar el diagnóstico; no constituye una propuesta ni un servicio contratado.</p>
+  <div class="field"><label for="area">Servicio</label><select id="area" name="area"><option>Póliza de continuidad informática</option><option>Plan de recuperación ante desastres (DRP)</option><option>Alta disponibilidad de sistemas</option><option>Continuidad del negocio (BCP)</option><option>Respaldo inmutable y protección contra ransomware</option><option>Respuesta a incidente e informática forense</option><option>Cumplimiento normativo de TI</option></select></div>
+  <div class="cols"><div class="field"><label for="servidores">Servidores / equipos</label><select id="servidores" name="servidores"><option>Menos de 10</option><option>10 a 50</option><option>50 a 200</option><option>Más de 200</option></select></div>
+  <div class="field"><label for="urgencia">Situación</label><select id="urgencia" name="urgencia"><option>Prevención (sin incidente)</option><option>Auditoría o requerimiento próximo</option><option>Incidente en curso</option></select></div></div>
+  <div class="field"><label for="nombre">Nombre y empresa (opcional)</label><input id="nombre" name="nombre" type="text" autocomplete="organization" maxlength="120"></div>
+  <div class="field"><label for="objetivo">¿Qué quiere lograr? (opcional)</label><textarea id="objetivo" name="objetivo" rows="3" maxlength="400" placeholder="Ej.: recuperar el ERP en menos de 4 horas si falla el servidor principal"></textarea></div>
+  <div class="actions"><button class="btn" type="submit" style="width:100%">Preparar mensaje</button></div>
+  <div id="prep" hidden style="margin-top:18px"><p class="note">Vista previa del mensaje:</p><p class="vista" id="vista"></p><a class="btn" id="wa" href="#" target="_blank" rel="noopener noreferrer" style="width:100%">Abrir WhatsApp con este mensaje</a></div>
+  <p id="status" role="status"></p>
+  <p class="note">No incluya contraseñas, direcciones IP ni datos sensibles en este primer mensaje. <a href="/aviso-de-privacidad">Aviso de privacidad</a>.</p></form>
+</div></section>
 </main>
-<footer><div class="wrap"><p class="brand">Alvarado & Asociados · División Informática</p><p>© 2026 Alvarado & Asociados. Información general; el alcance de cada servicio se define por escrito después del diagnóstico. <a href="/aviso-de-privacidad">Aviso de privacidad</a>.</p><details><summary>Información sobre este formulario</summary><p>Los campos se procesan en su navegador para preparar un mensaje; no se guardan en el sitio. Al abrir WhatsApp, el texto pasa a ese servicio externo conforme a sus condiciones.</p></details></div></footer>
-<a class="btn sticky-contact" href="#solicitud">Diagnóstico inicial</a>
+<footer><div class="wrap"><p class="brand">Alvarado &amp; Asociados · División Informática</p><p>© 2026 Alvarado &amp; Asociados. Información general; el alcance de cada servicio se define por escrito después del diagnóstico. <a href="/aviso-de-privacidad">Aviso de privacidad</a>.</p><p class="note" style="margin:0">Los campos se procesan en su navegador para preparar un mensaje; no se guardan en el sitio. Al abrir WhatsApp, el texto pasa a ese servicio externo conforme a sus condiciones.</p></div></footer>
+<div class="dock" id="dock"><a class="btn secondary" href="tel:+525625135109">Llamar</a><a class="btn" href="#contacto">Diagnóstico inicial</a></div>
+
 <script>
-'use strict';
-const menu=document.getElementById('menu'),nav=document.getElementById('navegacion');
-function closeMenu(){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');}
-menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));});
-nav.addEventListener('click',e=>{if(e.target.closest('a'))closeMenu();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav.classList.contains('open')){closeMenu();menu.focus();}});
-const area=document.getElementById('area'),prep=document.getElementById('mensaje-preparado'),status=document.getElementById('status');
-document.querySelectorAll('[data-area]').forEach(l=>l.addEventListener('click',()=>{area.value=l.dataset.area;prep.hidden=true;status.textContent='';}));
-const fuente=(()=>{const s=(new URLSearchParams(location.search).get('utm_source')||'').toLowerCase();return s==='linkedin'?'LinkedIn':s==='facebook'?'Facebook':'WEB';})();
-const form=document.getElementById('solicitud');
-form.addEventListener('input',()=>{prep.hidden=true;status.textContent='';});
+(()=>{'use strict';
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)'),fine=matchMedia('(hover:hover) and (pointer:fine)'),coarse=matchMedia('(hover:none),(pointer:coarse)');
+const mobile=()=>innerWidth<=960;
+/* ---------- menú móvil ---------- */
+const menu=$('#menu'),nav=$('#navegacion'),header=$('#top');
+function setMenu(o){nav.classList.toggle('open',o);menu.setAttribute('aria-expanded',String(o));menu.setAttribute('aria-label',o?'Cerrar menú':'Abrir menú');document.documentElement.classList.toggle('lock',o&&mobile());if(!o)dds.forEach(closeDD)}
+menu.addEventListener('click',()=>setMenu(!nav.classList.contains('open')));
+nav.addEventListener('click',e=>{if(e.target.closest('a'))setMenu(false)});
+matchMedia('(min-width:961px)').addEventListener('change',()=>setMenu(false));
+/* ---------- menú desplegable ---------- */
+const dds=$$('.dd');
+function closeDD(d){d.classList.remove('open');$('.dd-btn',d).setAttribute('aria-expanded','false')}
+function openDD(d){dds.forEach(x=>x!==d&&closeDD(x));d.classList.add('open');$('.dd-btn',d).setAttribute('aria-expanded','true')}
+dds.forEach(d=>{const b=$('.dd-btn',d);let t;
+ b.addEventListener('click',()=>d.classList.contains('open')?closeDD(d):openDD(d));
+ d.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse'&&!mobile()){clearTimeout(t);openDD(d)}});
+ d.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse'&&!mobile())t=setTimeout(()=>closeDD(d),240)});
+ d.addEventListener('keydown',e=>{const L=$$('a',d),i=L.indexOf(document.activeElement);
+  if(e.key==='ArrowDown'){e.preventDefault();if(!d.classList.contains('open'))openDD(d);L[(i+1)%L.length].focus()}
+  if(e.key==='ArrowUp'&&d.classList.contains('open')){e.preventDefault();L[(i-1+L.length)%L.length].focus()}
+  if(e.key==='Escape'&&d.classList.contains('open')){closeDD(d);b.focus();e.stopPropagation()}});
+ d.addEventListener('focusout',e=>{if(e.relatedTarget&&!d.contains(e.relatedTarget))closeDD(d)});
+});
+/* ---------- selectores cinematográficos ---------- */
+const selects=[];
+function cine(sel){
+ const id=sel.id,label=$(`label[for="${id}"]`),wrap=document.createElement('div');wrap.className='cs';
+ sel.parentNode.insertBefore(wrap,sel);wrap.appendChild(sel);sel.classList.add('cs-native');sel.tabIndex=-1;sel.setAttribute('aria-hidden','true');
+ const btn=document.createElement('button');btn.type='button';btn.className='cs-btn';btn.id=id+'-btn';btn.setAttribute('aria-haspopup','listbox');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-controls',id+'-list');
+ if(label){label.id=label.id||id+'-lab';btn.setAttribute('aria-labelledby',label.id+' '+btn.id);label.addEventListener('click',e=>{e.preventDefault();btn.focus()})}
+ btn.innerHTML='<span class="cs-val"></span><svg class="cs-car" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 5l5 5 5-5"/></svg>';
+ const panel=document.createElement('div');panel.className='cs-panel';
+ const ul=document.createElement('ul');ul.className='cs-list';ul.id=id+'-list';ul.setAttribute('role','listbox');ul.tabIndex=-1;if(label)ul.setAttribute('aria-labelledby',label.id);
+ const ind=document.createElement('span');ind.className='cs-ind';ul.appendChild(ind);
+ const opts=[...sel.options].map((o,i)=>{const li=document.createElement('li');li.className='cs-opt';li.setAttribute('role','option');li.id=id+'-o'+i;li.style.setProperty('--i',i);li.textContent=o.text;li.dataset.i=i;ul.appendChild(li);return li});
+ panel.appendChild(ul);wrap.append(btn,panel);
+ let act=sel.selectedIndex,buf='',bt;
+ const val=$('.cs-val',btn);
+ const sync=()=>{const i=sel.selectedIndex;val.textContent=sel.options[i].text;opts.forEach((o,k)=>o.setAttribute('aria-selected',String(k===i)))};
+ const mark=i=>{act=Math.max(0,Math.min(opts.length-1,i));opts.forEach((o,k)=>o.classList.toggle('act',k===act));const o=opts[act];ind.style.height=o.offsetHeight+'px';ind.style.transform=`translateY(${o.offsetTop}px)`;ul.setAttribute('aria-activedescendant',o.id);o.scrollIntoView({block:'nearest'})};
+ const open=()=>{selects.forEach(s=>s.sel!==sel&&s.close());const r=btn.getBoundingClientRect();const h=Math.min(ul.scrollHeight+16,340);wrap.classList.toggle('up',innerHeight-r.bottom<h+20&&r.top>innerHeight-r.bottom);wrap.classList.add('open');btn.setAttribute('aria-expanded','true');ul.focus({preventScroll:true});requestAnimationFrame(()=>mark(sel.selectedIndex))};
+ const close=(back)=>{if(!wrap.classList.contains('open'))return;wrap.classList.remove('open');btn.setAttribute('aria-expanded','false');if(back)btn.focus({preventScroll:true})};
+ const pick=i=>{sel.selectedIndex=i;sel.dispatchEvent(new Event('change',{bubbles:true}));close(true)};
+ btn.addEventListener('click',()=>wrap.classList.contains('open')?close(true):open());
+ btn.addEventListener('keydown',e=>{if(['ArrowDown','ArrowUp','Enter',' '].includes(e.key)){e.preventDefault();open()}});
+ opts.forEach((o,i)=>{o.addEventListener('pointerenter',()=>mark(i));o.addEventListener('click',()=>pick(i))});
+ ul.addEventListener('keydown',e=>{
+  if(e.key==='ArrowDown'){e.preventDefault();mark(act+1)}else if(e.key==='ArrowUp'){e.preventDefault();mark(act-1)}
+  else if(e.key==='Home'){e.preventDefault();mark(0)}else if(e.key==='End'){e.preventDefault();mark(opts.length-1)}
+  else if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(act)}
+  else if(e.key==='Escape'){e.preventDefault();e.stopPropagation();close(true)}
+  else if(e.key==='Tab'){close(false)}
+  else if(e.key.length===1){clearTimeout(bt);buf+=e.key.toLowerCase();bt=setTimeout(()=>buf='',700);const k=opts.findIndex(o=>o.textContent.toLowerCase().startsWith(buf));if(k>-1)mark(k)}});
+ sel.addEventListener('change',sync);sync();
+ selects.push({sel,close,wrap});
+}
+$$('select').forEach(cine);
+document.addEventListener('pointerdown',e=>{selects.forEach(s=>!s.wrap.contains(e.target)&&s.close(false));dds.forEach(d=>!d.contains(e.target)&&closeDD(d))});
+addEventListener('keydown',e=>{if(e.key==='Escape'){setMenu(false);dds.forEach(closeDD)}});
+const setSel=(id,v)=>{const s=$('#'+id);const i=[...s.options].findIndex(o=>o.text===v);if(i>-1){s.selectedIndex=i;s.dispatchEvent(new Event('change',{bubbles:true}))}};
+/* ---------- progreso, cabecera, parallax ---------- */
+const bar=$('#progreso'),dock=$('#dock'),hero=$('.hero');let tick=false;
+function onScroll(){if(tick)return;tick=true;requestAnimationFrame(()=>{tick=false;const h=document.documentElement,p=scrollY/Math.max(1,h.scrollHeight-innerHeight);bar.style.transform=`scaleX(${Math.min(1,p)})`;header.classList.toggle('scrolled',scrollY>12);
+ dock.classList.toggle('show',scrollY>480&&!($('#contacto').getBoundingClientRect().top<innerHeight*.8));
+ $$('.steps').forEach(s=>{const r=s.getBoundingClientRect(),q=Math.max(0,Math.min(1,(innerHeight*.72-r.top)/Math.max(1,r.height)));s.style.setProperty('--p',q);$$('.step',s).forEach((st,i,a)=>st.classList.toggle('on',q>=i/a.length+.02))})})}
+addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
+if(fine.matches&&!reduce.matches)hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();hero.style.setProperty('--px',((e.clientX-r.left)/r.width-.5).toFixed(3));hero.style.setProperty('--py',((e.clientY-r.top)/r.height-.5).toFixed(3))});
+/* ---------- revelado ---------- */
+const rv=$$('.rv');const reveal=el=>{el.classList.add('in');setTimeout(()=>el.classList.add('done'),1500+(parseFloat(getComputedStyle(el).getPropertyValue('--d'))||0)*90)};
+if('IntersectionObserver' in window&&!reduce.matches){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){reveal(e.target);io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -5% 0px'});rv.forEach(el=>io.observe(el))}else rv.forEach(reveal);
+setTimeout(()=>rv.forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight)reveal(el)}),1200);
+/* ---------- tarjetas: foco de luz e inclinación ---------- */
+$$('.card').forEach(c=>{c.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;const r=c.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;c.style.setProperty('--mx',x+'px');c.style.setProperty('--my',y+'px');if(c.classList.contains('tilt')&&!reduce.matches){c.style.setProperty('--ty',((x/r.width-.5)*5).toFixed(2)+'deg');c.style.setProperty('--tx',((.5-y/r.height)*5).toFixed(2)+'deg')}});c.addEventListener('pointerleave',()=>{c.style.setProperty('--tx','0deg');c.style.setProperty('--ty','0deg')})});
+/* ---------- pestañas de arquitectura ---------- */
+const tabs=$$('.tab'),tps=$$('.tp'),tind=$('#tabind'),tl=$('#tablist');let cur=0;
+function ind(){const t=tabs[cur];tind.style.width=t.offsetWidth+'px';tind.style.transform=`translateX(${t.offsetLeft}px)`}
+function showTab(n,focus){if(n===cur){return}const back=n<cur,old=tps[cur],nw=tps[n];cur=n;
+ tabs.forEach((t,i)=>{t.setAttribute('aria-selected',String(i===n));t.tabIndex=i===n?0:-1});ind();
+ if(focus)tabs[n].focus();tabs[n].scrollIntoView({inline:'center',block:'nearest',behavior:reduce.matches?'auto':'smooth'});
+ old.classList.remove('ent','back');old.classList.add('sal');
+ setTimeout(()=>{old.hidden=true;old.classList.remove('sal')},reduce.matches?0:280);
+ setTimeout(()=>{nw.hidden=false;nw.classList.remove('ent','back');void nw.offsetWidth;nw.classList.add('ent');if(back)nw.classList.add('back');nw.classList.add('in')},reduce.matches?0:260)}
+tabs.forEach((t,i)=>t.addEventListener('click',()=>showTab(i)));
+tl.addEventListener('keydown',e=>{const k={ArrowRight:1,ArrowLeft:-1}[e.key];if(k){e.preventDefault();showTab((cur+k+tabs.length)%tabs.length,true)}else if(e.key==='Home'){e.preventDefault();showTab(0,true)}else if(e.key==='End'){e.preventDefault();showTab(tabs.length-1,true)}});
+addEventListener('resize',ind);document.fonts&&document.fonts.ready.then(ind);setTimeout(ind,300);tps[0].classList.add('in');
+$$('.tp ul.chk').forEach(u=>u.classList.add('in'));
+/* ---------- simulador ---------- */
+const RTO=[['30 minutos',.5],['1 hora',1],['2 horas',2],['4 horas',4],['8 horas',8],['12 horas',12],['24 horas',24],['48 horas',48],['72 horas',72]];
+const RPO=[['cero (sin pérdida)',0],['15 minutos',.25],['1 hora',1],['4 horas',4],['12 horas',12],['24 horas',24]];
+const rto=$('#rto'),rpo=$('#rpo'),cost=$('#coste'),mx=n=>new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0}).format(n);
+function arq(r,p){let a;
+ if(r<=1||p===0)a='Alta disponibilidad activa: clúster con conmutación automática y réplica síncrona o continua entre dos sitios, más respaldo inmutable.';
+ else if(r<=4)a='Conmutación asistida: réplica continua a un sitio alterno o a la nube, restauración orquestada y respaldo inmutable.';
+ else if(r<=24)a='Recuperación rápida: respaldos frecuentes con restauración inmediata de máquinas virtuales y un sitio alterno bajo demanda.';
+ else a='Recuperación estándar: respaldo 3-2-1 con copia inmutable y un procedimiento de reconstrucción probado.';
+ if(p>0&&p<=.25&&r>4)a+=' Su RPO exige réplica frecuente de datos aunque el RTO sea amplio.';
+ if(p>=12&&r<=4)a+=' Ojo: un RTO corto con un RPO largo recupera rápido, pero con información vieja.';
+ return a+' Mientras más cortos el RTO y el RPO, mayor la inversión; se dimensiona tras el diagnóstico.'}
+function flash(id){const e=$(id);e.classList.remove('flash');void e.offsetWidth;e.classList.add('flash')}
+function sim(){const r=RTO[rto.value],p=RPO[rpo.value];
+ $('#rtoo').textContent=r[0];$('#rpoo').textContent=p[0];
+ rto.style.setProperty('--fill',rto.value/rto.max*100+'%');rpo.style.setProperty('--fill',rpo.value/rpo.max*100+'%');
+ $('#v1').textContent=r[0];$('#rtod').textContent=`Su operación podría estar detenida hasta ${r[0]} antes de restablecerse. Ese es el tiempo máximo que el plan debe garantizar y que cada simulacro debe medir.`;
+ $('#v2').textContent=p[1]===0?'Sin pérdida':p[0];$('#rpod').textContent=p[1]===0?'No se acepta perder transacciones: exige réplica síncrona de los datos críticos.':`Ante un incidente, podría perder hasta ${p[0]} de información. Define cada cuánto se copia o replica.`;
+ $('#v3').textContent=arq(r[1],p[1]);
+ const c=Number(cost.value);const box=$('#r4');if(c>0){box.hidden=false;$('#v4').textContent=mx(c*r[1]);$('#p4').textContent=`${mx(c)} por hora × ${r[0]}. Es una cifra suya multiplicada por el RTO, no una predicción: sirve para comparar el costo de una caída contra el de prevenirla.`}else box.hidden=true;
+ ['#r1','#r2','#r3'].forEach(flash)}
+[rto,rpo].forEach(i=>i.addEventListener('input',sim));cost.addEventListener('input',sim);sim();
+$('#llevar').addEventListener('click',()=>{const r=RTO[rto.value],p=RPO[rpo.value],c=Number(cost.value);
+ $('#objetivo').value=`Escenario: RTO ${r[0]}, RPO ${p[0]}`+(c>0?`, costo por hora detenida ${mx(c)}`:'')+'.';setSel('area','Plan de recuperación ante desastres (DRP)');$('#prep').hidden=true;$('#contacto').scrollIntoView({behavior:reduce.matches?'auto':'smooth'})});
+/* ---------- preguntas frecuentes animadas ---------- */
+$$('details').forEach(d=>{const s=$('summary',d),b=$('.fb',d);let an;
+ s.addEventListener('click',e=>{e.preventDefault();if(an)an.cancel();const open=d.open;
+  if(reduce.matches||!b.animate){d.open=!open;return}
+  if(!open){d.open=true;const h=b.offsetHeight;an=b.animate([{height:'0px',opacity:0},{height:h+'px',opacity:1}],{duration:520,easing:'cubic-bezier(.2,.8,.2,1)'});an.onfinish=()=>an=null}
+  else{const h=b.offsetHeight;an=b.animate([{height:h+'px',opacity:1},{height:'0px',opacity:0}],{duration:380,easing:'cubic-bezier(.2,.8,.2,1)'});an.onfinish=()=>{d.open=false;an=null}}})});
+/* ---------- formulario ---------- */
+$$('[data-area]').forEach(l=>l.addEventListener('click',()=>{setSel('area',l.dataset.area);$('#prep').hidden=true;$('#status').textContent=''}));
+const fuente=(()=>{const s=(new URLSearchParams(location.search).get('utm_source')||'').toLowerCase();return s==='linkedin'?'LinkedIn':s==='facebook'?'Facebook':'WEB'})();
+const form=$('#solicitud');form.addEventListener('input',()=>{$('#prep').hidden=true;$('#status').textContent=''});form.addEventListener('change',()=>{$('#prep').hidden=true});
 form.addEventListener('submit',e=>{e.preventDefault();const v=Object.fromEntries(new FormData(form));
-const texto=[fuente==='WEB'?'Hola, vengo de la página de la División Informática de Alvarado & Asociados.':'Hola, conocí la División Informática de Alvarado & Asociados en '+fuente+'.',v.nombre.trim()?'Soy '+v.nombre.trim()+'.':'','Servicio: '+v.area+'.','Tamaño: '+v.servidores+'.','Situación: '+v.urgencia+'.',v.objetivo.trim()?'Objetivo: '+v.objetivo.trim():''].filter(Boolean).join('\n');
-document.getElementById('vista-mensaje').textContent=texto;document.getElementById('enviar-whatsapp').href='https://wa.me/525625135109?text='+encodeURIComponent(texto);prep.hidden=false;status.textContent='Revise el mensaje y pulse «Abrir WhatsApp» para enviarlo.';});
+ const t=[fuente==='WEB'?'Hola, vengo de la página de la División Informática de Alvarado & Asociados.':'Hola, conocí la División Informática de Alvarado & Asociados en '+fuente+'.',v.nombre.trim()?'Soy '+v.nombre.trim()+'.':'','Servicio: '+v.area+'.','Tamaño: '+v.servidores+'.','Situación: '+v.urgencia+'.',v.objetivo.trim()?v.objetivo.trim():''].filter(Boolean).join('\n');
+ $('#vista').textContent=t;$('#wa').href='https://wa.me/525625135109?text='+encodeURIComponent(t);$('#prep').hidden=false;$('#status').textContent='Revise el mensaje y pulse «Abrir WhatsApp» para enviarlo.'});
+/* ---------- partículas informáticas ---------- */
+const layer=$('#fx'),NS='http://www.w3.org/2000/svg';
+const SH=['<path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/>','<rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/>','<circle cx="12" cy="12" r="2.5"/><circle cx="5" cy="6" r="1.8"/><circle cx="19" cy="7" r="1.8"/><circle cx="18" cy="18" r="1.8"/><path d="M10 11L6.3 7.2M14 11l3.6-2.8M13.5 14l3.6 3"/>','<rect x="4" y="4" width="16" height="6" rx="1.5"/><rect x="4" y="14" width="16" height="6" rx="1.5"/><path d="M8 7h.01M8 17h.01M12 7h4M12 17h4"/>','<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>'];
+const act=new Set();let lt=-1e9,lx=null,ly=null,k=0;
+const maxP=()=>coarse.matches?9:15;
+function clear(){act.forEach(a=>{a.an.cancel();a.n.remove()});act.clear();lx=ly=null}
+function emit(x,y,kind){if(reduce.matches||document.hidden||act.size>=maxP())return;
+ const n=document.createElementNS(NS,'svg');n.setAttribute('viewBox','0 0 24 24');n.setAttribute('class','p');n.setAttribute('focusable','false');
+ n.style.left=(x-12)+'px';n.style.top=(y-12)+'px';n.style.color=(k++%3===0)?'#dbc17a':'#6fd6e8';n.innerHTML=SH[(Math.random()*SH.length)|0];layer.appendChild(n);
+ const dx=(Math.random()-.5)*(kind==='tap'?90:34),dy=kind==='tap'?-(30+Math.random()*50):-(24+Math.random()*30);
+ const an=n.animate([{opacity:0,transform:'translate(0,0) scale(.6) rotate(0)'},{opacity:.7,transform:'translate(0,2px) scale(1)',offset:.18},{opacity:0,transform:`translate(${dx}px,${dy}px) scale(.55) rotate(${dx*1.4}deg)`}],{duration:kind==='tap'?1500:1150,easing:'cubic-bezier(.2,.7,.3,1)',fill:'forwards'});
+ const it={n,an};act.add(it);an.onfinish=()=>{n.remove();act.delete(it)}}
+document.addEventListener('pointermove',e=>{if(reduce.matches||document.hidden||!['mouse','touch','pen'].includes(e.pointerType))return;
+ if(e.target instanceof Element&&e.target.closest('input,textarea,select,button,a,.cs-panel,.dd-panel'))return;
+ const now=performance.now();if(now-lt<(e.pointerType==='touch'?110:80))return;if(lx!==null&&Math.hypot(e.clientX-lx,e.clientY-ly)<14)return;
+ lt=now;lx=e.clientX;ly=e.clientY;emit(e.clientX,e.clientY,'move')},{passive:true});
+document.addEventListener('pointerdown',e=>{if(e.pointerType==='touch'&&!reduce.matches&&!(e.target instanceof Element&&e.target.closest('input,textarea,select,button,a,.cs-panel,.dd-panel'))){emit(e.clientX,e.clientY,'tap')}},{passive:true});
+document.addEventListener('visibilitychange',clear);document.documentElement.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')clear()});
+reduce.addEventListener&&reduce.addEventListener('change',clear);
+})();
 </script>
 </body></html>
