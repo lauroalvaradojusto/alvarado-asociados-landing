@@ -139,6 +139,13 @@ details.mas .in{padding:0 15px 15px}
 .chips li{display:inline-flex;align-items:center;gap:8px;max-width:100%;padding:6px 6px 6px 12px;border:1px solid #6fd6e855;border-radius:99px;font-size:.8rem;background:#6fd6e80f;overflow-wrap:anywhere}
 .chips button{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:#ffffff0d;color:var(--text);cursor:pointer;flex:none}
 .chips button:hover{border-color:var(--s-venc)}
+.fund{margin-top:14px;padding:16px 18px;border:1px solid #6fd6e855;border-radius:14px;background:linear-gradient(160deg,#6fd6e80d,#ffffff04);font-size:.9rem;overflow-wrap:anywhere}
+.fund h4{margin:6px 0 8px;font:400 1.08rem/1.3 Georgia,serif;color:var(--text)}
+.fund .cita{margin:8px 0;padding:10px 12px;border-left:3px solid var(--gold);background:#dbc17a0f;border-radius:0 10px 10px 0;font-family:Georgia,serif;color:var(--text)}
+.fund p{margin:0 0 8px}.fund .adv{margin:10px 0}
+.fund .bloq{margin:10px 0 0;padding:11px 13px;border:1px solid #ff6b6b88;border-radius:10px;background:#ff6b6b14;color:#ffd6d6;font-weight:600}
+.nota-vig{margin:8px 0 0;padding:9px 12px;border:1px dashed #dbc17a77;border-radius:10px;background:#dbc17a0a}
+input:disabled{opacity:.55;cursor:not-allowed}
 .err-msg{color:#ffb0b0;font-size:.84rem;margin:10px 0 0;min-height:0}
 /* resultado */
 .venc{display:block;font:400 clamp(1.5rem,3.4vw,2.3rem)/1.15 Georgia,serif;color:var(--gold);margin:6px 0 6px;overflow-wrap:anywhere}
@@ -355,8 +362,10 @@ footer .brand{color:var(--text);margin-bottom:8px;font-size:1.2rem}
     </div>
     <div class="cols field">
      <div><label for="materia">Materia</label><select id="materia" name="materia"></select></div>
-     <div><label for="jurisdiccion">Jurisdicción (calendario de inhábiles)</label><select id="jurisdiccion" name="jurisdiccion" aria-describedby="h-jur"></select><span class="hint" id="h-jur">Federal · otro circuito incluye, p. ej., el Segundo Circuito (Edomex).</span></div>
+     <div><label for="jurisdiccion">Jurisdicción (calendario de inhábiles)</label><select id="jurisdiccion" name="jurisdiccion" aria-describedby="h-jur"></select><span class="hint" id="h-jur">Federal · otro circuito incluye, p. ej., el Segundo Circuito (Edomex), Querétaro y Puebla.</span></div>
     </div>
+    <div class="field"><label for="termino">Tipo de actuación</label><select id="termino" aria-describedby="h-termino nota-vig"><option value="">Otro (capturar días manualmente)</option></select><span class="hint" id="h-termino">Precarga días, tipo de días y desde cuándo corre, con su artículo y la cita oficial. Todo sigue editable. Las opciones dependen de la jurisdicción.</span><p class="note nota-vig" id="nota-vig" hidden></p></div>
+    <div id="termino-info" class="fund" aria-live="polite" hidden></div>
     <div class="field"><label for="actuacion">Actuación a desahogar <span class="req" aria-hidden="true">*</span></label><textarea id="actuacion" name="actuacion" required maxlength="400" rows="2" placeholder="p. ej. Contestar la demanda y ofrecer pruebas"></textarea></div>
    </fieldset>
    <fieldset><legend>Notificación y término</legend>
@@ -384,6 +393,7 @@ footer .brand{color:var(--text);margin-bottom:8px;font-size:1.2rem}
       <label><input type="radio" name="tipoDias" value="naturales"> Naturales</label>
      </div></div>
     </div>
+    <div class="field"><label for="inicio">El término corre desde</label><select id="inicio" aria-describedby="h-inicio"><option value="siguiente">El día siguiente a aquel en que surte efectos (regla general)</option><option value="mismo">El mismo día en que surte efectos (p. ej., CNPP art. 94)</option></select><span class="hint" id="h-inicio">Lo precarga el tipo de actuación; confírmelo con el precepto.</span></div>
    </fieldset>
    <details class="mas" id="opciones"><summary>Opciones del cómputo e inhábiles propios del plazo</summary><div class="in">
     <label class="check" style="margin-top:4px"><input type="checkbox" id="recorrer" checked><span>Días naturales: si el último día es inhábil, recorrer el vencimiento al siguiente día hábil.</span></label>
@@ -565,7 +575,10 @@ const Motor = (() => {
     cdmx: { cal:'cdmx', circuito:null, etiqueta:'CDMX · local' },
     edomex: { cal:'edomex', circuito:null, etiqueta:'Estado de México · local' },
     federal1: { cal:'federal', circuito:'primero', etiqueta:'Federal · Primer Circuito (CDMX)' },
-    federal: { cal:'federal', circuito:null, etiqueta:'Federal · otro circuito' }
+    federal: { cal:'federal', circuito:null, etiqueta:'Federal · otro circuito' },
+    queretaro: { cal:'queretaro', circuito:null, etiqueta:'Querétaro · primera instancia' },
+    'queretaro-tsj': { cal:'queretaro-tsj', circuito:null, etiqueta:'Querétaro · TSJ (segunda instancia)' },
+    puebla: { cal:'puebla', circuito:null, etiqueta:'Puebla · local' }
   };
   const ANTICIPACIONES = [0,1,2,3,5,7,10];
   const PLANTILLAS = {
@@ -647,7 +660,7 @@ const Motor = (() => {
       return { fecha:f, inhabil:motivos.length > 0, motivos, fueraCobertura:fuera };
     }
     const vistos = new Set(); const opc = opcionales.filter(x => { const k = x.fecha + x.motivo; if(vistos.has(k)) return false; vistos.add(k); return true; });
-    return { consultar, etiqueta:jur.etiqueta, cobertura, sinCalendario:!datos, opcionales:opc, leyes };
+    return { consultar, etiqueta:jur.etiqueta, cobertura, sinCalendario:!datos, coberturaCompleta:!datos || datos.coberturaCompleta !== false, opcionales:opc, leyes };
   }
 
   function esHabil(ctx, f){ return !ctx.consultar(f).inhabil; }
@@ -669,13 +682,15 @@ const Motor = (() => {
     const dias = Number(p.dias);
     if(!Number.isInteger(dias) || dias < 1 || dias > 365) errores.push('El término debe ser un número entero de días entre 1 y 365.');
     if(p.fechaNotificacion && !esFecha(p.fechaNotificacion)) errores.push('La fecha de notificación no es válida.');
+    if(p.bloqueo) return { ok:false, bloqueado:true, errores:[p.bloqueo] };
     if(errores.length) return { ok:false, errores };
     const adv = [];
     if(p.fechaNotificacion && p.fechaSurte < p.fechaNotificacion) adv.push('La fecha en que surte efectos es anterior a la fecha de notificación. Revise ambas.');
     const cs = ctx.consultar(p.fechaSurte);
     if(cs.inhabil) adv.push('La notificación surte efectos en un día inhábil (' + cs.motivos.map(m => m.motivo).join('; ') + '). Confirme la regla aplicable.');
     const naturales = p.tipoDias === 'naturales';
-    const pasos = []; let d = p.fechaSurte, n = 0, saltados = 0, guard = 0, inicio = null;
+    const mismoDia = p.inicio === 'mismo';
+    const pasos = []; let d = mismoDia ? sumar(p.fechaSurte, -1) : p.fechaSurte, n = 0, saltados = 0, guard = 0, inicio = null;
     while(n < dias && guard++ < 3000){
       d = sumar(d, 1);
       const c = ctx.consultar(d);
@@ -707,6 +722,8 @@ const Motor = (() => {
     if(pasos.some(x => (x.motivos || []).some(m => m.activadoPorUsuario && !m.verificado))) adv.push('Se aplicó al menos un día sin verificar en fuente oficial, por decisión suya.');
     if(p.materia === 'penal') adv.push('Materia penal: hay plazos que se computan de momento a momento o corren en días inhábiles, y órganos que trabajan en turno. Confirme el cómputo con la legislación procesal penal aplicable.');
     if(p.excluirVacaciones) adv.push('Los periodos vacacionales no se descontaron (opción desactivada).');
+    if(mismoDia) adv.push('El término se contó desde el mismo día en que surte efectos la notificación (no desde el día siguiente).');
+    if(!ctx.coberturaCompleta) adv.push('El calendario de esta jurisdicción está incompleto (p. ej., Puebla: no se cargaron los festivos de ley). Añada como inhábiles propios los días que falten.');
     return { ok:true, vencimiento, inicio, pasos, contados:n, saltados, recorrido, advertencias:adv, dias, naturales };
   }
 
@@ -722,6 +739,81 @@ const Motor = (() => {
     if(h <= 3) return { clave:'critico', etiqueta:'≤ 3 días hábiles', habiles:h, naturales:dn, orden:2, texto };
     if(h <= 5) return { clave:'proximo', etiqueta:'≤ 5 días hábiles', habiles:h, naturales:dn, orden:3, texto };
     return { clave:'tiempo', etiqueta:'En tiempo', habiles:h, naturales:dn, orden:4, texto };
+  }
+
+
+  /* ---- Catálogo de términos (plazos-terminos.json) ---- */
+  const VIG_ENT = { cdmx:'cdmx', edomex:'edomex', queretaro:'queretaro', 'queretaro-tsj':'queretaro', puebla:'puebla', federal1:'federal', federal:'federal' };
+  function grupoTermino(t){
+    const m = String(t.materia || '');
+    if(m === 'Amparo') return { clave:'amparo', etiqueta:'Amparo · Ley de Amparo', materia:'amparo', ambito:'todas', orden:1 };
+    if(m === 'Mercantil') return { clave:'mercantil', etiqueta:'Mercantil · Código de Comercio', materia:'mercantil', ambito:'todas', orden:2 };
+    if(m === 'Laboral') return { clave:'laboral', etiqueta:'Laboral · Ley Federal del Trabajo', materia:'laboral', ambito:'todas', orden:3 };
+    if(m === 'Penal') return { clave:'penal', etiqueta:'Penal · Código Nacional de Procedimientos Penales', materia:'penal', ambito:'todas', orden:4 };
+    if(/^Contencioso administrativo federal/.test(m)) return { clave:'tfja', etiqueta:'Contencioso administrativo federal · LFPCA (TFJA)', materia:'administrativo', ambito:'federal', orden:5 };
+    if(/\(CNPCF\)/.test(m)) return { clave:'cnpcf', etiqueta:'Civil y familiar · Código Nacional (CNPCF)', materia:'civil', ambito:'cnpcf', orden:6 };
+    const loc = [['CDMX', 'cdmx', 'Código de Procedimientos Civiles CDMX'], ['Estado de México', 'edomex', 'Código de Procedimientos Civiles del Estado de México'], ['Querétaro', 'queretaro', 'Código de Procedimientos Civiles de Querétaro'], ['Puebla', 'puebla', 'Código de Procedimientos Civiles de Puebla']];
+    for(const [txt, ent, nom] of loc) if(m.indexOf('· ' + txt) >= 0) return { clave:'local-' + ent, etiqueta:'Civil y familiar · ' + nom, materia:'civil', ambito:'local', entidad:ent, orden:7 };
+    return null;
+  }
+  function vigenciaDe(TER, jurisdiccion){ const e = VIG_ENT[jurisdiccion]; const v = TER && TER.vigencia_cnpcf && TER.vigencia_cnpcf.entidades ? TER.vigencia_cnpcf.entidades[e] : null; return v ? { entidad:e, ...v } : { entidad:e, rige_cnpcf:'desconocido' }; }
+  const rigeCNPCF = v => /^(s[ií]|parcial)/i.test(String(v.rige_cnpcf || ''));
+  const esParcial = v => /^parcial/i.test(String(v.rige_cnpcf || ''));
+  function terminosPara(TER, jurisdiccion){
+    if(!TER || !Array.isArray(TER.terminos)) return [];
+    const jur = JURIS[jurisdiccion]; if(!jur) return [];
+    const v = vigenciaDe(TER, jurisdiccion), federal = jur.cal === 'federal', grupos = new Map();
+    for(const t of TER.terminos){
+      const g = grupoTermino(t); if(!g) continue;
+      if(g.ambito === 'federal' && !federal) continue;
+      if(g.ambito === 'cnpcf' && !rigeCNPCF(v)) continue;
+      if(g.ambito === 'local' && g.entidad !== v.entidad) continue;
+      if(!grupos.has(g.clave)){
+        let etiqueta = g.etiqueta, nota = '';
+        if(esParcial(v) && g.ambito === 'cnpcf'){ etiqueta += ' — solo donde ya rige'; nota = v.resumen || ''; }
+        if(esParcial(v) && g.ambito === 'local'){ etiqueta += ' — demás asuntos'; nota = v.codigo_local_aplicable || ''; }
+        grupos.set(g.clave, { clave:g.clave, etiqueta, nota, orden:g.orden, materia:g.materia, terminos:[] });
+      }
+      grupos.get(g.clave).terminos.push(t);
+    }
+    return [...grupos.values()].sort((a, b) => a.orden - b.orden);
+  }
+  function terminoPorId(TER, id){ return TER && Array.isArray(TER.terminos) ? TER.terminos.find(t => t.id === id) || null : null; }
+  function fundamentoDe(t){ const o = String(t.ordenamiento || '').replace(/, Reglamentaria de los artículos 103 y 107.*$/, ''); return o + ', art. ' + t.articulo; }
+  function clasificarDesde(t){
+    const d = String(t.desde || ''), g = grupoTermino(t) || {};
+    // CNPP art. 94: «los establecidos en días a partir del día en que surte efectos la notificación»
+    if(g.clave === 'penal') return { inicio:'mismo', base:'surte', motivo:'CNPP art. 94: los plazos en días corren «a partir del día en que surte efectos la notificación». Algunos artículos dicen «…siguientes a la notificación»; se precargó la lectura que da el vencimiento más próximo. Confirme el criterio del órgano.' };
+    if(/«[^»]*a partir (del día en que|de aquel en el que|de que) surt[ae]/i.test(d)) return { inicio:'mismo', base:'surte', motivo:'El precepto cuenta el plazo «a partir de» que surte efectos la notificación (no «del día siguiente»); se precargó el mismo día. Confirme el criterio del órgano.' };
+    if(g.ambito === 'local' && /(siguientes? a aqu[eé]l en que se hubiere hecho el emplazamiento o notificaci|siguiente de practicada la notificaci|siguiente en que se hubiere hecho la notificaci|siguientes? a la notificaci|siguiente a la notificaci|siguientes? de notificad|siguiente de notificad|del siguiente a la notificaci)/i.test(d))
+      return { inicio:'siguiente', base:'notificacion', motivo:'Este código cuenta el plazo desde el día siguiente a la notificación (o al emplazamiento). Si la notificación fue por Boletín Judicial y la ley difiere su surtimiento (p. ej., CDMX arts. 125 y 129), capture la fecha en que surtió efectos. Se preseleccionó en la ayuda «el mismo día de la notificación».' };
+    return { inicio:'siguiente', base:'surte', motivo:'' };
+  }
+  function precargaTermino(t, TER, jurisdiccion){
+    const g = grupoTermino(t) || {}, avisos = [], v = vigenciaDe(TER, jurisdiccion);
+    let bloqueo = null;
+    const d = String(t.desde || '') + ' ' + String(t.texto_literal || '');
+    if(t.tipo_dias === 'horas') bloqueo = 'Plazo en horas (' + t.dias + ' horas): se computa de momento a momento y esta herramienta solo calcula días. No se calcula vencimiento; anote la hora exacta de inicio en el expediente.';
+    else if(t.dias == null){
+      if(/cualquier tiempo/i.test(d)) bloqueo = 'No corre plazo: el precepto dice que puede promoverse «en cualquier tiempo». Por eso no hay vencimiento que calcular.';
+      else if(/^Regla/i.test(t.actuacion || '')) bloqueo = 'Es una regla de cómputo, no un plazo con número fijo de días: sirve de fundamento, pero no produce un vencimiento.';
+      else bloqueo = 'Este término no es un número fijo de días (años, meses, lo fija el órgano o se promueve en audiencia). No se calcula vencimiento: lea el precepto.';
+    } else if(t.tipo_dias !== 'hábiles' && t.tipo_dias !== 'naturales') bloqueo = 'Tipo de cómputo no soportado (' + t.tipo_dias + '). Lea el precepto.';
+    if(t.verificado === false) avisos.push('Término SIN VERIFICAR en la fuente oficial: no lo use sin leer el precepto.');
+    const notas = String(t.notas || '');
+    if(/transitorio|entrar[aá]n? en vigor|diferid/i.test(notas)) avisos.push('Reforma con entrada en vigor diferida o texto que cambiará: lea la nota del catálogo antes de usar este plazo.');
+    const ref = notas.match(/reformad[oa] DOF (\d{2}-\d{2}-20(?:2[5-9]))/i);
+    if(ref) avisos.push('Precepto reformado recientemente (DOF ' + ref[1] + '): confirme que el texto citado es el aplicable a su asunto.');
+    if(/\b(OJO|ATENCIÓN|PENDIENTE)\b/.test(notas)) avisos.push('La nota del catálogo contiene una advertencia (OJO / ATENCIÓN / PENDIENTE); léala completa.');
+    if(g.ambito === 'cnpcf' || g.ambito === 'local'){
+      if(esParcial(v)) avisos.push((g.ambito === 'cnpcf' ? 'CNPCF: aplica solo en los supuestos donde ya rige. ' : 'Código local: aplica en los asuntos no transferidos al CNPCF. ') + (v.resumen || ''));
+      if(v.verificado === false) avisos.push('La vigencia del CNPCF en esta jurisdicción no está plenamente verificada: ' + (v.notas || ''));
+      const rf = TER && TER.vigencia_cnpcf && TER.vigencia_cnpcf.regla_federal;
+      if(rf && /PENDIENTE/.test(rf.notas || '')) avisos.push('Entrada en vigor del CNPCF: tope legal vigente 1-abr-2027; la reforma que lo pospondría a 2031 seguía pendiente en el Senado al 5-nov-2026.');
+    }
+    if(g.clave === 'tfja') avisos.push('El TFJA no forma parte del Poder Judicial de la Federación: su calendario de inhábiles no está cargado. Añada sus días inhábiles como inhábiles propios del plazo.');
+    const cl = clasificarDesde(t);
+    return { id:t.id, dias:bloqueo ? null : t.dias, tipoDias:t.tipo_dias === 'naturales' ? 'naturales' : 'habiles', inicio:cl.inicio, base:cl.base, motivoDesde:cl.motivo, bloqueo, avisos, materia:g.materia || null, fundamento:fundamentoDe(t), grupo:g.clave || null };
   }
 
   /* ---- Configuración de avisos ---- */
@@ -764,6 +856,7 @@ const Motor = (() => {
       'Materia: ' + (MATERIAS[p.materia] || p.materia || '') + ' · Jurisdicción: ' + ((JURIS[p.jurisdiccion] || {}).etiqueta || p.jurisdiccion || ''),
       'Notificación: ' + fmtLargo(p.fechaNotificacion) + ' · Surte efectos: ' + fmtLargo(p.fechaSurte),
       'Término: ' + p.dias + ' días ' + tipo + ' · Vencimiento: ' + fmtLargo(p.vencimiento),
+      p.fundamento ? 'Fundamento: ' + p.fundamento : '',
       p.notas ? 'Notas: ' + p.notas : '', '',
       'Herramienta de apoyo. Verifique el cómputo con la ley aplicable y los acuerdos del órgano.',
       'https://' + DOMINIO + '/plazos'
@@ -805,7 +898,7 @@ const Motor = (() => {
     return 'https://calendar.google.com/calendar/render?' + q;
   }
 
-  return { MATERIAS, JURIS, ANTICIPACIONES, PLANTILLAS, CONFIG_DEF, esFecha, sumar, difDias, diaSemana, nombreDia, fmtLargo, fmtCorto, hoyMX, enesimoLunes, expandir, crearContexto, opcionesDe, calcularSurte, computar, computarPlazo, estado, normalizarConfig, aplicarPlantilla, textoAviso, escICS, plegar, eventoICS, generarICS, urlGoogle, uid };
+  return { MATERIAS, JURIS, ANTICIPACIONES, PLANTILLAS, CONFIG_DEF, esFecha, sumar, difDias, diaSemana, nombreDia, fmtLargo, fmtCorto, hoyMX, enesimoLunes, expandir, crearContexto, opcionesDe, calcularSurte, computar, computarPlazo, estado, grupoTermino, terminosPara, terminoPorId, fundamentoDe, clasificarDesde, precargaTermino, vigenciaDe, normalizarConfig, aplicarPlantilla, textoAviso, escICS, plegar, eventoICS, generarICS, urlGoogle, uid };
 })();
 /* MOTOR:FIN */
 
@@ -815,7 +908,7 @@ const Motor = (() => {
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
   const CLAVE_P = 'aya.plazos.v1', CLAVE_C = 'aya.avisos.v1';
   const WA = 'https://wa.me/525625135109?text=';
-  let CAL = null, calError = null, plazos = [], config = Motor.normalizarConfig(null), editando = null, manuales = [], persistente = true;
+  let CAL = null, calError = null, TER = null, terError = null, preActual = null, actAuto = '', plazos = [], config = Motor.normalizarConfig(null), editando = null, manuales = [], persistente = true;
 
   /* ---- almacenamiento ---- */
   function leer(k, def){ try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : def; } catch(e){ return def; } }
@@ -848,9 +941,64 @@ const Motor = (() => {
     return {
       expediente:F.exp.value.trim(), juzgado:F.juz.value.trim(), materia:F.mat.value, jurisdiccion:F.jur.value, actuacion:F.act.value.trim(),
       fechaNotificacion:F.notif.value, fechaSurte:F.surte.value, dias:F.dias.value === '' ? NaN : Number(F.dias.value), tipoDias:tipoDias(),
-      recorrer:F.rec.checked, excluirVacaciones:!F.vac.checked, manuales:manuales.slice(), activar:$$('#opcionales input:checked').map(i => i.value), notas:F.notas.value.trim()
+      recorrer:F.rec.checked, excluirVacaciones:!F.vac.checked, manuales:manuales.slice(), activar:$$('#opcionales input:checked').map(i => i.value), notas:F.notas.value.trim(),
+      inicio:$('#inicio').value === 'mismo' ? 'mismo' : 'siguiente', terminoId:$('#termino').value || '', fundamento:preActual ? preActual.fundamento : '', bloqueo:preActual && preActual.bloqueo ? preActual.bloqueo : null
     };
   }
+
+  /* ---- catálogo de términos ---- */
+  function pintarTerminos(){
+    const sel = $('#termino'), prev = sel.value, nota = $('#nota-vig');
+    const grupos = TER ? Motor.terminosPara(TER, F.jur.value) : [];
+    sel.innerHTML = '<option value="">Otro (capturar días manualmente)</option>' + grupos.map(g => `<optgroup label="${esc(g.etiqueta)}">${g.terminos.map(t => {
+      const pl = t.dias == null ? 'sin número fijo de días' : t.dias + (t.tipo_dias === 'horas' ? ' horas' : ' días ' + t.tipo_dias);
+      return `<option value="${esc(t.id)}">${esc(t.actuacion)} — ${esc(pl)} (art. ${esc(t.articulo)})</option>`;
+    }).join('')}</optgroup>`).join('');
+    const v = TER ? Motor.vigenciaDe(TER, F.jur.value) : null;
+    const parcial = v && /^parcial/i.test(v.rige_cnpcf || '');
+    if(parcial){ nota.hidden = false; nota.innerHTML = '<b>CNPCF y código local conviven en esta jurisdicción.</b> ' + esc(v.resumen || '') + ' <b>Código local:</b> ' + esc(v.codigo_local_aplicable || ''); }
+    else if(v && TER && v.entidad !== 'federal' && !/^s[ií]/i.test(v.rige_cnpcf || '')){ nota.hidden = false; nota.innerHTML = 'En esta jurisdicción no se localizó Declaratoria de vigencia del CNPCF: se muestran solo los términos del código local. ' + esc(v.notas || ''); }
+    else if(v && TER && v.entidad === 'federal'){ nota.hidden = false; nota.textContent = 'Jurisdicción federal: el catálogo no incluye el Código Federal de Procedimientos Civiles; para civil federal capture los días manualmente («Otro»).'; }
+    else nota.hidden = true;
+    if(terError){ nota.hidden = false; nota.textContent = terError; }
+    if(prev && [...sel.options].some(o => o.value === prev)) sel.value = prev;
+    else if(prev){ sel.value = ''; aplicarTermino(false); toast('El tipo de actuación elegido no aplica en esta jurisdicción; capture los días manualmente o elija otro.'); }
+  }
+  function infoTermino(t, pre){
+    const box = $('#termino-info');
+    if(!t){ box.hidden = true; box.innerHTML = ''; return; }
+    box.hidden = false;
+    box.innerHTML = `${t.verificado ? '<span class="tag ok">cita verificada en fuente oficial</span>' : '<span class="tag nv">sin verificar</span>'}
+      <h4>${esc(pre.fundamento)}</h4>
+      <p class="cita">${esc(t.texto_literal)}</p>
+      <p><b>Desde cuándo corre:</b> ${esc(t.desde)}</p>
+      ${pre.motivoDesde ? `<p class="note">${esc(pre.motivoDesde)}</p>` : ''}
+      ${pre.bloqueo ? `<p class="bloq" role="alert">No se calcula: ${esc(pre.bloqueo)} Si necesita registrar un plazo propio, elija «Otro (capturar días manualmente)».</p>` : ''}
+      ${pre.avisos.length ? `<ul class="adv">${pre.avisos.map(a => `<li>${esc(a)}</li>`).join('')}</ul>` : ''}
+      ${t.notas ? `<details class="mas"><summary>Notas del catálogo</summary><div class="in"><p>${esc(t.notas)}</p></div></details>` : ''}
+      <p style="margin:10px 0 0"><a class="cy" href="${esc(t.fuente_url)}" target="_blank" rel="noopener noreferrer">Fuente oficial ↗</a> <span class="note">· ${esc(t.ordenamiento)}${t.fecha_ultima_reforma_consultada ? ' · última reforma consultada: ' + esc(t.fecha_ultima_reforma_consultada) : ''}</span></p>`;
+  }
+  function aplicarTermino(precargar){
+    const t = TER ? Motor.terminoPorId(TER, $('#termino').value) : null;
+    if(!t){ preActual = null; infoTermino(null); F.dias.disabled = false; $('#h-inicio').textContent = 'Regla general; ajústela si la ley de la materia dispone otra cosa.'; recalcular(); return; }
+    const pre = Motor.precargaTermino(t, TER, F.jur.value); preActual = pre;
+    if(precargar){
+      F.dias.value = pre.dias == null ? '' : pre.dias;
+      $$('input[name=tipoDias]').forEach(r => r.checked = r.value === pre.tipoDias);
+      $('#inicio').value = pre.inicio;
+      if(pre.materia && !(pre.materia === 'civil' && F.mat.value === 'familiar')) F.mat.value = pre.materia;
+      if(!F.act.value.trim() || F.act.value === actAuto){ F.act.value = t.actuacion; actAuto = t.actuacion; }
+      if(pre.base === 'notificacion'){
+        $('#regla-surte').value = 'mismo';
+        if(Motor.esFecha(F.notif.value) && !F.surte.value){ F.surte.value = F.notif.value; $('#res-surte').textContent = 'Se propuso como fecha de surtimiento la propia notificación (el código cuenta desde el día siguiente a ella). Confírmelo.'; }
+      }
+    }
+    F.dias.disabled = !!pre.bloqueo;
+    $('#h-inicio').textContent = pre.motivoDesde || 'Precargado: día siguiente a aquel en que surte efectos. Confírmelo con el precepto.';
+    infoTermino(t, pre); recalcular();
+  }
+  $('#termino').addEventListener('change', () => aplicarTermino(true));
+  $('#jurisdiccion').addEventListener('change', () => { pintarTerminos(); if($('#termino').value) aplicarTermino(false); });
   function fuenteHTML(m){
     if(m.origen === 'fin') return '';
     const tags = [];
@@ -889,6 +1037,7 @@ const Motor = (() => {
     const p = leerForm(); const out = $('#resultado'); const tab = $('#tabla-computo');
     pintarOpcionales(p);
     if(!CAL){ out.innerHTML = calError ? '<p class="muted">Cómputo no disponible sin el calendario oficial. Recargue la página.</p>' : '<p class="muted">Cargando calendario oficial…</p>'; tab.innerHTML = ''; return null; }
+    if(p.bloqueo){ out.innerHTML = `<p class="muted" style="margin:8px 0 0">Vencimiento</p><p class="bloq" style="margin:8px 0 0;padding:12px 14px;border:1px solid #ff6b6b88;border-radius:10px;background:#ff6b6b14;color:#ffd6d6;font-weight:600">No se calcula. ${esc(p.bloqueo)}</p>`; tab.innerHTML = ''; ultimoCalc = null; return null; }
     if(!p.fechaSurte || isNaN(p.dias)){ out.innerHTML = '<p class="muted" style="margin:10px 0 0">Capture la fecha en que surte efectos y el número de días: aquí verá el vencimiento y la tabla paso a paso.</p>'; tab.innerHTML = ''; ultimoCalc = null; return null; }
     const { r } = Motor.computarPlazo(CAL, p);
     if(!r.ok){ out.innerHTML = `<ul class="adv">${r.errores.map(e => `<li>${esc(e)}</li>`).join('')}</ul>`; tab.innerHTML = ''; ultimoCalc = null; return null; }
@@ -947,7 +1096,9 @@ const Motor = (() => {
   $('#form-plazo').addEventListener('submit', e => {
     e.preventDefault();
     const err = $('#form-error'); err.textContent = '';
-    const p = leerForm(); const faltan = validar(p);
+    const p = leerForm();
+    if(p.bloqueo){ err.textContent = 'Este tipo de actuación no tiene un número fijo de días y no produce vencimiento. Elija «Otro (capturar días manualmente)» si desea registrar un plazo propio.'; $('#termino').focus(); return; }
+    const faltan = validar(p);
     if(faltan.length){ err.textContent = 'Complete los campos marcados: ' + faltan.map(el => (el.labels && el.labels[0] ? el.labels[0].textContent.replace('*', '').trim() : el.id)).join(', ') + '.'; faltan[0].focus(); return; }
     const r = recalcular();
     if(!r){ err.textContent = 'No fue posible calcular el vencimiento. Revise las fechas y el término.'; return; }
@@ -955,21 +1106,23 @@ const Motor = (() => {
     const ahora = new Date().toISOString();
     if(editando){
       const i = plazos.findIndex(x => x.id === editando);
-      if(i >= 0){ const prev = plazos[i]; plazos[i] = { ...prev, ...p, vencimiento:r.vencimiento, verificado:true, verificadoEn:ahora, actualizado:ahora, revision:(prev.revision || 0) + 1 }; }
+      if(i >= 0){ const prev = plazos[i]; delete p.bloqueo; plazos[i] = { ...prev, ...p, vencimiento:r.vencimiento, verificado:true, verificadoEn:ahora, actualizado:ahora, revision:(prev.revision || 0) + 1 }; }
       toast('Plazo actualizado. Si ya lo tenía en su calendario, descargue de nuevo el .ics.');
     } else {
-      plazos.push({ id:nuevoId(), ...p, vencimiento:r.vencimiento, estado:'pendiente', verificado:true, verificadoEn:ahora, creado:ahora, actualizado:ahora, revision:0 });
+      delete p.bloqueo; plazos.push({ id:nuevoId(), ...p, vencimiento:r.vencimiento, estado:'pendiente', verificado:true, verificadoEn:ahora, creado:ahora, actualizado:ahora, revision:0 });
       toast('Plazo guardado. Vence el ' + Motor.fmtLargo(r.vencimiento) + '.');
     }
     guardarPlazos(); limpiarForm(); pintarTablero();
     $('#tablero').scrollIntoView({ behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   });
   function limpiarForm(){
+    clearTimeout(editar.t);
     $('#form-plazo').reset(); manuales = []; editando = null; pintarManuales();
     $('#modo-edicion').hidden = true; $('#cancelar').hidden = true; $('#guardar').textContent = 'Guardar plazo';
     $$('#form-plazo [aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
     $('#form-error').textContent = ''; $('#opcionales').dataset.sig = ''; ultimoCalc = null;
-    setTimeout(recalcular, 0);
+    preActual = null; actAuto = ''; infoTermino(null); F.dias.disabled = false; $('#res-surte').textContent = '';
+    setTimeout(() => { pintarTerminos(); recalcular(); }, 0);
   }
   $('#limpiar').addEventListener('click', e => { e.preventDefault(); limpiarForm(); });
   $('#cancelar').addEventListener('click', limpiarForm);
@@ -980,6 +1133,9 @@ const Motor = (() => {
     F.notif.value = p.fechaNotificacion; F.surte.value = p.fechaSurte; F.dias.value = p.dias;
     $$('input[name=tipoDias]').forEach(r => r.checked = r.value === p.tipoDias);
     F.rec.checked = p.recorrer !== false; F.vac.checked = !p.excluirVacaciones; F.notas.value = p.notas || ''; F.ver.checked = false;
+    $('#inicio').value = p.inicio === 'mismo' ? 'mismo' : 'siguiente';
+    pintarTerminos(); $('#termino').value = p.terminoId && TER && Motor.terminoPorId(TER, p.terminoId) ? p.terminoId : '';
+    aplicarTermino(false); if(p.terminoId && !$('#termino').value) $('#h-inicio').textContent = 'El tipo de actuación guardado ya no está en el catálogo cargado; revise los días manualmente.';
     manuales = (p.manuales || []).map(m => ({ ...m })); pintarManuales();
     $('#opcionales').dataset.sig = '';
     pintarOpcionales({ jurisdiccion:p.jurisdiccion, materia:p.materia, activar:p.activar || [] });
@@ -988,7 +1144,7 @@ const Motor = (() => {
     $('#cancelar').hidden = false; $('#guardar').textContent = 'Guardar cambios';
     recalcular();
     $('#nuevo').scrollIntoView({ behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
-    setTimeout(() => F.exp.focus({ preventScroll:true }), 400);
+    clearTimeout(editar.t); editar.t = setTimeout(() => F.exp.focus({ preventScroll:true }), 400);
   }
 
   /* ---- tablero ---- */
@@ -1036,6 +1192,7 @@ const Motor = (() => {
         <div class="vence-box"><span>Vence</span><b>${esc(Motor.fmtLargo(x.venc))}</b><span>${des ? 'Marcado como desahogado' : esc(x.est.texto || '')}</span></div>
        </div>
        <p class="act">${esc(p.actuacion)}</p>
+       ${p.fundamento ? `<p class="meta" style="margin:6px 0 0">Fundamento: ${esc(p.fundamento)}${p.inicio === 'mismo' ? ' · corre desde el mismo día en que surte efectos' : ''}</p>` : ''}
        ${p.notas ? `<p class="meta" style="margin:6px 0 0">Notas: ${esc(p.notas)}</p>` : ''}
        ${cambio}
        <details class="mas"><summary>Ver cómputo paso a paso · ${p.dias} días ${p.tipoDias === 'naturales' ? 'naturales' : 'hábiles'}</summary><div class="in">${x.r && x.r.ok ? (x.r.advertencias.length ? `<ul class="adv">${x.r.advertencias.map(a => `<li>${esc(a)}</li>`).join('')}</ul>` : '') + tablaHTML(p, x.r, 'Cómputo del expediente ' + p.expediente) : '<p class="muted">Cómputo no disponible.</p>'}</div></details>
@@ -1113,7 +1270,7 @@ const Motor = (() => {
   function pintarCalendario(){
     const tabs = $('#cal-tabs'), panel = $('#cal-panel');
     if(!CAL){ tabs.innerHTML = ''; panel.innerHTML = calError ? `<p class="aviso err">${esc(calError)}</p>` : '<p class="muted">Cargando…</p>'; return; }
-    const ops = [['cdmx', 'CDMX'], ['edomex', 'Estado de México'], ['federal', 'Federal'], ['leyes', 'Inhábiles legales']];
+    const ops = [['cdmx', 'CDMX'], ['edomex', 'Estado de México'], ['federal', 'Federal'], ['queretaro', 'Querétaro'], ['queretaro-tsj', 'Querétaro · TSJ'], ['puebla', 'Puebla'], ['leyes', 'Inhábiles legales']].filter(([k]) => k === 'leyes' || CAL.jurisdicciones[k]);
     tabs.innerHTML = ops.map(([k, t]) => `<button type="button" role="tab" id="tab-${k}" aria-controls="cal-panel" aria-selected="${k === calTab}" tabindex="${k === calTab ? 0 : -1}" data-k="${k}">${t}</button>`).join('');
     panel.setAttribute('aria-labelledby', 'tab-' + calTab);
     if(calTab === 'leyes'){
@@ -1127,7 +1284,7 @@ const Motor = (() => {
       const tipo = { inhabil:'Inhábil', vacaciones:'Periodo vacacional', suspension:'Suspensión' }[d.tipo] || d.tipo;
       return `<li class="${off ? 'off' : ''}"><span class="f">${fecha}</span><span class="m">${esc(d.motivo)}<small>${tipo}${d.circuito ? ' · solo Primer Circuito' : ''} · ${d.verificado === false ? '<span class="tag nv">sin verificar · no se aplica por defecto</span>' : '<span class="tag ok">fuente oficial</span>'}${d.alcance === 'parcial' ? '<span class="tag nv">alcance parcial · no se aplica por defecto</span>' : ''} <a class="cy" href="${esc(f.url || '#')}" target="_blank" rel="noopener noreferrer">fuente ↗</a></small></span></li>`;
     }).join('');
-    panel.innerHTML = `<p class="muted" style="font-size:.92rem">${esc(J.nombre)} · Calendario cargado del ${Motor.fmtCorto(J.cobertura.desde)} al ${Motor.fmtCorto(J.cobertura.hasta)}. Sábados y domingos siempre se saltan.</p>
+    panel.innerHTML = `<p class="muted" style="font-size:.92rem">${esc(J.nombre)} · Calendario cargado del ${Motor.fmtCorto(J.cobertura.desde)} al ${Motor.fmtCorto(J.cobertura.hasta)}. Sábados y domingos siempre se saltan.</p>${J.coberturaCompleta === false ? '<p class="aviso err" style="margin:0 0 12px">Calendario incompleto: lea las notas. Faltan días que debe añadir como inhábiles propios.</p>' : ''}
       <ul class="cal-list">${items}</ul>
       <ul class="src">${J.notas.map(n => `<li>${esc(n)}</li>`).join('')}</ul>
       <p class="lbl" style="margin-top:18px">Fuentes</p><ul class="src">${J.fuentes.map(f => `<li><a class="cy" href="${esc(f.url)}" target="_blank" rel="noopener noreferrer">${esc(f.titulo)} ↗</a> ${f.verificado ? '<span class="tag ok">verificada</span>' : '<span class="tag nv">sin verificar</span>'}</li>`).join('')}</ul>` + noVerif();
@@ -1153,7 +1310,7 @@ const Motor = (() => {
     const p = { id:s(x.id, 80).replace(/[^A-Za-z0-9_-]/g, '') || nuevoId(), expediente:s(x.expediente, 80), juzgado:s(x.juzgado, 140), materia:Motor.MATERIAS[x.materia] ? x.materia : 'otro', jurisdiccion:Motor.JURIS[x.jurisdiccion] ? x.jurisdiccion : 'cdmx', actuacion:s(x.actuacion, 400),
       fechaNotificacion:Motor.esFecha(x.fechaNotificacion) ? x.fechaNotificacion : '', fechaSurte:x.fechaSurte, dias:Number(x.dias), tipoDias:x.tipoDias === 'naturales' ? 'naturales' : 'habiles', recorrer:x.recorrer !== false, excluirVacaciones:!!x.excluirVacaciones,
       manuales:Array.isArray(x.manuales) ? x.manuales.filter(m => m && Motor.esFecha(m.desde)).slice(0, 60).map(m => ({ desde:m.desde, hasta:Motor.esFecha(m.hasta) && m.hasta >= m.desde ? m.hasta : m.desde, motivo:s(m.motivo, 120) })) : [],
-      activar:Array.isArray(x.activar) ? x.activar.filter(Motor.esFecha).slice(0, 60) : [], notas:s(x.notas, 200), estado:x.estado === 'desahogado' ? 'desahogado' : 'pendiente', desahogadoEn:x.desahogadoEn || null,
+      activar:Array.isArray(x.activar) ? x.activar.filter(Motor.esFecha).slice(0, 60) : [], notas:s(x.notas, 200), inicio:x.inicio === 'mismo' ? 'mismo' : 'siguiente', terminoId:s(x.terminoId, 80), fundamento:s(x.fundamento, 200), estado:x.estado === 'desahogado' ? 'desahogado' : 'pendiente', desahogadoEn:x.desahogadoEn || null,
       vencimiento:Motor.esFecha(x.vencimiento) ? x.vencimiento : '', verificado:!!x.verificado, verificadoEn:x.verificadoEn || null, creado:x.creado || new Date().toISOString(), actualizado:x.actualizado || new Date().toISOString(), revision:Number.isInteger(x.revision) ? x.revision : 0 };
     if(!p.expediente || !Motor.esFecha(p.fechaSurte) || !Number.isInteger(p.dias) || p.dias < 1 || p.dias > 365) return null;
     return p;
@@ -1192,6 +1349,10 @@ const Motor = (() => {
   plazos = (leer(CLAVE_P, []) || []).map(sanear).filter(Boolean);
   config = Motor.normalizarConfig(leer(CLAVE_C, null));
   pintarManuales(); pintarAvisos(); pintarTablero(); pintarCalendario(); recalcular();
+  fetch('plazos-terminos.json', { cache:'no-cache' }).then(r => { if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }).then(j => {
+    if(!j || !Array.isArray(j.terminos)) throw new Error('formato');
+    TER = j; pintarTerminos();
+  }).catch(err => { terError = 'No se pudo cargar el catálogo de términos (' + err.message + '): capture los días manualmente.'; pintarTerminos(); });
   fetch('plazos-calendario-2026.json', { cache:'no-cache' }).then(r => { if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }).then(j => {
     if(!j || !j.jurisdicciones) throw new Error('formato');
     CAL = j;

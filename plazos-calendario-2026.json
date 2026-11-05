@@ -120,6 +120,93 @@
         { "desde": "2026-12-16", "hasta": "2026-12-31", "tipo": "vacaciones", "motivo": "Segundo periodo vacacional (LOPJF arts. 76 y 225; incluye el 25 de diciembre)", "fuente": "oaj-2026", "verificado": true },
         { "fecha": "2027-01-01", "tipo": "inhabil", "motivo": "Año Nuevo", "fuente": "oaj-2026", "verificado": true }
       ]
+    },
+    "queretaro": {
+      "nombre": "Querétaro (Poder Judicial del Estado de Querétaro · primera instancia, calendario del Consejo de la Judicatura)",
+      "cobertura": { "desde": "2025-12-18", "hasta": "2026-12-31" },
+      "notas": [
+        "Calendario publicado en la página oficial del Poder Judicial de Querétaro (sección «Vacaciones y Días Inhábiles 2026 · Consejo de la Judicatura»). Aplica al personal del Poder Judicial «con excepción de Magistrados y el personal de segunda instancia».",
+        "El calendario dice: «Los plazos procesales no se computarán en los días inhábiles.» En juzgados laborales y en el Sistema Penal Acusatorio dice expresamente que los plazos no se computan en los periodos vacacionales (salvo huelga o urgencia).",
+        "Los periodos EXTRAORDINARIOS de vacaciones son rotación de personal (los juzgados siguen operando); se cargan desactivados. En juzgados penales del sistema tradicional se suspenden plazos durante las vacaciones del titular, con aviso al público: verifique en cada juzgado.",
+        "12 de diciembre de 2026 cae en sábado (sin efecto práctico). No se localizó en «La Sombra de Arteaga» (índice 2026) un acuerdo adicional del Poder Judicial que declare otros días inhábiles en 2026; el portal del periódico oficial no permitió descargar los ejemplares de 2026.",
+        "Fusión 5-nov-2026: la cobertura se limita al 31-dic-2026 porque el calendario no enumera los días inhábiles de enero de 2027 (p. ej., 1 de enero); el periodo extraordinario de enero de 2027 se conserva listado pero desactivado. Fechas posteriores se marcan «fuera del calendario cargado»."
+      ],
+      "fuentes": [
+        { "id": "cjqro-2026", "titulo": "Consejo de la Judicatura del Poder Judicial del Estado de Querétaro · Calendario de días inhábiles y de vacaciones 2026 (personal de primera instancia; art. 140, fr. XII, LOPJ Qro.)", "url": "https://www.poderjudicialqro.gob.mx/nv/calendario.php#v-pills-CJ2026", "listado": "https://www.poderjudicialqro.gob.mx/nv/calendario.php", "verificado": true },
+        { "id": "cjqro-2025", "titulo": "Consejo de la Judicatura de Querétaro · Calendario de días inhábiles y de vacaciones 2025 (segundo periodo vacacional 18-dic-2025 al 2-ene-2026)", "url": "https://www.poderjudicialqro.gob.mx/nv/calendario.php#v-pills-CJ2025", "listado": "https://www.poderjudicialqro.gob.mx/nv/calendario.php", "verificado": true }
+      ],
+      "dias": [
+        { "desde": "2025-12-18", "hasta": "2026-01-02", "tipo": "vacaciones", "motivo": "Segundo periodo ordinario de vacaciones 2025", "fuente": "cjqro-2025", "verificado": true },
+        { "fecha": "2026-01-01", "tipo": "inhabil", "motivo": "Año nuevo", "fuente": "cjqro-2026", "verificado": true },
+        { "desde": "2026-01-05", "hasta": "2026-01-16", "tipo": "vacaciones", "motivo": "Segundo periodo EXTRAORDINARIO de vacaciones 2025 (rotación de personal; los juzgados operan)", "fuente": "cjqro-2025", "verificado": true, "alcance": "parcial", "aplicarPorDefecto": false },
+        { "fecha": "2026-02-02", "tipo": "inhabil", "motivo": "Conmemoración de la promulgación de la Constitución (5 de febrero)", "fuente": "cjqro-2026", "verificado": true },
+        { "fecha": "2026-03-16", "tipo": "inhabil", "motivo": "Conmemoración del natalicio de Don Benito Juárez (21 de marzo)", "fuente": "cjqro-2026", "verificado": true },
+        { "fecha": "2026-04-02", "tipo": "inhabil", "motivo": "Jueves santo", "fuente": "cjqro-2026", "verificado": true },
+        { "fecha": "2026-04-03", "tipo": "inhabil", "motivo": "Viernes santo", "fuente": "cjqro-2026", "verificado": true },
+        { "fecha": "2026-05-01", "tipo": "inhabil", "motivo": "Día del trabajo", "fuente": "cjqro-2026", "verificado": true },
+        { "desde": "2026-06-29", "hasta": "2026-07-10", "tipo": "vacaciones", "motivo": "Primer periodo EXTRAORDINARIO de vacaciones (rotación de personal; los juzgados operan)", "fuente": "cjqro-2026", "verificado": true, "alcance": "parcial", "aplicarPorDefecto": false },
+        { "desde": "2026-07-20", "hasta": "2026-07-31", "tipo": "vacaciones", "motivo": "Primer periodo ordinario de vacaciones", "fuente": "cjqro-2026", "verificado": true },
+        { "fecha": "2026-09-15", "tipo": "inhabil", "motivo": "Conmemoración del inicio de la Independencia", "fuente": "cjqro-2026", "verificado": true },
+        { "fecha": "2026-09-16", "tipo": "inhabil", "motivo": "Conmemoración del inicio de la Independencia", "fuente": "cjqro-2026", "verificado": true },
+        { "fecha": "2026-11-02", "tipo": "inhabil", "motivo": "Día de muertos / de los fieles difuntos", "fuente": "cjqro-2026", "verificado": true },
+        { "fecha": "2026-11-16", "tipo": "inhabil", "motivo": "Conmemoración del Aniversario de la Revolución Mexicana", "fuente": "cjqro-2026", "verificado": true },
+        { "fecha": "2026-12-12", "tipo": "inhabil", "motivo": "Día de la Virgen de Guadalupe (cae en sábado)", "fuente": "cjqro-2026", "verificado": true },
+        { "desde": "2026-12-17", "hasta": "2026-12-31", "tipo": "vacaciones", "motivo": "Segundo periodo ordinario de vacaciones", "fuente": "cjqro-2026", "verificado": true },
+        { "fecha": "2026-12-25", "tipo": "inhabil", "motivo": "Día de Navidad", "fuente": "cjqro-2026", "verificado": true },
+        { "desde": "2027-01-11", "hasta": "2027-01-22", "tipo": "vacaciones", "motivo": "Segundo periodo EXTRAORDINARIO de vacaciones (rotación de personal; los juzgados operan)", "fuente": "cjqro-2026", "verificado": true, "alcance": "parcial", "aplicarPorDefecto": false }
+      ]
+    },
+    "queretaro-tsj": {
+      "nombre": "Querétaro (Tribunal Superior de Justicia · Pleno y segunda instancia)",
+      "cobertura": { "desde": "2025-12-18", "hasta": "2026-12-31" },
+      "notas": [
+        "Calendario autorizado por el Pleno del TSJ en sesión del 4 de diciembre de 2025 (art. 42, frs. III y XXVIII, LOPJ Qro.), para el Pleno y la segunda instancia.",
+        "«Los plazos procesales no se computarán en los días inhábiles.» El calendario del TSJ 2026 no incluye el 12 de diciembre ni periodos extraordinarios."
+      ],
+      "fuentes": [
+        { "id": "tsjqro-2026", "titulo": "Pleno del Tribunal Superior de Justicia de Querétaro · Calendario de días inhábiles y de vacaciones 2026 (Pleno y segunda instancia; sesión del 4-dic-2025)", "url": "https://www.poderjudicialqro.gob.mx/nv/calendario.php#v-pills-TSJ2026", "listado": "https://www.poderjudicialqro.gob.mx/nv/calendario.php", "verificado": true },
+        { "id": "tsjqro-2025", "titulo": "Pleno del Tribunal Superior de Justicia de Querétaro · Calendario 2025 (segundo periodo vacacional 18-dic-2025 al 2-ene-2026)", "url": "https://www.poderjudicialqro.gob.mx/nv/calendario.php#v-pills-TSJ2025", "listado": "https://www.poderjudicialqro.gob.mx/nv/calendario.php", "verificado": true }
+      ],
+      "dias": [
+        { "desde": "2025-12-18", "hasta": "2026-01-02", "tipo": "vacaciones", "motivo": "Segundo periodo ordinario de vacaciones 2025", "fuente": "tsjqro-2025", "verificado": true },
+        { "fecha": "2026-01-01", "tipo": "inhabil", "motivo": "Año nuevo", "fuente": "tsjqro-2026", "verificado": true },
+        { "fecha": "2026-02-02", "tipo": "inhabil", "motivo": "Conmemoración de la promulgación de la Constitución (5 de febrero)", "fuente": "tsjqro-2026", "verificado": true },
+        { "fecha": "2026-03-16", "tipo": "inhabil", "motivo": "Conmemoración del natalicio de Don Benito Juárez (21 de marzo)", "fuente": "tsjqro-2026", "verificado": true },
+        { "fecha": "2026-04-02", "tipo": "inhabil", "motivo": "Jueves santo", "fuente": "tsjqro-2026", "verificado": true },
+        { "fecha": "2026-04-03", "tipo": "inhabil", "motivo": "Viernes santo", "fuente": "tsjqro-2026", "verificado": true },
+        { "fecha": "2026-05-01", "tipo": "inhabil", "motivo": "Día del trabajo", "fuente": "tsjqro-2026", "verificado": true },
+        { "desde": "2026-07-20", "hasta": "2026-07-31", "tipo": "vacaciones", "motivo": "Primer periodo ordinario de vacaciones", "fuente": "tsjqro-2026", "verificado": true },
+        { "fecha": "2026-09-15", "tipo": "inhabil", "motivo": "Conmemoración del inicio de la Independencia", "fuente": "tsjqro-2026", "verificado": true },
+        { "fecha": "2026-09-16", "tipo": "inhabil", "motivo": "Conmemoración del inicio de la Independencia", "fuente": "tsjqro-2026", "verificado": true },
+        { "fecha": "2026-11-02", "tipo": "inhabil", "motivo": "Día de muertos / de los fieles difuntos", "fuente": "tsjqro-2026", "verificado": true },
+        { "fecha": "2026-11-16", "tipo": "inhabil", "motivo": "Conmemoración del Aniversario de la Revolución Mexicana", "fuente": "tsjqro-2026", "verificado": true },
+        { "desde": "2026-12-17", "hasta": "2026-12-31", "tipo": "vacaciones", "motivo": "Segundo periodo ordinario de vacaciones", "fuente": "tsjqro-2026", "verificado": true },
+        { "fecha": "2026-12-25", "tipo": "inhabil", "motivo": "Día de Navidad", "fuente": "tsjqro-2026", "verificado": true }
+      ]
+    },
+    "puebla": {
+      "nombre": "Puebla (Poder Judicial del Estado de Puebla)",
+      "cobertura": { "desde": "2025-12-22", "hasta": "2026-09-30" },
+      "coberturaCompleta": false,
+      "notas": [
+        "COBERTURA PARCIAL: no se localizó en el portal oficial el «Calendario de Días Inhábiles» anual 2026 del Poder Judicial de Puebla (sí existe para 2025, según su acuerdo modificatorio del 23-abr-2025). Solo se cargan los acuerdos 2026 publicados en https://www.pjpuebla.gob.mx/acuerdos.",
+        "Los días festivos de ley (1 ene, 2 feb, 16 mar, 1 may, 16 sep, 16 nov, 25 dic, etc.) NO se cargaron porque dependen de la Ley Orgánica del Poder Judicial de Puebla (art. 28 del Código de Procedimientos Civiles de Puebla remite a ella), que no pudo leerse (el sitio del Congreso devolvió un bloqueo). Añádalos manualmente tras verificarlos.",
+        "Los acuerdos de vacaciones regulan guardias para asuntos urgentes y amparo, pero no dicen expresamente que no corren plazos; por eso se cargan desactivados (actívelos si el órgano confirma la suspensión).",
+        "El segundo periodo vacacional 2026 (diciembre) aún no estaba publicado al 5-nov-2026."
+      ],
+      "fuentes": [
+        { "id": "cjpue-vac-2-2025", "titulo": "Acuerdo del Pleno del Consejo de la Judicatura del PJ de Puebla (4-dic-2025): bases del segundo periodo vacacional 2025 (22-dic-2025 al 6-ene-2026; reanudación el 7-ene-2026)", "url": "https://www.pjpuebla.gob.mx/media/k2/attachments/ACUERDO_DERECHO_VACACIONAL_2.pdf", "listado": "https://www.pjpuebla.gob.mx/acuerdos", "verificado": true },
+        { "id": "cjpue-huejotzingo-2026", "titulo": "Acuerdo del Consejo de la Judicatura del PJ de Puebla (11-feb-2026): inhábiles 16 y 17 de febrero de 2026 en juzgados del Distrito Judicial de Huejotzingo (Carnaval)", "url": "https://www.pjpuebla.gob.mx/media/k2/attachments/ACUERDO_Carnaval_Huejotzingo.pdf", "listado": "https://www.pjpuebla.gob.mx/acuerdos", "verificado": true },
+        { "id": "cjpue-vac-1-2026", "titulo": "Acuerdo del Pleno del Consejo de la Judicatura del PJ de Puebla (17-jun-2026): bases del primer periodo vacacional 2026 (20 al 31 de julio de 2026)", "url": "https://www.pjpuebla.gob.mx/media/k2/attachments/ACUERDO-VACACIONES.pdf", "listado": "https://www.pjpuebla.gob.mx/acuerdos", "verificado": true },
+        { "id": "cjpue-15sep-2026", "titulo": "Acuerdo del Pleno del Consejo de la Judicatura del PJ de Puebla (11-sep-2026): declara inhábil el martes 15 de septiembre de 2026; no corren plazos", "url": "https://www.pjpuebla.gob.mx/media/k2/attachments/dia_inhabil.pdf", "listado": "https://www.pjpuebla.gob.mx/acuerdos", "verificado": true }
+      ],
+      "dias": [
+        { "desde": "2025-12-22", "hasta": "2026-01-06", "tipo": "vacaciones", "motivo": "Segundo periodo vacacional 2025 (guardias solo para asuntos urgentes y requerimientos de amparo)", "fuente": "cjpue-vac-2-2025", "verificado": true, "aplicarPorDefecto": false },
+        { "fecha": "2026-02-16", "tipo": "inhabil", "motivo": "Carnaval de Huejotzingo: inhábil solo en Juzgados Civil, Penal, Familiar y de Oralidad Familiar del Distrito Judicial de Huejotzingo", "fuente": "cjpue-huejotzingo-2026", "verificado": true, "alcance": "parcial", "aplicarPorDefecto": false },
+        { "fecha": "2026-02-17", "tipo": "inhabil", "motivo": "Carnaval de Huejotzingo: inhábil solo en Juzgados Civil, Penal, Familiar y de Oralidad Familiar del Distrito Judicial de Huejotzingo", "fuente": "cjpue-huejotzingo-2026", "verificado": true, "alcance": "parcial", "aplicarPorDefecto": false },
+        { "desde": "2026-07-20", "hasta": "2026-07-31", "tipo": "vacaciones", "motivo": "Primer periodo vacacional 2026 (guardias solo para asuntos urgentes y requerimientos de amparo)", "fuente": "cjpue-vac-1-2026", "verificado": true, "aplicarPorDefecto": false },
+        { "fecha": "2026-09-15", "tipo": "inhabil", "motivo": "Inhábil para todos los órganos del PJ de Puebla; «no correrán los plazos y términos legales»", "fuente": "cjpue-15sep-2026", "verificado": true }
+      ]
     }
   },
   "leyes": {
@@ -176,7 +263,11 @@
     }
   },
   "fuentesNoVerificadas": [
-    { "titulo": "Suprema Corte de Justicia de la Nación · Calendario de días inhábiles 2026", "url": "https://transparencia-ciudadana.scjn.gob.mx/procedimientos-de-transparencia/calendario-dias-inhabiles-2026", "verificado": false, "motivo": "El portal respondió con bloqueo de seguridad (Incapsula) y no pudo leerse. No se cargó: para asuntos ante la SCJN, verifique y añada los días como inhábiles propios." },
-    { "titulo": "Poder Judicial de la CDMX · Acuerdo OAJCDMX-V-93/2026 (3 de noviembre de 2026)", "url": "https://www.proceso.com.mx/nacional/cdmx/2026/11/4/poder-judicial-de-cdmx-cumple-dos-dias-sin-sistema-383132.html", "verificado": false, "motivo": "Solo se localizó la cita en prensa; el PDF oficial no apareció en el portal. Cargado como desactivado por defecto. Al 5 de noviembre de 2026 no se encontró acuerdo sobre el 4 de noviembre." }
-  ]
+    { "titulo": "Suprema Corte de Justicia de la Nación · Calendario de días inhábiles 2026", "url": "https://transparencia-ciudadana.scjn.gob.mx/procedimientos-de-transparencia/calendario-dias-inhabiles-2026", "verificado": false, "motivo": "Reintento del 5-nov-2026 (curl y navegador sin interfaz): el portal responde HTTP 403 «Request unsuccessful. Incapsula incident ID: 1817000500175415986-211516071316360377». Sigue sin cargarse; para asuntos ante la SCJN verifique y añada los días como inhábiles propios." },
+    { "titulo": "Poder Judicial de la CDMX · Acuerdo OAJCDMX-V-93/2026 (3 de noviembre de 2026)", "url": "https://www.proceso.com.mx/nacional/cdmx/2026/11/4/poder-judicial-de-cdmx-cumple-dos-dias-sin-sistema-383132.html", "verificado": false, "motivo": "Solo se localizó la cita en prensa; el PDF oficial no apareció en el portal. Cargado como desactivado por defecto. Al 5 de noviembre de 2026 no se encontró acuerdo sobre el 4 de noviembre." },
+    { "titulo": "Poder Judicial del Estado de Puebla · Calendario anual de días inhábiles 2026", "url": "https://www.pjpuebla.gob.mx/acuerdos", "verificado": false, "motivo": "No se localizó en el listado oficial de acuerdos; solo aparecen acuerdos puntuales de 2026." },
+    { "titulo": "Ley Orgánica del Poder Judicial del Estado de Puebla (días inhábiles legales)", "url": "https://micrositios.congresopuebla.gob.mx/index.php?option=com_k2&view=item&task=download&id=13744", "verificado": false, "motivo": "La descarga devolvió una página vacía («Micrositios», 11 bytes) detrás de Cloudflare." },
+    { "titulo": "«La Sombra de Arteaga» (Periódico Oficial de Querétaro), ejemplares 2026", "url": "https://lasombradearteaga.segobqueretaro.gob.mx/2026.html", "verificado": false, "motivo": "El índice anual 2026 sí se leyó, pero los PDF de los ejemplares (p. ej. getfile.php?p1=20260422-01.pdf) se sirven con 0 bytes." }
+  ],
+  "fusion": { "fecha": "2026-11-05", "decision": "Un solo archivo de calendario: las jurisdicciones de Querétaro (primera instancia y TSJ) y Puebla se copiaron sin cambios de plazos-inhabiles-qro-pue-2026.json (salvo la cobertura de Querétaro, ver su nota), para que la página haga una sola descarga, el motor use una sola fuente y las pruebas validen todo el calendario. plazos-inhabiles-qro-pue-2026.json se conserva como respaldo de procedencia; la página ya no lo carga.", "origen": "plazos-inhabiles-qro-pue-2026.json" }
 }
